@@ -5,7 +5,10 @@
  */
 package sv_devices;
 
-import modelo.ConexionPG;
+import controladores.Controlador_IS;
+import modelos.ConexionPG;
+import modelos.Modelo_IS;
+import vista.ventanas.Inicio_Sesion;
 
 /**
  *
@@ -17,7 +20,10 @@ public class sv_devices {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ConexionPG con = new ConexionPG();
+        
+        Inicio_Sesion vent= new Inicio_Sesion();
+        Controlador_IS con = new Controlador_IS(vent);
+        con.IniciarControl();
     }
     
 }
