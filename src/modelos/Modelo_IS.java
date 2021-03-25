@@ -41,7 +41,7 @@ public class Modelo_IS extends Inicio_sesion{
                     + " where usuario='"+getUsuario()+"' and clave='"+getClave()+"';";
             
             ResultSet rs= conexion.Query(sql);
-            if(rs.next()) {
+            while(rs.next()) {
                 System.out.println("USUARIO: ||"+getUsuario()+"||  inicio sesion ");
                 verificar=true;
             }
@@ -55,12 +55,12 @@ public class Modelo_IS extends Inicio_sesion{
     }
     
     public boolean CREAR_A(Modelo_Persona p,Modelo_Admin a){
-        boolean a1 = p.CREAR();
-        boolean a2= a.CREAR();
-        if (a1) {
-            if (a2) {
+        if (p.CREAR()) {
+            if (a.CREAR()) {
                 return true;
             }else{
+                p.ELIMINAR();
+                System.out.println("Se elimino :"+p.toString());
                 return false;           
             }
         }else{

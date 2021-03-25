@@ -30,6 +30,10 @@ public class Modelo_Admin extends admin {
         super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
     }
 
+    public Modelo_Admin(String usuario, String clave, String cedulafk) {
+        super(usuario, clave, cedulafk);
+    }
+
 
 
 
@@ -37,7 +41,7 @@ public class Modelo_Admin extends admin {
     public boolean CREAR() {
         
         String sql = "INSERT INTO public.admin(usuario, clave, cedula)\n"
-                + "VALUES ('"+getUsuario()+"','"+getClave()+"','"+getCedula()+"');";
+                + "VALUES ('"+getUsuario()+"','"+getClave()+"','"+getCedulafk()+"');";
 
         if (conexion.NoQuery(sql) == null) {
             return true;

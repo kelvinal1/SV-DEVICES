@@ -46,12 +46,6 @@ public class ConexionPG {
         } catch (SQLException ex) {
             Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
     }
@@ -67,14 +61,7 @@ public class ConexionPG {
         } catch (SQLException ex) {
             
             Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getMessage());
             return ex;
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 

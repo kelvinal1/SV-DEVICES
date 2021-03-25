@@ -88,7 +88,16 @@ public class Modelo_Persona extends persona{
     
     
     
-    
+    public boolean ELIMINAR() {
+        String sql = "DELETE FROM public.persona\n"
+                + "WHERE cedula='" + getCedula()+ "';";
+        if (conexion.NoQuery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
     
     
 }

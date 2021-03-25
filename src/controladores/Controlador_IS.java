@@ -9,6 +9,8 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -79,9 +81,15 @@ public class Controlador_IS {
 
         if (modelo.IniciarSesion()) {
             vista.setVisible(false);
-
+            Date fecha = new Date();
+            SimpleDateFormat form = new SimpleDateFormat("dd/MM/YYYY");
+            
+            
             Ventana_Principal v1 = new Ventana_Principal();
             Control_VP c = new Control_VP(v1);
+            v1.getLblUsuario().setText(vista.getTxtUsuario().getText());
+            v1.getLblFecha().setText(form.format(fecha));
+            c.Iniciar_Control();
         } else {
             JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -112,25 +120,27 @@ public class Controlador_IS {
                 String usuario = vista.getTxtUsuari().getText();
                 String clave = vista.getTxtContra().getText();
                 Modelo_Admin a = new Modelo_Admin();
+                a.setCedula(cedula);
+                a.setNombres(nombres);
+                a.setApellidos(apellidos);
+                a.setFecha_n(fechaN);
+                a.setSexo(sexo);
+                a.setTelef(telf);
+                a.setCorreo(correo);
+                a.setDirec(direc);
+                a.setFoto(ic.getImage());
                 a.setUsuario(usuario);
                 a.setClave(clave);
-                a.setCedula(cedula);
-                if (p.CREAR()) {
-
-                    if (a.CREAR()) {
-                        JOptionPane.showMessageDialog(null, "CREADO");
-                        limpiarCajas();
-                        cedula = "";
-                    } else {
-                        System.out.println("no se creo admin");
-
-                    }
-                } else {
-                    System.out.println("no se creo persona");
+                a.setCedulafk(cedula);
+                
+                
+                if (modelo.CREAR_A(p, a)) {
+                    System.out.println(a.toString());
+                            
+                    JOptionPane.showMessageDialog(null, "EL ADMINISTRADOR FUE CREADO SATISFACTORIAMENTE");
                 }
-
             } else {
-                JOptionPane.showMessageDialog(null, "NO SON DATOS CORRECTO PARA REGISRAR");
+                JOptionPane.showMessageDialog(null, "TIENE QUE INGRESAR DATOS DE ADMIN PARA PODER REGISTRAR","Error",JOptionPane.ERROR_MESSAGE);
             }
 
         }
@@ -142,7 +152,7 @@ public class Controlador_IS {
         vista.getTxtNombres().setText("");
         vista.getTxtApellidos1().setText("");
 
-        vista.getCmbSexo().setSelectedIndex(1);
+        vista.getCmbSexo().setSelectedIndex(0);
         vista.getTxtTelf().setText("");
         vista.getTxtCorreo().setText("");
         vista.getTxtDirec().setText("");
