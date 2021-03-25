@@ -61,14 +61,15 @@ public class Modelo_IS extends Inicio_sesion{
             if (a2) {
                 return true;
             }else{
-                System.out.println("EL ADMIN NO SE CREO");
                 return false;           
             }
         }else{
-            System.out.println("LA PERSONA NO SE CREO");
             return false;
         }
     }
+    
+    
+    
     
     
     

@@ -15,7 +15,7 @@ import vista.ventanas.Inicio_Sesion;
 public class Control_Persona {
     
     private Modelo_Persona modelo;
-    private Inicio_Sesion vista;
+    
     
     
     

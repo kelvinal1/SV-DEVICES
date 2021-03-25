@@ -31,7 +31,6 @@ public class ConexionPG {
 
         try {
             con=DriverManager.getConnection(url, usuario, clave);
-            System.out.println("BASE ENLAZADA");
                     
         } catch (SQLException ex) {
             Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);

@@ -36,7 +36,7 @@ public class Modelo_Admin extends admin {
     public boolean CREAR() {
         
         String sql = "INSERT INTO public.admin(usuario, clave, cedula)\n"
-                + "VALUES ('"+getUsuario()+"','"+getClave()+"', '"+getCedula()+"');";
+                + "VALUES ('"+getUsuario()+"','"+getClave()+"','"+getCedula()+"');";
 
         if (conexion.NoQuery(sql) == null) {
             return true;
