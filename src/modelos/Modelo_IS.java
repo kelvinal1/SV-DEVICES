@@ -41,7 +41,7 @@ public class Modelo_IS extends Inicio_sesion{
                     + " where usuario='"+getUsuario()+"' and clave='"+getClave()+"';";
             
             ResultSet rs= conexion.Query(sql);
-            while (rs.next()) {
+            if(rs.next()) {
                 System.out.println("USUARIO: ||"+getUsuario()+"||  inicio sesion ");
                 verificar=true;
             }

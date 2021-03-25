@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Kevin
  */
 public class admin  extends persona{
-    private String usuario, clave, cedula;
+    private String usuario, clave;
 
     public admin() {
     }
@@ -22,19 +22,8 @@ public class admin  extends persona{
         super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
     }
 
-    public admin(String usuario, String clave, String cedula) {
-        this.usuario = usuario;
-        this.clave = clave;
-        this.cedula = cedula;
-    }
 
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
+  
 
 
     public String getUsuario() {
@@ -55,7 +44,7 @@ public class admin  extends persona{
 
     @Override
     public String toString() {
-        return "\tADMIN CREDAO \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave + "\ncedula="+cedula+'\n';
+        return "\tADMIN CREDAO \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave ;
     }
     
     

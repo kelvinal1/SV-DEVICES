@@ -26,10 +26,11 @@ public class Modelo_Admin extends admin {
     public Modelo_Admin() {
     }
 
-
-    public Modelo_Admin(String usuario, String clave, String cedula) {
-        super(usuario, clave, cedula);
+    public Modelo_Admin(String cedula, String nombres, String apellidos, Date fecha_n, String sexo, String telef, String correo, String direc, Image foto) {
+        super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
     }
+
+
 
 
 

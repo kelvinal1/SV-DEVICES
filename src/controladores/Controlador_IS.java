@@ -109,11 +109,14 @@ public class Controlador_IS {
                 ImageIcon ic = (ImageIcon) vista.getLblImagen().getIcon();
 
                 Modelo_Persona p = new Modelo_Persona(cedula, nombres, apellidos, fechaN, sexo, telf, correo, direc, ic.getImage());
+                String usuario = vista.getTxtUsuari().getText();
+                String clave = vista.getTxtContra().getText();
+                Modelo_Admin a = new Modelo_Admin();
+                a.setUsuario(usuario);
+                a.setClave(clave);
+                a.setCedula(cedula);
                 if (p.CREAR()) {
-                    String usuario = vista.getTxtUsuari().getText();
-                    String clave = vista.getTxtContra().getText();
-                    String c2 = vista.getTxtCedula().getText();
-                    Modelo_Admin a = new Modelo_Admin(usuario, clave, c2);
+
                     if (a.CREAR()) {
                         JOptionPane.showMessageDialog(null, "CREADO");
                         limpiarCajas();
