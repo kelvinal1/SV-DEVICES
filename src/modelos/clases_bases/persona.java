@@ -22,6 +22,18 @@ public class persona {
     public persona() {
     }
 
+    public persona(String cedula, String nombres, String apellidos, Date fecha_n, String sexo, String telef, String correo, String direc, Image foto) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fecha_n = fecha_n;
+        this.sexo = sexo;
+        this.telef = telef;
+        this.correo = correo;
+        this.direc = direc;
+        this.foto = foto;
+    }
+
     public String getCedula() {
         return cedula;
     }

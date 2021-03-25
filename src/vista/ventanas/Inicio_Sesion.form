@@ -3,11 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="dlgNuevo">
-      <Properties>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[499, 640]"/>
-        </Property>
-      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -47,17 +42,19 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtDirec" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtContra2" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="txtCorreo" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="DtcFecha" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtCorreo" alignment="0" pref="162" max="32767" attributes="0"/>
                                           <Component id="txtUsuari" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtTelf" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtNombres" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtApellidos1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="cmbSexo" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtContra" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Component id="txtContra" alignment="0" pref="162" max="32767" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -69,7 +66,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Component id="lblFoto" min="-2" pref="136" max="-2" attributes="0"/>
+                              <Component id="lblImagen" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
@@ -100,7 +97,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblFoto" min="-2" pref="182" max="-2" attributes="0"/>
+                              <Component id="lblImagen" min="-2" pref="182" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -115,7 +112,10 @@
                                   <Component id="txtApellidos1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DtcFecha" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -391,7 +391,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblFoto">
+            <Component class="javax.swing.JLabel" name="lblImagen">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f5" green="87" red="62" type="rgb"/>
@@ -456,6 +456,13 @@
                 <Property name="text" type="java.lang.String" value="Buscar"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="DtcFecha">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[160, 30]"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

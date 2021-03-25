@@ -60,7 +60,9 @@ public class ConexionPG {
             st.execute(sql);
             return null;
         } catch (SQLException ex) {
+            
             Logger.getLogger(ConexionPG.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
             return ex;
         }
     }

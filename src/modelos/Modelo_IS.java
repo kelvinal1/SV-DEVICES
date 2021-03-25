@@ -54,6 +54,22 @@ public class Modelo_IS extends Inicio_sesion{
         }
     }
     
+    public boolean CREAR_A(Modelo_Persona p,Modelo_Admin a){
+        boolean a1 = p.CREAR();
+        boolean a2= a.CREAR();
+        if (a1) {
+            if (a2) {
+                return true;
+            }else{
+                System.out.println("EL ADMIN NO SE CREO");
+                return false;           
+            }
+        }else{
+            System.out.println("LA PERSONA NO SE CREO");
+            return false;
+        }
+    }
+    
     
     
     

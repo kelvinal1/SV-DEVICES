@@ -11,14 +11,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
@@ -36,9 +30,37 @@ public class Modelo_Persona extends persona{
 
     public Modelo_Persona() {
     }
-    
-    
 
+    public Modelo_Persona(String cedula, String nombres, String apellidos, Date fecha_n, String sexo, String telef, String correo, String direc, Image foto) {
+        super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
+    }
+    
+    
+    public boolean CREAR() {
+        String foto64 = null;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+        try {
+            BufferedImage img = imgBinage(getFoto());
+            ImageIO.write(img, "PNG", bos);
+            byte[] imgb = bos.toByteArray();
+            foto64 = Base64.encodeBytes(imgb);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        String sql = "INSERT INTO public.persona(cedula, nombres, apellidos, fecha_nac, sexo, telefono, correo, direc, foto)\n" +
+        "VALUES ('"+getCedula()+"','"+getNombres()+"','"+getApellidos()+"','"+getFecha_n()+"','"+getSexo()+"','"+getTelef()+"','"+getCorreo()+"','"+getDirec()+"','"+foto64+"');";
+        if (conexion.NoQuery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
+    
+    
     public static Image obtenImagen(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
         Iterator it = ImageIO.getImageReadersByFormatName("png");
@@ -50,7 +72,22 @@ public class Modelo_Persona extends persona{
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
+    
+    private static BufferedImage imgBinage(Image img) {
 
+        if (img instanceof BufferedImage) {
+            return (BufferedImage) img;
+        }
+        BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D bGR = bi.createGraphics();
+        bGR.drawImage(img, 0, 0, null);
+        bGR.dispose();
+        return bi;
+    }
+    
+    
+    
+    
     
     
     
