@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class admin  extends persona{
     private String usuario, clave, cedulafk;
-
+    private int cod_admin;
     public admin() {
     }
 
@@ -36,8 +36,13 @@ public class admin  extends persona{
         this.cedulafk = cedulafk;
     }
 
+    public int getCod_admin() {
+        return cod_admin;
+    }
 
-  
+    public void setCod_admin(int cod_admin) {
+        this.cod_admin = cod_admin;
+    }
 
 
     public String getUsuario() {
@@ -58,7 +63,8 @@ public class admin  extends persona{
 
     @Override
     public String toString() {
-        return "\tADMIN CREDAO \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave+"\ncedulafk="+cedulafk ;
+        return "\n\tADMIN CREDAO \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave+"\ncedulafk="+cedulafk +"\ncod_admin="+cod_admin;
+        
     }
     
     

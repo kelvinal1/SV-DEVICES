@@ -6,7 +6,10 @@
 package controladores;
 
 import javax.swing.JOptionPane;
+import modelos.Modelo_Admin;
 import vista.ventanas.Inicio_Sesion;
+import vista.ventanas.Ventana_Admins;
+import vista.ventanas.Ventana_Clientes;
 import vista.ventanas.Ventana_Principal;
 
 /**
@@ -27,6 +30,10 @@ public class Control_VP {
 
     public void Iniciar_Control() {
         vista.getBtnSalir().addActionListener(l->CerrarSesion());
+        vista.getSmMantCliente().addActionListener(l->VentanaClientes());
+        vista.getBtnClientes().addActionListener(l->VentanaClientes());
+        vista.getSmMantAdmin().addActionListener(l->VentanaAdmins());
+        vista.getBtnAdmins().addActionListener(l->VentanaAdmins());
 
     }
 
@@ -40,5 +47,25 @@ public class Control_VP {
             con.IniciarControl();
         }
     }
+    
+    public void VentanaClientes(){
+        
+        Ventana_Clientes v = new Ventana_Clientes();
+        v.setVisible(true);
+        this.vista.getDpVentana().add(v);
+        
+    }
+    
+    
+    public void VentanaAdmins(){
+        Ventana_Admins v = new Ventana_Admins();
+        Modelo_Admin m = new Modelo_Admin();
+        Control_Administrador c = new Control_Administrador(m, v);
+        c.Iniciar_Control();
+        this.vista.getDpVentana().add(v);
+    }
 
+    
+    
+    
 }

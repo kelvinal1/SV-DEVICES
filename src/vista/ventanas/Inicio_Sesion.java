@@ -25,6 +25,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     public Inicio_Sesion() {
         initComponents();
         setLocationRelativeTo(null);
+       
         
     }
 
@@ -79,6 +80,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
+        dlgNuevo.setResizable(false);
         dlgNuevo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setOpaque(false);
@@ -156,7 +158,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         txtContra2.setBorder(null);
         txtContra2.setPreferredSize(new java.awt.Dimension(160, 25));
 
-        lblImagen.setBackground(new java.awt.Color(98, 135, 245));
+        lblImagen.setBackground(new java.awt.Color(166, 58, 58));
         lblImagen.setOpaque(true);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -303,11 +305,12 @@ public class Inicio_Sesion extends javax.swing.JFrame {
 
         dlgNuevo.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 580));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Fondo-Registro-01-01-01-01-1024x576.jpg"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
         dlgNuevo.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 580));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio Sesion");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtClave.setBorder(null);
@@ -340,7 +343,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         btnIniciar.setContentAreaFilled(false);
         getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/DEVICE.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kelv1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 150, 140));
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -358,7 +361,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         jLabel2.setText("Usuario:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/depositphotos_24704059-stock-photo-background.jpg"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/thumb2-dark-red-creative-texture-dark-red-background-burgundy-texture-stylish-background.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 370));
 
         pack();

@@ -6,7 +6,12 @@
 package vista.ventanas;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JToolBar;
 
 /**
  *
@@ -19,6 +24,8 @@ public class Ventana_Principal extends javax.swing.JFrame {
      */
     public Ventana_Principal() {
         initComponents();
+        setLocationRelativeTo(null);
+        
     }
 
     public JButton getBtnSalir() {
@@ -64,13 +71,19 @@ public class Ventana_Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         dpVentana = new javax.swing.JDesktopPane();
         mpOpciones = new javax.swing.JMenuBar();
+        mClientes = new javax.swing.JMenu();
+        smMantCliente = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        smReporteCliente = new javax.swing.JMenuItem();
         mAdmins = new javax.swing.JMenu();
+        smMantAdmin = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        smReporteAdmin = new javax.swing.JMenuItem();
         mProductos = new javax.swing.JMenu();
         mVentas = new javax.swing.JMenu();
         mReparaciones = new javax.swing.JMenu();
         mGarantias = new javax.swing.JMenu();
         mFabricantes = new javax.swing.JMenu();
-        mClientes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +92,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_client_management_16px_1.png"))); // NOI18N
         btnClientes.setToolTipText("Mantenimiento de Clientes");
-        btnClientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnClientes.setContentAreaFilled(false);
         btnClientes.setFocusable(false);
         btnClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -89,7 +101,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnAdmins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_administrator_male_16px.png"))); // NOI18N
         btnAdmins.setToolTipText("Mantenimiento de Administradores");
-        btnAdmins.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdmins.setContentAreaFilled(false);
         btnAdmins.setFocusable(false);
         btnAdmins.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -99,7 +110,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_product_16px.png"))); // NOI18N
         btnProductos.setToolTipText("Mantenimiento de Productos");
-        btnProductos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnProductos.setContentAreaFilled(false);
         btnProductos.setFocusable(false);
         btnProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -109,7 +119,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_sales_performance_16px_1.png"))); // NOI18N
         btnVentas.setToolTipText("Mantenimiento de Ventas");
-        btnVentas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVentas.setContentAreaFilled(false);
         btnVentas.setFocusable(false);
         btnVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -119,7 +128,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnReparaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_drill_16px.png"))); // NOI18N
         btnReparaciones.setToolTipText("Mantenimiento de Reparaciones");
-        btnReparaciones.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnReparaciones.setContentAreaFilled(false);
         btnReparaciones.setFocusable(false);
         btnReparaciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -129,7 +137,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnGarantias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_warranty_16px.png"))); // NOI18N
         btnGarantias.setToolTipText("Mantenimiento de Garantias");
-        btnGarantias.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGarantias.setContentAreaFilled(false);
         btnGarantias.setFocusable(false);
         btnGarantias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -139,7 +146,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnFabricantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_factory_16px.png"))); // NOI18N
         btnFabricantes.setToolTipText("Mantenimiento de Fabricantes");
-        btnFabricantes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFabricantes.setContentAreaFilled(false);
         btnFabricantes.setFocusable(false);
         btnFabricantes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -180,7 +186,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_exit_64px.png"))); // NOI18N
         btnSalir.setToolTipText("Finalizar Sesion");
-        btnSalir.setBorder(null);
         btnSalir.setContentAreaFilled(false);
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -244,8 +249,36 @@ public class Ventana_Principal extends javax.swing.JFrame {
         mpOpciones.setBackground(new java.awt.Color(94, 33, 41));
         mpOpciones.setForeground(new java.awt.Color(255, 255, 255));
 
+        mClientes.setForeground(new java.awt.Color(255, 255, 255));
+        mClientes.setText("Clientes");
+
+        smMantCliente.setBackground(new java.awt.Color(94, 33, 41));
+        smMantCliente.setForeground(new java.awt.Color(255, 255, 255));
+        smMantCliente.setText(" Mantenimiento Clientes");
+        mClientes.add(smMantCliente);
+        mClientes.add(jSeparator7);
+
+        smReporteCliente.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteCliente.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteCliente.setText("Reporte");
+        mClientes.add(smReporteCliente);
+
+        mpOpciones.add(mClientes);
+
         mAdmins.setForeground(new java.awt.Color(255, 255, 255));
         mAdmins.setText("Administradores");
+
+        smMantAdmin.setBackground(new java.awt.Color(94, 33, 41));
+        smMantAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        smMantAdmin.setText("Mantenimiento Admins");
+        mAdmins.add(smMantAdmin);
+        mAdmins.add(jSeparator8);
+
+        smReporteAdmin.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteAdmin.setText("Reportes");
+        mAdmins.add(smReporteAdmin);
+
         mpOpciones.add(mAdmins);
 
         mProductos.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,10 +300,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
         mFabricantes.setForeground(new java.awt.Color(255, 255, 255));
         mFabricantes.setText("Fabricantes");
         mpOpciones.add(mFabricantes);
-
-        mClientes.setForeground(new java.awt.Color(255, 255, 255));
-        mClientes.setText("Clientes");
-        mpOpciones.add(mClientes);
 
         setJMenuBar(mpOpciones);
 
@@ -308,6 +337,174 @@ public class Ventana_Principal extends javax.swing.JFrame {
         this.lblUsuario = lblUsuario;
     }
 
+    public JDesktopPane getDpVentana() {
+        return dpVentana;
+    }
+
+    public void setDpVentana(JDesktopPane dpVentana) {
+        this.dpVentana = dpVentana;
+    }
+
+    public JButton getBtnAdmins() {
+        return btnAdmins;
+    }
+
+    public void setBtnAdmins(JButton btnAdmins) {
+        this.btnAdmins = btnAdmins;
+    }
+
+    public JButton getBtnClientes() {
+        return btnClientes;
+    }
+
+    public void setBtnClientes(JButton btnClientes) {
+        this.btnClientes = btnClientes;
+    }
+
+    public JButton getBtnFabricantes() {
+        return btnFabricantes;
+    }
+
+    public void setBtnFabricantes(JButton btnFabricantes) {
+        this.btnFabricantes = btnFabricantes;
+    }
+
+    public JButton getBtnGarantias() {
+        return btnGarantias;
+    }
+
+    public void setBtnGarantias(JButton btnGarantias) {
+        this.btnGarantias = btnGarantias;
+    }
+
+    public JButton getBtnProductos() {
+        return btnProductos;
+    }
+
+    public void setBtnProductos(JButton btnProductos) {
+        this.btnProductos = btnProductos;
+    }
+
+    public JButton getBtnReparaciones() {
+        return btnReparaciones;
+    }
+
+    public void setBtnReparaciones(JButton btnReparaciones) {
+        this.btnReparaciones = btnReparaciones;
+    }
+
+    public JButton getBtnVentas() {
+        return btnVentas;
+    }
+
+    public void setBtnVentas(JButton btnVentas) {
+        this.btnVentas = btnVentas;
+    }
+
+    public JMenu getmAdmins() {
+        return mAdmins;
+    }
+
+    public void setmAdmins(JMenu mAdmins) {
+        this.mAdmins = mAdmins;
+    }
+
+    public JMenu getmClientes() {
+        return mClientes;
+    }
+
+    public void setmClientes(JMenu mClientes) {
+        this.mClientes = mClientes;
+    }
+
+    public JMenu getmFabricantes() {
+        return mFabricantes;
+    }
+
+    public void setmFabricantes(JMenu mFabricantes) {
+        this.mFabricantes = mFabricantes;
+    }
+
+    public JMenu getmGarantias() {
+        return mGarantias;
+    }
+
+    public void setmGarantias(JMenu mGarantias) {
+        this.mGarantias = mGarantias;
+    }
+
+    public JMenu getmProductos() {
+        return mProductos;
+    }
+
+    public void setmProductos(JMenu mProductos) {
+        this.mProductos = mProductos;
+    }
+
+    public JMenu getmReparaciones() {
+        return mReparaciones;
+    }
+
+    public void setmReparaciones(JMenu mReparaciones) {
+        this.mReparaciones = mReparaciones;
+    }
+
+    public JMenu getmVentas() {
+        return mVentas;
+    }
+
+    public void setmVentas(JMenu mVentas) {
+        this.mVentas = mVentas;
+    }
+
+    public JMenuBar getMpOpciones() {
+        return mpOpciones;
+    }
+
+    public void setMpOpciones(JMenuBar mpOpciones) {
+        this.mpOpciones = mpOpciones;
+    }
+
+    public JToolBar getTbHerramienta() {
+        return tbHerramienta;
+    }
+
+    public void setTbHerramienta(JToolBar tbHerramienta) {
+        this.tbHerramienta = tbHerramienta;
+    }
+
+    public JMenuItem getSmMantCliente() {
+        return smMantCliente;
+    }
+
+    public void setSmMantCliente(JMenuItem smMantCliente) {
+        this.smMantCliente = smMantCliente;
+    }
+
+    public JMenuItem getSmReporteCliente() {
+        return smReporteCliente;
+    }
+
+    public void setSmReporteCliente(JMenuItem smReporteCliente) {
+        this.smReporteCliente = smReporteCliente;
+    }
+
+    public JMenuItem getSmMantAdmin() {
+        return smMantAdmin;
+    }
+
+    public void setSmMantAdmin(JMenuItem smMantAdmin) {
+        this.smMantAdmin = smMantAdmin;
+    }
+
+    public JMenuItem getSmReporteAdmin() {
+        return smReporteAdmin;
+    }
+
+    public void setSmReporteAdmin(JMenuItem smReporteAdmin) {
+        this.smReporteAdmin = smReporteAdmin;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmins;
     private javax.swing.JButton btnClientes;
@@ -330,6 +527,8 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblUsuario;
@@ -341,6 +540,10 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu mReparaciones;
     private javax.swing.JMenu mVentas;
     private javax.swing.JMenuBar mpOpciones;
+    private javax.swing.JMenuItem smMantAdmin;
+    private javax.swing.JMenuItem smMantCliente;
+    private javax.swing.JMenuItem smReporteAdmin;
+    private javax.swing.JMenuItem smReporteCliente;
     private javax.swing.JToolBar tbHerramienta;
     // End of variables declaration//GEN-END:variables
 }
