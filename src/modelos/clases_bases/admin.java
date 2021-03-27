@@ -63,7 +63,7 @@ public class admin  extends persona{
 
     @Override
     public String toString() {
-        return "\n\tADMIN CREDAO \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave+"\ncedulafk="+cedulafk +"\ncod_admin="+cod_admin;
+        return "\n\tADMIN  \nDATOS\n"+super.toString() + "\nusuario=" + usuario + "\nclave=" + clave+"\ncedulafk="+cedulafk +"\ncod_admin="+cod_admin;
         
     }
     

@@ -6,9 +6,7 @@
 package modelos;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,46 +20,49 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import static modelos.Modelo_Admin.obtenImagen;
 import modelos.clases_bases.admin;
+import modelos.clases_bases.cliente;
 import org.postgresql.util.Base64;
 
 /**
  *
  * @author Kevin
  */
-public class Modelo_Admin extends admin {
-
+public class Modelo_Cliente extends cliente{
+ 
     private static ConexionPG conexion = new ConexionPG();
 
-    public Modelo_Admin() {
+    public Modelo_Cliente() {
     }
-
-    public Modelo_Admin(String cedula, String nombres, String apellidos, Date fecha_n, String sexo, String telef, String correo, String direc, Image foto) {
+    
+    public Modelo_Cliente(String cedula, String nombres, String apellidos, Date fecha_n, String sexo, String telef, String correo, String direc, Image foto) {
         super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
     }
-
-    public Modelo_Admin(String usuario, String clave, String cedulafk) {
-        super(usuario, clave, cedulafk);
+    
+    public Modelo_Cliente(int descuento,int cod_cliente) {
+        super(descuento,cod_cliente);
+    
     }
-
-    public static List<admin> LISTAR(String inicial) {
+    
+     public static List<cliente> LISTAR(String inicial) {
 
         try {
             String sql = "select "
-                    + "\n p.cedula, p.nombres, p.apellidos, p.fecha_nac, p.sexo, p.telefono, p.correo , p.direc, p.foto, a.cod_admin, a.usuario, a.clave"
-                    + "\n from admin a, persona p"
-                    + "\n where p.cedula=a.cedula and( "
+                    + "\n p.cedula, p.nombres, p.apellidos, p.fecha_nac, p.sexo, p.telefono, p.correo , p.direc, p.foto, c.cod_cliente, c.descuento"
+                    + "\n from cliente c, persona p"
+                    + "\n where p.cedula=c.cedula and( "
                     + "\n p.cedula like '%" + inicial + "%'"
                     + "\n or upper(p.nombres) like upper('%" + inicial + "%')"
                     + "\n or upper(p.apellidos) like upper('%" + inicial + "%')"
                     + "\n or upper(p.telefono) like upper('%" + inicial + "%')"
                     + "\n or upper(p.correo) like upper('%" + inicial + "%'))";
             ResultSet rs = conexion.Query(sql);
-            List<admin> lista = new ArrayList<>();
+            List<cliente> lista = new ArrayList<>();
             byte[] bf;
             while (rs.next()) {
 
-                admin a1 = new admin();
+                cliente a1 = new cliente();
 
                 a1.setCedula(rs.getString(1));
                 a1.setNombres(rs.getString(2));
@@ -71,9 +72,9 @@ public class Modelo_Admin extends admin {
                 a1.setTelef(rs.getString(6));
                 a1.setCorreo(rs.getString(7));
                 a1.setDirec(rs.getString(8));
-                a1.setCod_admin(rs.getInt(10));
-                a1.setUsuario(rs.getString(11));
-                a1.setClave(rs.getString(12));
+                a1.setCod_cliente(rs.getInt(10));
+                a1.setDescuent(rs.getInt(11));
+                
 
                 bf = rs.getBytes("foto");
 
@@ -99,35 +100,35 @@ public class Modelo_Admin extends admin {
         }
 
     }
+     
+     public boolean CREAR() {
 
-    public boolean CREAR() {
-
-        String sql = "INSERT INTO public.admin(usuario, clave, cedula)\n"
-                + "VALUES ('" + getUsuario() + "','" + getClave() + "','" + getCedulafk() + "');";
+        String sql = "INSERT INTO public.cliente(descuento, cedula)\n"
+                + "VALUES (" + getDescuent()+ ",'" + getCedulafk() + "');";
 
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\t Se creo admin: "+this.toString());
+            System.out.println("\t Se creo cliente: "+this.toString());
             return true;
         } else {
             return false;
         }
     }
+     
+     public boolean MODIFICAR() {
 
-    public boolean MODIFICAR() {
-
-        String sql = "UPDATE public.admin\n"
-                + "SET usuario='" + getUsuario() + "', clave='" + getClave() + "'\n"
+        String sql = "UPDATE public.cliente\n"
+                + "SET descuento=" + getDescuent()+ "\n"
                 + "WHERE cedula='" + getCedulafk() + "';";
 
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\t Se modifico admin: "+this.toString());
+            System.out.println("\t Se modifico cliente: "+this.toString());
             return true;
         } else {
             return false;
         }
     }
-
-    public boolean CREAR_A(Modelo_Persona p, Modelo_Admin a) {
+     
+     public boolean CREAR_C(Modelo_Persona p, Modelo_Cliente a) {
         if (p.CREAR()) {
             if (a.CREAR()) {
                 return true;
@@ -141,7 +142,7 @@ public class Modelo_Admin extends admin {
         }
     }
 
-    public boolean MODIFICAR_A(Modelo_Persona p, Modelo_Admin a) {
+    public boolean MODIFICAR_C(Modelo_Persona p, Modelo_Cliente a) {
         if (p.MODIFICAR()) {
             if (a.MODIFICAR()) {
                 return true;
@@ -155,7 +156,7 @@ public class Modelo_Admin extends admin {
         }
     }
     
-    public boolean ELIMINAR_A(Modelo_Persona p, Modelo_Admin a){
+    public boolean ELIMINAR_C(Modelo_Persona p, Modelo_Cliente a){
         if (a.ELIMINAR()) {
             if (p.ELIMINAR()) {
                 return true;
@@ -167,19 +168,18 @@ public class Modelo_Admin extends admin {
             return false;
         }
     }
-
+    
     public boolean ELIMINAR() {
-        String sql = "DELETE FROM public.admin\n"
+        String sql = "DELETE FROM public.cliente\n"
                 + "WHERE cedula='"+getCedulafk()+"';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\t Se elimino admin: "+this.toString());
+            System.out.println("\t Se elimino cliente: "+this.toString());
             return true;
         } else {
             return false;
         }
 
     }
-    
 
     public static Image obtenImagen(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);

@@ -26,45 +26,34 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import modelos.Modelo_Admin;
-import modelos.Modelo_IS;
+import modelos.Modelo_Cliente;
 import modelos.Modelo_Persona;
 import modelos.clases_bases.admin;
+import modelos.clases_bases.cliente;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
-import vista.ventanas.Ventana_Admins;
+import vista.ventanas.Ventana_Clientes;
 
 /**
  *
  * @author Kevin
  */
-public class Control_Administrador {
+public class Controlador_Cliente {
 
-    private Modelo_Admin modelo;
-    private Ventana_Admins vista;
+    private Modelo_Cliente modelo;
+    private Ventana_Clientes vista;
 
-    public Control_Administrador() {
+    public Controlador_Cliente() {
     }
 
-    public Control_Administrador(Modelo_Admin modelo, Ventana_Admins vista) {
+    public Controlador_Cliente(Modelo_Cliente modelo, Ventana_Clientes vista) {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
     }
 
+    
     public void Iniciar_Control() {
-        KeyListener k1 = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                vista.getTxtUsuari().setText(vista.getTxtCorreo().getText());
-            }
-        };
+        
         KeyListener k2 = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -83,56 +72,54 @@ public class Control_Administrador {
         vista.getBtnGuardar().addActionListener(l -> CrearAdmin());
         vista.getBtnCancelar().addActionListener(l -> Dialogo_A_C_M(3));
         vista.getBtnNuevoC().addActionListener(l -> Dialogo_A_C_M(1));
-        vista.getBtnEditarA().addActionListener(l -> CargarCamposTextos());
-        vista.getTxtCorreo().addKeyListener(k1);
+        vista.getBtnEditarC().addActionListener(l -> CargarCamposTextos());
         vista.getBtnBuscar().addActionListener(l -> AnadirImagen());
-        vista.getBtnActualizarA().addActionListener(l -> CargarLista(""));
+        vista.getBtnActualizar().addActionListener(l -> CargarLista(""));
         vista.getTxtBuscar().addKeyListener(k2);
-        vista.getBtnModificar().addActionListener(l->ModificarAdmin());
-        vista.getBtnEliminarA().addActionListener(l->EliminarAdmin());
+        vista.getBtnModificar().addActionListener(l->ModificarCliente());
+        vista.getBtnEliminarC().addActionListener(l->EliminarCliente());
 
     }
-
+    
     private void CargarLista(String aguja) {
 
-        vista.getTblAdmin().setDefaultRenderer(Object.class, new ImagenTable());
-        vista.getTblAdmin().setRowHeight(100);
+        vista.getTblCliente().setDefaultRenderer(Object.class, new ImagenTable());
+        vista.getTblCliente().setRowHeight(100);
         DefaultTableCellRenderer render = new DefaultTableCellHeaderRenderer();
 
         DefaultTableModel tablaA;
 
-        tablaA = (DefaultTableModel) vista.getTblAdmin().getModel();
+        tablaA = (DefaultTableModel) vista.getTblCliente().getModel();
         tablaA.setNumRows(0);
-        List<admin> lista = modelo.LISTAR(aguja);
+        List<cliente> lista = modelo.LISTAR(aguja);
         int ncols = tablaA.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach(t -> {
             tablaA.addRow(new Object[ncols]);
-            vista.getTblAdmin().setValueAt(t.getCedula(), i.value, 0);
-            vista.getTblAdmin().setValueAt(t.getNombres(), i.value, 1);
-            vista.getTblAdmin().setValueAt(t.getApellidos(), i.value, 2);
-            vista.getTblAdmin().setValueAt(t.getFecha_n(), i.value, 3);
-            vista.getTblAdmin().setValueAt(t.getSexo(), i.value, 4);
-            vista.getTblAdmin().setValueAt(t.getTelef(), i.value, 5);
-            vista.getTblAdmin().setValueAt(t.getCorreo(), i.value, 6);
-            vista.getTblAdmin().setValueAt(t.getDirec(), i.value, 7);
-            vista.getTblAdmin().setValueAt(t.getUsuario(), i.value, 8);
+            vista.getTblCliente().setValueAt(t.getCedula(), i.value, 0);
+            vista.getTblCliente().setValueAt(t.getNombres(), i.value, 1);
+            vista.getTblCliente().setValueAt(t.getApellidos(), i.value, 2);
+            vista.getTblCliente().setValueAt(t.getFecha_n(), i.value, 3);
+            vista.getTblCliente().setValueAt(t.getSexo(), i.value, 4);
+            vista.getTblCliente().setValueAt(t.getTelef(), i.value, 5);
+            vista.getTblCliente().setValueAt(t.getCorreo(), i.value, 6);
+            vista.getTblCliente().setValueAt(t.getDirec(), i.value, 7);
+            vista.getTblCliente().setValueAt(t.getDescuent(), i.value, 8);
 
             Image img = t.getFoto();
             if (img != null) {
                 Image newimg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
                 render.setIcon(icon);
-                vista.getTblAdmin().setValueAt(new JLabel(icon), i.value, 9);
+                vista.getTblCliente().setValueAt(new JLabel(icon), i.value, 9);
             } else {
-                vista.getTblAdmin().setValueAt(null, i.value, 9);
+                vista.getTblCliente().setValueAt(null, i.value, 9);
             }
 
             i.value++;
 
         });
-        vista.getjLabel3().setText("" + vista.getTblAdmin().getRowCount());
-
+        vista.getjLabel3().setText("" + vista.getTblCliente().getRowCount());
     }
 
     private void CrearAdmin() {
@@ -151,12 +138,11 @@ public class Control_Administrador {
             String telf = vista.getTxtTelf().getText();
             String correo = vista.getTxtCorreo().getText();
             String direc = vista.getTxtDirec().getText();
+            int descuento = (int) vista.getSpnDescuento().getValue();
             ImageIcon ic = (ImageIcon) vista.getLblImagen().getIcon();
 
             Modelo_Persona p = new Modelo_Persona(cedula, nombres, apellidos, fechaN, sexo, telf, correo, direc, ic.getImage());
-            String usuario = vista.getTxtUsuari().getText();
-            String clave = vista.getTxtContra().getText();
-            Modelo_Admin a = new Modelo_Admin();
+            Modelo_Cliente a = new Modelo_Cliente();
             a.setCedula(cedula);
             a.setNombres(nombres);
             a.setApellidos(apellidos);
@@ -166,23 +152,22 @@ public class Control_Administrador {
             a.setCorreo(correo);
             a.setDirec(direc);
             a.setFoto(ic.getImage());
-            a.setUsuario(usuario);
-            a.setClave(clave);
+            a.setDescuent(descuento);
             a.setCedulafk(cedula);
 
-            if (modelo.CREAR_A(p, a)) {
+            if (modelo.CREAR_C(p, a)) {
                 System.out.println(a.toString());
-                JOptionPane.showMessageDialog(null, "EL ADMINISTRADOR FUE CREADO SATISFACTORIAMENTE");
+                JOptionPane.showMessageDialog(null, "EL CLIENTE FUE CREADO SATISFACTORIAMENTE");
                 limpiarCajas();
-                vista.getDlgAdmin().setVisible(false);
+                vista.getDlgCliente().setVisible(false);
                 CargarLista("");
             }
 
         }
 
     }
-
-    private void ModificarAdmin() {
+    
+    private void ModificarCliente() {
         if (Validacion()) {
 
             String cedula = vista.getTxtCedula().getText();
@@ -201,9 +186,9 @@ public class Control_Administrador {
             ImageIcon ic = (ImageIcon) vista.getLblImagen().getIcon();
 
             Modelo_Persona p = new Modelo_Persona(cedula, nombres, apellidos, fechaN, sexo, telf, correo, direc, ic.getImage());
-            String usuario = vista.getTxtUsuari().getText();
-            String clave = vista.getTxtContra().getText();
-            Modelo_Admin a = new Modelo_Admin();
+            int descuento = (int) vista.getSpnDescuento().getValue();
+          
+            Modelo_Cliente a = new Modelo_Cliente();
             a.setCedula(cedula);
             a.setNombres(nombres);
             a.setApellidos(apellidos);
@@ -213,39 +198,40 @@ public class Control_Administrador {
             a.setCorreo(correo);
             a.setDirec(direc);
             a.setFoto(ic.getImage());
-            a.setUsuario(usuario);
-            a.setClave(clave);
+            a.setDescuent(descuento);
             a.setCedulafk(cedula);
 
-            if (modelo.MODIFICAR_A(p, a)) {
+            if (modelo.MODIFICAR_C(p, a)) {
                 System.out.println(a.toString());
-                JOptionPane.showMessageDialog(null, "EL ADMINISTRADOR FUE MODIFICADO SATISFACTORIAMENTE");
+                JOptionPane.showMessageDialog(null, "EL CLIENTE FUE MODIFICADO SATISFACTORIAMENTE");
+                vista.getDlgCliente().setVisible(false);
                 limpiarCajas();
-                vista.getDlgAdmin().setVisible(false);
+                
                 CargarLista("");
+                
                 
             }
 
         }
 
     }
-
-    private void EliminarAdmin() {
+    
+    private void EliminarCliente() {
         try {
-            int fila = vista.getTblAdmin().getSelectedRow();
-            DefaultTableModel model = (DefaultTableModel) vista.getTblAdmin().getModel();
-            int op = JOptionPane.showConfirmDialog(vista, "\tDesea eliminar este Administrador:\n"
+            int fila = vista.getTblCliente().getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) vista.getTblCliente().getModel();
+            int op = JOptionPane.showConfirmDialog(vista, "\tDesea eliminar este Cliente:\n"
                     + "Id: " + model.getValueAt(fila, 0).toString() + "\n"
                     + "Nombre: " + model.getValueAt(fila, 1).toString() + "\n"
                     + "Apellido: " + model.getValueAt(fila, 2).toString() + "\n"
                     + "Fecha Nac: " + model.getValueAt(fila, 3).toString());
             if (op == 0) {
-                Modelo_Admin a1 = new Modelo_Admin();
+                Modelo_Cliente a1 = new Modelo_Cliente();
                 a1.setCedulafk(model.getValueAt(fila, 0).toString());
                 Modelo_Persona p1 = new Modelo_Persona();
                 p1.setCedula(model.getValueAt(fila, 0).toString());
-                if (a1.ELIMINAR_A(p1, a1)) {
-                    JOptionPane.showMessageDialog(vista, "ADMINISTRADOR ELIMINADA");
+                if (a1.ELIMINAR_C(p1, a1)) {
+                    JOptionPane.showMessageDialog(vista, "CLIENTE ELIMINADO");
                     CargarLista("");
                 }
             }
@@ -255,6 +241,48 @@ public class Control_Administrador {
 
     }
     
+    private void CargarCamposTextos() {
+        try {
+            int fila = vista.getTblCliente().getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) vista.getTblCliente().getModel();
+            vista.getTxtCedula().setText(model.getValueAt(fila, 0).toString());
+            vista.getTxtNombres().setText(model.getValueAt(fila, 1).toString());
+            vista.getTxtApellido().setText(model.getValueAt(fila, 2).toString());
+            vista.getDtcFecha().setDate((java.util.Date) model.getValueAt(fila, 3));
+            vista.getCmbSexo().setSelectedItem(model.getValueAt(fila, 4).toString());
+            vista.getTxtTelf().setText(model.getValueAt(fila, 5).toString());
+            vista.getTxtCorreo().setText(model.getValueAt(fila, 6).toString());
+            vista.getTxtDirec().setText(model.getValueAt(fila, 7).toString());
+            vista.getSpnDescuento().setValue(model.getValueAt(fila, 8));
+            JLabel l1 = (JLabel) model.getValueAt(fila, 9);
+            vista.getLblImagen().setIcon(l1.getIcon());
+            Dialogo_A_C_M(2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(vista, "SELECCIONE UNA FILA POR FAVOR ");
+        }
+
+    }
+    public void Dialogo_A_C_M(int tp) {
+        vista.getDlgCliente().setSize(720, 580);
+        opciones();
+        if (tp == 1) {
+            limpiarCajas();
+            vista.getBtnGuardar().setVisible(true);
+            vista.getDlgCliente().setVisible(true);
+        } else if (tp == 2) {
+            vista.getBtnModificar().setVisible(true);
+            vista.getDlgCliente().setVisible(true);
+        } else if (tp == 3) {
+            limpiarCajas();
+            opciones();
+            vista.getDlgCliente().setVisible(false);
+        }
+    }
+    private void opciones() {
+        vista.getBtnGuardar().setVisible(false);
+        vista.getBtnModificar().setVisible(false);
+
+    }
     public boolean Validacion() {
         boolean verificar = true;
         //////////////////////////////cedula
@@ -291,52 +319,20 @@ public class Control_Administrador {
         return verificar;
 
     }
+    private void limpiarCajas() {
+        vista.getTxtCedula().setText("");
+        vista.getTxtNombres().setText("");
+        vista.getTxtApellido().setText("");
 
-    private void CargarCamposTextos() {
-        try {
-            int fila = vista.getTblAdmin().getSelectedRow();
-            DefaultTableModel model = (DefaultTableModel) vista.getTblAdmin().getModel();
-            vista.getTxtCedula().setText(model.getValueAt(fila, 0).toString());
-            vista.getTxtNombres().setText(model.getValueAt(fila, 1).toString());
-            vista.getTxtApellido().setText(model.getValueAt(fila, 2).toString());
-            vista.getDtcFecha().setDate((java.util.Date) model.getValueAt(fila, 3));
-            vista.getCmbSexo().setSelectedItem(model.getValueAt(fila, 4).toString());
-            vista.getTxtTelf().setText(model.getValueAt(fila, 5).toString());
-            vista.getTxtCorreo().setText(model.getValueAt(fila, 6).toString());
-            vista.getTxtDirec().setText(model.getValueAt(fila, 7).toString());
-            vista.getTxtUsuari().setText(model.getValueAt(fila, 8).toString());
-            JLabel l1 = (JLabel) model.getValueAt(fila, 9);
-            vista.getLblImagen().setIcon(l1.getIcon());
-            Dialogo_A_C_M(2);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(vista, "SELECCIONE UNA FILA POR FAVOR ");
-        }
+        vista.getCmbSexo().setSelectedIndex(0);
+        vista.getTxtTelf().setText("");
+        vista.getTxtCorreo().setText("");
+        vista.getTxtDirec().setText("");
+        vista.getLblImagen().setIcon(null);
+        vista.getDtcFecha().setDate(null);
+        vista.getSpnDescuento().setValue(0);
 
     }
-
-    public void Dialogo_A_C_M(int tp) {
-        vista.getDlgAdmin().setSize(720, 580);
-        opciones();
-        if (tp == 1) {
-            limpiarCajas();
-            vista.getBtnGuardar().setVisible(true);
-            vista.getDlgAdmin().setVisible(true);
-        } else if (tp == 2) {
-            vista.getBtnModificar().setVisible(true);
-            vista.getDlgAdmin().setVisible(true);
-        } else if (tp == 3) {
-            limpiarCajas();
-            opciones();
-            vista.getDlgAdmin().setVisible(false);
-        }
-    }
-
-    private void opciones() {
-        vista.getBtnGuardar().setVisible(false);
-        vista.getBtnModificar().setVisible(false);
-
-    }
-
     private void AnadirImagen() {
         JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.JPG", "jpg", "png", "jpeg");
@@ -356,21 +352,4 @@ public class Control_Administrador {
 
         }
     }
-    
-    private void limpiarCajas() {
-        vista.getTxtCedula().setText("");
-        vista.getTxtNombres().setText("");
-        vista.getTxtApellido().setText("");
-
-        vista.getCmbSexo().setSelectedIndex(0);
-        vista.getTxtTelf().setText("");
-        vista.getTxtCorreo().setText("");
-        vista.getTxtDirec().setText("");
-        vista.getLblImagen().setIcon(null);
-        vista.getDtcFecha().setDate(null);
-        vista.getTxtUsuari().setText("");
-        vista.getTxtContra().setText("");
-        vista.getTxtContra2().setText("");
-    }
-
 }

@@ -7,6 +7,7 @@ package controladores;
 
 import javax.swing.JOptionPane;
 import modelos.Modelo_Admin;
+import modelos.Modelo_Cliente;
 import vista.ventanas.Inicio_Sesion;
 import vista.ventanas.Ventana_Admins;
 import vista.ventanas.Ventana_Clientes;
@@ -51,7 +52,9 @@ public class Control_VP {
     public void VentanaClientes(){
         
         Ventana_Clientes v = new Ventana_Clientes();
-        v.setVisible(true);
+        Modelo_Cliente m = new Modelo_Cliente();
+        Controlador_Cliente c = new Controlador_Cliente(m, v);
+        c.Iniciar_Control();
         this.vista.getDpVentana().add(v);
         
     }
