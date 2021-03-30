@@ -101,6 +101,25 @@ public class Modelo_Cliente extends cliente{
 
     }
      
+     public boolean BuscarCedula(){
+        boolean verifcar =false;
+        String sql ="select cedula "
+                + "\n from cliente "
+                + "\n where cedula='"+getCedula()+"';";
+        ResultSet rs = conexion.Query(sql);
+        try {
+            while (rs.next()) {
+                verifcar=  true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return verifcar;
+                
+    }
+   
+     
      public boolean CREAR() {
 
         String sql = "INSERT INTO public.cliente(descuento, cedula)\n"

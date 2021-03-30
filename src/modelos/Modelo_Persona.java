@@ -11,8 +11,12 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
@@ -36,6 +40,8 @@ public class Modelo_Persona extends persona {
         super(cedula, nombres, apellidos, fecha_n, sexo, telef, correo, direc, foto);
     }
 
+    
+    
     public boolean CREAR() {
         String foto64 = null;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();

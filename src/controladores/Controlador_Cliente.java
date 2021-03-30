@@ -51,9 +51,8 @@ public class Controlador_Cliente {
         vista.setVisible(true);
     }
 
-    
     public void Iniciar_Control() {
-        
+
         KeyListener k2 = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -69,18 +68,42 @@ public class Controlador_Cliente {
             }
         };
 
-        vista.getBtnGuardar().addActionListener(l -> CrearAdmin());
+        vista.getBtnGuardar().addActionListener(l -> CrearCliente());
         vista.getBtnCancelar().addActionListener(l -> Dialogo_A_C_M(3));
         vista.getBtnNuevoC().addActionListener(l -> Dialogo_A_C_M(1));
         vista.getBtnEditarC().addActionListener(l -> CargarCamposTextos());
         vista.getBtnBuscar().addActionListener(l -> AnadirImagen());
         vista.getBtnActualizar().addActionListener(l -> CargarLista(""));
         vista.getTxtBuscar().addKeyListener(k2);
-        vista.getBtnModificar().addActionListener(l->ModificarCliente());
-        vista.getBtnEliminarC().addActionListener(l->EliminarCliente());
+        vista.getBtnModificar().addActionListener(l -> ModificarCliente());
+        vista.getBtnEliminarC().addActionListener(l -> EliminarCliente());
+        vista.getBtnGuardar1().addActionListener(l -> Crear_Cliente_Admin());
 
     }
-    
+
+    private void Crear_Cliente_Admin() {
+
+        Modelo_Admin a = new Modelo_Admin();
+        a.setCedula(vista.getTxtCedula1().getText());
+
+        if (a.BuscarCedula()) {
+            Modelo_Cliente c = new Modelo_Cliente();
+            c.setCedulafk(vista.getTxtCedula1().getText());
+            c.setDescuent((int) vista.getSpnDescuento().getValue());
+            if (c.CREAR()) {
+                JOptionPane.showMessageDialog(vista, "EL CLIENTE FUE CREADO SATISFACTORIAMENTE");
+                limpiarCajas();
+            } else {
+                JOptionPane.showMessageDialog(vista, "ESTE CLIENTE YA HA SIDO REGISTRADO", "CLIENTE EXISTENTE", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(vista, "La cedula ingresada no existe como administrador", "CEDULA NO EXISTENTE", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
     private void CargarLista(String aguja) {
 
         vista.getTblCliente().setDefaultRenderer(Object.class, new ImagenTable());
@@ -122,7 +145,7 @@ public class Controlador_Cliente {
         vista.getjLabel3().setText("" + vista.getTblCliente().getRowCount());
     }
 
-    private void CrearAdmin() {
+    private void CrearCliente() {
         if (Validacion()) {
 
             String cedula = vista.getTxtCedula().getText();
@@ -166,7 +189,7 @@ public class Controlador_Cliente {
         }
 
     }
-    
+
     private void ModificarCliente() {
         if (Validacion()) {
 
@@ -187,7 +210,7 @@ public class Controlador_Cliente {
 
             Modelo_Persona p = new Modelo_Persona(cedula, nombres, apellidos, fechaN, sexo, telf, correo, direc, ic.getImage());
             int descuento = (int) vista.getSpnDescuento().getValue();
-          
+
             Modelo_Cliente a = new Modelo_Cliente();
             a.setCedula(cedula);
             a.setNombres(nombres);
@@ -206,16 +229,15 @@ public class Controlador_Cliente {
                 JOptionPane.showMessageDialog(null, "EL CLIENTE FUE MODIFICADO SATISFACTORIAMENTE");
                 vista.getDlgCliente().setVisible(false);
                 limpiarCajas();
-                
+
                 CargarLista("");
-                
-                
+
             }
 
         }
 
     }
-    
+
     private void EliminarCliente() {
         try {
             int fila = vista.getTblCliente().getSelectedRow();
@@ -233,6 +255,8 @@ public class Controlador_Cliente {
                 if (a1.ELIMINAR_C(p1, a1)) {
                     JOptionPane.showMessageDialog(vista, "CLIENTE ELIMINADO");
                     CargarLista("");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "El cliente ha sido eliminado, pero sus datos siguen existiendo en administrador");
                 }
             }
         } catch (Exception e) {
@@ -240,7 +264,7 @@ public class Controlador_Cliente {
         }
 
     }
-    
+
     private void CargarCamposTextos() {
         try {
             int fila = vista.getTblCliente().getSelectedRow();
@@ -262,13 +286,28 @@ public class Controlador_Cliente {
         }
 
     }
+
     public void Dialogo_A_C_M(int tp) {
         vista.getDlgCliente().setSize(720, 580);
+        vista.getDlgCliente2().setSize(740, 320);
         opciones();
         if (tp == 1) {
-            limpiarCajas();
-            vista.getBtnGuardar().setVisible(true);
-            vista.getDlgCliente().setVisible(true);
+            String op = JOptionPane.showInputDialog(vista, "\tMenu"
+                    + "\n1. Crear cliente apartir de admin"
+                    + "\n2. Crear cliente ");
+
+            if (Integer.parseInt(op) == 1) {
+                limpiarCajas();
+                vista.getDlgCliente2().setVisible(true);
+
+            } else if (Integer.parseInt(op) == 2) {
+                limpiarCajas();
+                vista.getBtnGuardar().setVisible(true);
+                vista.getDlgCliente().setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(vista, "No ha ingresado una opcion de las que se brindo", "Opcion inexistente", JOptionPane.ERROR_MESSAGE);
+            }
         } else if (tp == 2) {
             vista.getBtnModificar().setVisible(true);
             vista.getDlgCliente().setVisible(true);
@@ -278,11 +317,13 @@ public class Controlador_Cliente {
             vista.getDlgCliente().setVisible(false);
         }
     }
+
     private void opciones() {
         vista.getBtnGuardar().setVisible(false);
         vista.getBtnModificar().setVisible(false);
 
     }
+
     public boolean Validacion() {
         boolean verificar = true;
         //////////////////////////////cedula
@@ -319,6 +360,7 @@ public class Controlador_Cliente {
         return verificar;
 
     }
+
     private void limpiarCajas() {
         vista.getTxtCedula().setText("");
         vista.getTxtNombres().setText("");
@@ -332,7 +374,11 @@ public class Controlador_Cliente {
         vista.getDtcFecha().setDate(null);
         vista.getSpnDescuento().setValue(0);
 
+        vista.getTxtCedula1().setText("");
+        vista.getSpnDescuento1().setValue(0);
+
     }
+
     private void AnadirImagen() {
         JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.JPG", "jpg", "png", "jpeg");

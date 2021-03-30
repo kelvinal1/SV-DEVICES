@@ -99,7 +99,44 @@ public class Modelo_Admin extends admin {
         }
 
     }
-
+    
+    
+    public boolean BuscarCedula(){
+        boolean verifcar =false;
+        String sql ="select cedula "
+                + "\n from admin "
+                + "\n where cedula='"+getCedula()+"';";
+        ResultSet rs = conexion.Query(sql);
+        try {
+            while (rs.next()) {
+                verifcar=  true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return verifcar;
+                
+    }
+    
+    public String Correo(){
+        String correo ="";
+        String sql ="select correo "
+                + "\n from persona "
+                + "\n where cedula='"+getCedula()+"';";
+        ResultSet rs = conexion.Query(sql);
+        try {
+            while (rs.next()) {
+                correo=  rs.getString("correo");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return correo;
+                
+    }
+   
     public boolean CREAR() {
 
         String sql = "INSERT INTO public.admin(usuario, clave, cedula)\n"
@@ -179,6 +216,8 @@ public class Modelo_Admin extends admin {
         }
 
     }
+    
+   
     
 
     public static Image obtenImagen(byte[] bytes) throws IOException {

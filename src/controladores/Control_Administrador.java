@@ -5,6 +5,8 @@
  */
 package controladores;
 
+import com.sun.jndi.url.corbaname.corbanameURLContextFactory;
+import com.sun.org.apache.bcel.internal.generic.IFEQ;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,6 +28,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import modelos.Modelo_Admin;
+import modelos.Modelo_Cliente;
 import modelos.Modelo_IS;
 import modelos.Modelo_Persona;
 import modelos.clases_bases.admin;
@@ -48,6 +51,7 @@ public class Control_Administrador {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
+        CargarLista("");
     }
 
     public void Iniciar_Control() {
@@ -88,8 +92,9 @@ public class Control_Administrador {
         vista.getBtnBuscar().addActionListener(l -> AnadirImagen());
         vista.getBtnActualizarA().addActionListener(l -> CargarLista(""));
         vista.getTxtBuscar().addKeyListener(k2);
-        vista.getBtnModificar().addActionListener(l->ModificarAdmin());
-        vista.getBtnEliminarA().addActionListener(l->EliminarAdmin());
+        vista.getBtnModificar().addActionListener(l -> ModificarAdmin());
+        vista.getBtnEliminarA().addActionListener(l -> EliminarAdmin());
+        vista.getBtnGuardar1().addActionListener(l -> Crear_Admin_Cliente());
 
     }
 
@@ -132,6 +137,36 @@ public class Control_Administrador {
 
         });
         vista.getjLabel3().setText("" + vista.getTblAdmin().getRowCount());
+
+    }
+
+    private void Crear_Admin_Cliente() {
+
+        Modelo_Cliente c = new Modelo_Cliente();
+        c.setCedula(vista.getTxtCedula1().getText());
+
+        if (c.BuscarCedula()) {
+            Modelo_Admin a = new Modelo_Admin();
+            a.setCedula(vista.getTxtCedula1().getText());
+            a.setCedulafk(vista.getTxtCedula1().getText());
+            a.setUsuario(a.Correo());
+            a.setClave(vista.getTxtClave1().getText());
+
+            if (validacion2()) {
+                if (a.CREAR()) {
+                    JOptionPane.showMessageDialog(vista, "EL ADMIN FUE CREADO SATISFACTORIAMENTE");
+                    limpiarCajas();
+                    CargarLista("");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "ESTE ADMINISTRADOR YA HA SIDO REGISTRADO", "ADMINISTRADOR EXISTENTE", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(vista, "La cedula ingresada no existe como cliente", "CEDULA NO EXISTENTE", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
@@ -223,7 +258,7 @@ public class Control_Administrador {
                 limpiarCajas();
                 vista.getDlgAdmin().setVisible(false);
                 CargarLista("");
-                
+
             }
 
         }
@@ -245,8 +280,11 @@ public class Control_Administrador {
                 Modelo_Persona p1 = new Modelo_Persona();
                 p1.setCedula(model.getValueAt(fila, 0).toString());
                 if (a1.ELIMINAR_A(p1, a1)) {
-                    JOptionPane.showMessageDialog(vista, "ADMINISTRADOR ELIMINADA");
+                    JOptionPane.showMessageDialog(vista, "ADMINISTRADOR ELIMINADO");
                     CargarLista("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "\t Este Administrador era tambien un cliente"
+                            + "\n\tsolo dejo de ser administrador");
                 }
             }
         } catch (Exception e) {
@@ -254,7 +292,7 @@ public class Control_Administrador {
         }
 
     }
-    
+
     public boolean Validacion() {
         boolean verificar = true;
         //////////////////////////////cedula
@@ -315,12 +353,28 @@ public class Control_Administrador {
     }
 
     public void Dialogo_A_C_M(int tp) {
+
         vista.getDlgAdmin().setSize(720, 580);
+        vista.getDlgAdmin2().setSize(740, 350);
         opciones();
         if (tp == 1) {
-            limpiarCajas();
-            vista.getBtnGuardar().setVisible(true);
-            vista.getDlgAdmin().setVisible(true);
+            String op = JOptionPane.showInputDialog(vista, "\tMenu"
+                    + "\n1. Crear cliente apartir de admin"
+                    + "\n2. Crear admin ");
+
+            if (Integer.parseInt(op) == 1) {
+                limpiarCajas();
+                vista.getDlgAdmin2().setVisible(true);
+
+            } else if (Integer.parseInt(op) == 2) {
+                limpiarCajas();
+                vista.getBtnGuardar().setVisible(true);
+                vista.getDlgAdmin().setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(vista, "No ha ingresado una opcion de las que se brindo", "Opcion inexistente", JOptionPane.ERROR_MESSAGE);
+            }
+
         } else if (tp == 2) {
             vista.getBtnModificar().setVisible(true);
             vista.getDlgAdmin().setVisible(true);
@@ -356,7 +410,7 @@ public class Control_Administrador {
 
         }
     }
-    
+
     private void limpiarCajas() {
         vista.getTxtCedula().setText("");
         vista.getTxtNombres().setText("");
@@ -371,6 +425,25 @@ public class Control_Administrador {
         vista.getTxtUsuari().setText("");
         vista.getTxtContra().setText("");
         vista.getTxtContra2().setText("");
+
+    }
+
+   
+
+    public boolean validacion2() {
+        boolean verificar = true;
+
+        if (vista.getTxtClave1().getText().equals("") || vista.getTxtClave1().getText().equals("") || vista.getTxtCedula1().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(vista, "EXISTEN CAMPOS VACIOS", "CAMPOS", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (!vista.getTxtClave1().getText().equals(vista.getTxtClave2().getText())) {
+            verificar = false;
+            JOptionPane.showMessageDialog(vista, "CLAVE DIFERENTES", "CLAVES", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return verificar;
     }
 
 }
