@@ -120,7 +120,7 @@ public class Modelo_Persona extends persona {
         String sql = "DELETE FROM public.persona\n"
                 + "WHERE cedula='" + getCedula() + "';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\tSe modifico la persona: "+this.toString());
+            System.out.println("\tSe elimino la persona: "+this.toString());
                     
             return true;
         } else {

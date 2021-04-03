@@ -13,7 +13,7 @@ import java.awt.Image;
  */
 public class producto_a extends producto{
     
-    
+    private int cod_prod_a;
     private int cantidad;
     private String problema, detalle;
     private double costo;
@@ -38,6 +38,14 @@ public class producto_a extends producto{
         this.problema = problema;
         this.detalle = detalle;
         this.costo = costo;
+    }
+
+    public int getCod_prod_a() {
+        return cod_prod_a;
+    }
+
+    public void setCod_prod_a(int cod_prod_a) {
+        this.cod_prod_a = cod_prod_a;
     }
 
     public int getCantidad() {
@@ -74,7 +82,7 @@ public class producto_a extends producto{
 
     @Override
     public String toString() {
-        return "\n\tproducto_a\n" +super.toString()+ "cantidad=" + cantidad + ", problema=" + problema + ", detalle=" + detalle + ", costo=" + costo ;
+        return "\n\tproducto_a\n" +super.toString()+ "cantidad=" + cantidad + ", problema=" + problema + ", detalle=" + detalle + ", costo=" + costo+", cod_prod_a="+cod_prod_a ;
     }
     
     

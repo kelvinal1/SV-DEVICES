@@ -96,7 +96,6 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
 
-        txtModelo.setBorder(null);
         txtModelo.setPreferredSize(new java.awt.Dimension(160, 25));
 
         cmbFabric.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE" }));
@@ -157,7 +156,6 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Problema:");
 
-        txtCosto.setBorder(null);
         txtCosto.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -396,11 +394,11 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "NOMBRE", "FABRICANTE", "MODELO", "DESCRPCION", "CANTIDAD", "PROBLEMA", "DETALLE", "COSTO", "FOTO"
+                "NOMBRE", "FABRICANTE", "MODELO", "DESCRPCION", "CANTIDAD", "PROBLEMA", "DETALLE", "COSTO", "FOTO", "CODIGOl"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, false
+                false, false, false, false, false, false, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

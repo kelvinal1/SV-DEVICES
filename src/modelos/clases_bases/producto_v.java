@@ -12,6 +12,8 @@ import java.awt.Image;
  * @author Kevin
  */
 public class producto_v extends producto{
+    private int codigo_p_v;
+    
     private double descuento,precio;
     private int cant_stock,n_mes_garantia;
 
@@ -69,9 +71,17 @@ public class producto_v extends producto{
         this.n_mes_garantia = n_mes_garantia;
     }
 
+    public int getCodigo_p_v() {
+        return codigo_p_v;
+    }
+
+    public void setCodigo_p_v(int codigo_p_v) {
+        this.codigo_p_v = codigo_p_v;
+    }
+
     @Override
     public String toString() {
-        return "\n\tproducto_v\n" +super.toString()+ "descuento=" + descuento + ", precio=" + precio + ", cant_stock=" + cant_stock + ", n_mes_garantia=" + n_mes_garantia ;
+        return "\n\tproducto_v\n" +super.toString()+ "descuento=" + descuento + ", precio=" + precio + ", cant_stock=" + cant_stock + ", n_mes_garantia=" + n_mes_garantia+", codigo_pv="+codigo_p_v ;
     }
     
     
