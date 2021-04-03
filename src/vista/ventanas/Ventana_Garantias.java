@@ -369,11 +369,11 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Producto", "Problema"
+                "Codigo", "Producto", "Problema", "Detalle"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

@@ -684,9 +684,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="245" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="pnlOpcFact" pref="261" max="32767" attributes="0"/>
+                              <Component id="pnlOpcFact" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>

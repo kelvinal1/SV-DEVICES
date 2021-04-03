@@ -55,7 +55,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFabricante = new javax.swing.JTable();
 
-        dlgFabricante.setTitle("Administrador");
+        dlgFabricante.setTitle("Fabricante");
         dlgFabricante.setResizable(false);
         dlgFabricante.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
