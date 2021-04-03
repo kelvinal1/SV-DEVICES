@@ -110,11 +110,25 @@ public class Modelo_Producto_A extends producto_a {
         }
     }
 
+    public boolean CREAR_PA(Modelo_Producto p, Modelo_Producto_A a) {
+        if (p.CREAR()) {
+            if (a.CREAR()) {
+                return true;
+            } else {
+                p.ELIMINAR();
+                System.out.println("Se elimino :" + p.toString());
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public boolean MODIFICAR() {
 
         String sql = "UPDATE public.producto_a\n"
-                + "SET  cantidad="+getCantidad()+", problema='"+getProblema()+"', detalle='"+getDetalle()+"', costo="+getCosto()+"\n"
-                + "WHERE cod_producto="+getCodigo()+";";
+                + "SET  cantidad=" + getCantidad() + ", problema='" + getProblema() + "', detalle='" + getDetalle() + "', costo=" + getCosto() + "\n"
+                + "WHERE cod_producto=" + getCodigo() + ";";
 
         if (conexion.NoQuery(sql) == null) {
             System.out.println("--PRODUCTO A REPARAR MODIFICADO" + this.toString());
@@ -124,6 +138,20 @@ public class Modelo_Producto_A extends producto_a {
         }
     }
     
+    public boolean MODIFICAR_PA(Modelo_Producto p, Modelo_Producto_A a) {
+        if (p.MODIFICAR()) {
+            if (a.MODIFICAR()) {
+                return true;
+            } else {
+
+                System.out.println("NO SE MODIFICO :" + p.toString());
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public boolean ELIMINAR() {
         String sql = "DELETE FROM public.producto_a\n"
                 + "WHERE cod_producto=" + getCodigo() + ";";
@@ -135,6 +163,19 @@ public class Modelo_Producto_A extends producto_a {
             return false;
         }
 
+    }
+    
+    public boolean ELIMINAR_PA(Modelo_Producto p, Modelo_Producto_A a){
+        if (a.ELIMINAR()) {
+            if (p.ELIMINAR()) {
+                return true;
+            }else{
+                System.out.println("NO SE ELIMINO : "+p.ELIMINAR());
+                return false;
+            }
+        }else{
+            return false;
+        }
     }
 
     public static Image obtenImagen(byte[] bytes) throws IOException {
