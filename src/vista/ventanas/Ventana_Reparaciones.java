@@ -142,7 +142,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Fecha de Emision");
+        jLabel9.setText("Fecha de Emision:");
 
         txtNFact.setEditable(false);
         txtNFact.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -173,6 +173,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         txtSubtotal.setPreferredSize(new java.awt.Dimension(160, 25));
 
         txtTotal.setEditable(false);
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtTotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtTotal.setEnabled(false);
         txtTotal.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -200,15 +201,13 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                     .addComponent(DtcFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlEncFactLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlEncFactLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addComponent(jLabel11)
                 .addContainerGap())
         );
@@ -233,15 +232,14 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                                     .addGroup(pnlEncFactLayout.createSequentialGroup()
                                         .addComponent(DtcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(DtcFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pnlEncFactLayout.createSequentialGroup()
-                                .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel20)
-                                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel21)
-                                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel21)
+                                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(DtcFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel20)
+                                .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -253,6 +251,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel12.setText("Direccion:");
 
         txtNombre.setEditable(false);
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNombre.setEnabled(false);
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -262,6 +261,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel13.setText("Cliente:");
 
         txtDireccion.setEditable(false);
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtDireccion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtDireccion.setEnabled(false);
         txtDireccion.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -271,6 +271,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel15.setText("Cedula:");
 
         txtCedula.setEditable(false);
+        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtCedula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtCedula.setEnabled(false);
         txtCedula.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -280,6 +281,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel16.setText("Telefono:");
 
         txtTelefono.setEditable(false);
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtTelefono.setEnabled(false);
         txtTelefono.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -289,6 +291,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel17.setText("Vendedor:");
 
         txtVendedor.setEditable(false);
+        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtVendedor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtVendedor.setEnabled(false);
         txtVendedor.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -298,6 +301,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel18.setText("Descuento:");
 
         txtDescuento.setEditable(false);
+        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtDescuento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtDescuento.setEnabled(false);
         txtDescuento.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -307,7 +311,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_customer_96px_1.png"))); // NOI18N
         btnGuardar1.setToolTipText("Coloque el cliente");
-        btnGuardar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar1.setBorderPainted(false);
         btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,11 +409,11 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Producto", "Costo", "Problema", "Detalle"
+                "Codigo", "Producto", "Costo", "Problema", "Detalle", "Subtotal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -527,7 +530,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Cliente:");
 
-        txtCliente.setBorder(null);
         txtCliente.setPreferredSize(new java.awt.Dimension(160, 25));
 
         tblProducto1.setModel(new javax.swing.table.DefaultTableModel(
@@ -604,7 +606,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Producto:");
 
-        txtProducto.setBorder(null);
         txtProducto.setPreferredSize(new java.awt.Dimension(160, 25));
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
