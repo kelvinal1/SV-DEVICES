@@ -911,11 +911,11 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "N° FACTURA", "CLIENTE", "ADMIN", "TELEFONO", "DIRECCION", "DESCUENTO", "FECHA", "SUBTOTAL", "TOTAL"
+                "N° FACTURA", "CLIENTE", "ADMIN", "FECHA", "DESCUENTO", "SUBTOTAL", "TOTAL IVA", "TOTAL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

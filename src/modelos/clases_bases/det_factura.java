@@ -17,6 +17,8 @@ public class det_factura {
     private int cod_producto;
     private int cantidad;
     private double subtotal;
+    private String producto;
+    private double precioU;
 
     public det_factura() {
     }
@@ -67,6 +69,22 @@ public class det_factura {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public double getPrecioU() {
+        return precioU;
+    }
+
+    public void setPrecioU(double precioU) {
+        this.precioU = precioU;
     }
 
     @Override

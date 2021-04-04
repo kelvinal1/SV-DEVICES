@@ -21,6 +21,8 @@ public class enc_factura {
     private Double subtotal;
     private Double total_iva;
     private Double total;
+    private String cliente;
+    private String administrador;
 
     public enc_factura() {
     }
@@ -98,6 +100,22 @@ public class enc_factura {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(String administrador) {
+        this.administrador = administrador;
     }
 
     @Override
