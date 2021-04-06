@@ -119,6 +119,20 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fabricantes"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="smFabricantes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mant. Fabricantes"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator9">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="smReportesFabricantes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reportes"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

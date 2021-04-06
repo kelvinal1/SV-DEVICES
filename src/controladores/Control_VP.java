@@ -8,9 +8,11 @@ package controladores;
 import javax.swing.JOptionPane;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
+import modelos.Modelo_Fabricante;
 import vista.ventanas.Inicio_Sesion;
 import vista.ventanas.Ventana_Admins;
 import vista.ventanas.Ventana_Clientes;
+import vista.ventanas.Ventana_Fabricantes;
 import vista.ventanas.Ventana_Principal;
 
 /**
@@ -35,6 +37,8 @@ public class Control_VP {
         vista.getBtnClientes().addActionListener(l->VentanaClientes());
         vista.getSmMantAdmin().addActionListener(l->VentanaAdmins());
         vista.getBtnAdmins().addActionListener(l->VentanaAdmins());
+        vista.getBtnFabricantes().addActionListener(l->VentanaFabricante());
+        vista.getSmFabricantes().addActionListener(l->VentanaFabricante());
 
     }
 
@@ -65,6 +69,15 @@ public class Control_VP {
         Modelo_Admin m = new Modelo_Admin();
         Control_Administrador c = new Control_Administrador(m, v);
         c.Iniciar_Control();
+        this.vista.getDpVentana().add(v);
+    }
+    
+    
+    public void VentanaFabricante(){
+        Ventana_Fabricantes v = new Ventana_Fabricantes();
+        Modelo_Fabricante m = new Modelo_Fabricante();
+        Controlador_Fabricantes c = new Controlador_Fabricantes(m, v);
+        c.IniciarControl();
         this.vista.getDpVentana().add(v);
     }
 

@@ -52,7 +52,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
         jLabel22 = new javax.swing.JLabel();
         spnDescuento = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
-        spnDescuento1 = new javax.swing.JSpinner();
+        spnGarantia = new javax.swing.JSpinner();
         jLabel19 = new javax.swing.JLabel();
         pnlGeneral = new javax.swing.JPanel();
         pnlOpciones = new javax.swing.JPanel();
@@ -166,7 +166,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Garantia:");
 
-        spnDescuento1.setModel(new javax.swing.SpinnerNumberModel(1, 0, 12, 1));
+        spnGarantia.setModel(new javax.swing.SpinnerNumberModel(1, 0, 12, 1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -184,7 +184,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(spnDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnDescuento1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(spnGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 403, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -264,7 +264,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(spnDescuento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -502,7 +502,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlOpciones;
     private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnDescuento;
-    private javax.swing.JSpinner spnDescuento1;
+    private javax.swing.JSpinner spnGarantia;
     private javax.swing.JTable tblProducto;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextArea txtDescrip;

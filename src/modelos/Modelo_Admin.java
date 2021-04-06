@@ -167,6 +167,9 @@ public class Modelo_Admin extends admin {
     public boolean CREAR_A(Modelo_Persona p, Modelo_Admin a) {
         if (p.CREAR()) {
             if (a.CREAR()) {
+                System.out.println("--SE CREO ADMIN");
+                System.out.println(p.toString());
+                System.out.println(a.toString());
                 return true;
             } else {
                 p.ELIMINAR();
@@ -181,6 +184,10 @@ public class Modelo_Admin extends admin {
     public boolean MODIFICAR_A(Modelo_Persona p, Modelo_Admin a) {
         if (p.MODIFICAR()) {
             if (a.MODIFICAR()) {
+                System.out.println("--SE MODIFICO ADMIN");
+                System.out.println(p.toString());
+                System.out.println(a.toString());
+                
                 return true;
             } else {
 
@@ -195,6 +202,9 @@ public class Modelo_Admin extends admin {
     public boolean ELIMINAR_A(Modelo_Persona p, Modelo_Admin a){
         if (a.ELIMINAR()) {
             if (p.ELIMINAR()) {
+                System.out.println("--SE ELIMINO");
+                System.out.println(p.toString());
+                System.out.println(a.toString());
                 return true;
             }else{
                 System.out.println("NO SE ELIMINO PERSONA: "+p.ELIMINAR());

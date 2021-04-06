@@ -30,11 +30,11 @@ public class Modelo_Fabricante extends fabricante {
 
     public static List<fabricante> LISTAR(String inicial) {
         try {
-            String sql = "select *"
+            String sql = "select * "
                     + "\n from fabricante"
                     + "\n where upper(nombre) like upper('%" + inicial + "%')"
-                    + "\n or where upper(telefono) like upper('%" + inicial + "%')"
-                    + "\n or where upper(direccion) like upper('%" + inicial + "%');";
+                    + "\n or  upper(telefono) like upper('%" + inicial + "%')"
+                    + "\n or  upper(direccion) like upper('%" + inicial + "%');";
             ResultSet rs = conexion.Query(sql);
 
             List<fabricante> lista = new ArrayList<>();

@@ -84,6 +84,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
         mReparaciones = new javax.swing.JMenu();
         mGarantias = new javax.swing.JMenu();
         mFabricantes = new javax.swing.JMenu();
+        smFabricantes = new javax.swing.JMenuItem();
+        jSeparator9 = new javax.swing.JPopupMenu.Separator();
+        smReportesFabricantes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -299,6 +302,14 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         mFabricantes.setForeground(new java.awt.Color(255, 255, 255));
         mFabricantes.setText("Fabricantes");
+
+        smFabricantes.setText("Mant. Fabricantes");
+        mFabricantes.add(smFabricantes);
+        mFabricantes.add(jSeparator9);
+
+        smReportesFabricantes.setText("Reportes");
+        mFabricantes.add(smReportesFabricantes);
+
         mpOpciones.add(mFabricantes);
 
         setJMenuBar(mpOpciones);
@@ -320,6 +331,22 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JMenuItem getSmFabricantes() {
+        return smFabricantes;
+    }
+
+    public void setSmFabricantes(JMenuItem smFabricantes) {
+        this.smFabricantes = smFabricantes;
+    }
+
+    public JMenuItem getSmReportesFabricantes() {
+        return smReportesFabricantes;
+    }
+
+    public void setSmReportesFabricantes(JMenuItem smReportesFabricantes) {
+        this.smReportesFabricantes = smReportesFabricantes;
+    }
 
     public JLabel getLblFecha() {
         return lblFecha;
@@ -529,6 +556,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblUsuario;
@@ -540,10 +568,12 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu mReparaciones;
     private javax.swing.JMenu mVentas;
     private javax.swing.JMenuBar mpOpciones;
+    private javax.swing.JMenuItem smFabricantes;
     private javax.swing.JMenuItem smMantAdmin;
     private javax.swing.JMenuItem smMantCliente;
     private javax.swing.JMenuItem smReporteAdmin;
     private javax.swing.JMenuItem smReporteCliente;
+    private javax.swing.JMenuItem smReportesFabricantes;
     private javax.swing.JToolBar tbHerramienta;
     // End of variables declaration//GEN-END:variables
 }

@@ -58,7 +58,6 @@ public class Modelo_Persona extends persona {
         String sql = "INSERT INTO public.persona(cedula, nombres, apellidos, fecha_nac, sexo, telefono, correo, direc, foto)\n"
                 + "VALUES ('" + getCedula() + "','" + getNombres() + "','" + getApellidos() + "','" + getFecha_n() + "','" + getSexo() + "','" + getTelef() + "','" + getCorreo() + "','" + getDirec() + "','" + foto64 + "');";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\t Se creo persona: "+this.toString());
             return true;
         } else {
             JOptionPane.showMessageDialog(null,"ES POSIBLE QUE LA CEDUAL INGRESADA YA ESTE REGISTRADA","Error", JOptionPane.ERROR_MESSAGE);
@@ -84,7 +83,6 @@ public class Modelo_Persona extends persona {
                 + "SET nombres='"+getNombres()+"', apellidos='"+getApellidos()+"', fecha_nac='"+getFecha_n()+"', sexo='"+getSexo()+"', telefono='"+getTelef()+"', correo='"+getCorreo()+"', direc='"+getDirec()+"', foto='"+foto64+"' \n"
                 + "WHERE cedula='"+getCedula()+"';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\tSe modifico la persona: "+this.toString());
             return true;
         } else {
             return false;
@@ -120,8 +118,6 @@ public class Modelo_Persona extends persona {
         String sql = "DELETE FROM public.persona\n"
                 + "WHERE cedula='" + getCedula() + "';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("\tSe elimino la persona: "+this.toString());
-                    
             return true;
         } else {
             return false;

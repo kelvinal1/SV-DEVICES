@@ -41,7 +41,7 @@ public class Modelo_Det_Factura extends det_factura {
                 + "WHERE cod_enc_fact='" + getCodigo_factura() + "';";
 
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--ENCABEZADO FACTURA MODIFICADO"
+            System.out.println("--DETALLE FACTURA MODIFICADO"
                     + super.toString());
             return true;
         } else {
@@ -53,7 +53,7 @@ public class Modelo_Det_Factura extends det_factura {
         String sql = "DELETE FROM public.det_factura\n"
                 + "WHERE cod_enc_fact='"+getCodigo_factura()+"';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--FABRICANTE ELIMINADO"
+            System.out.println("--DETALLE FACTUJA ELIMINADO"
                     + super.toString());
             return true;
         } else {

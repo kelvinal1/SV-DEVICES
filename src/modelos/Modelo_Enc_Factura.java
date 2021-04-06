@@ -101,7 +101,7 @@ public class Modelo_Enc_Factura extends enc_factura {
         String sql = "DELETE FROM public.enc_factura\n"
                 + "WHERE cod_fact='"+getCodigo_fact()+"';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--FABRICANTE ELIMINADO"
+            System.out.println("--ENCABEZADO FACTURA ELIMINADO"
                     + super.toString());
             return true;
         } else {
