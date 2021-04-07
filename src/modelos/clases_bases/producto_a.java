@@ -82,7 +82,7 @@ public class producto_a extends producto{
 
     @Override
     public String toString() {
-        return "\n\tproducto_a\n" +super.toString()+ "cantidad=" + cantidad + ", problema=" + problema + ", detalle=" + detalle + ", costo=" + costo+", cod_prod_a="+cod_prod_a ;
+        return "\n\tPRODUCTO AJENO\n" + "cantidad=" + cantidad + ", problema=" + problema + ", detalle=" + detalle + ", costo=" + costo+", cod_prod_a="+cod_prod_a ;
     }
     
     

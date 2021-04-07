@@ -80,6 +80,7 @@ public class Controlador_Fabricantes {
            i.value++;
         });
         
+        vista.getjLabel3().setText(""+vista.getTblFabricante().getRowCount());
         
         
     }

@@ -5,6 +5,15 @@
  */
 package vista.ventanas;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Kevin
@@ -53,6 +62,8 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
         spnDescuento = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
         spnGarantia = new javax.swing.JSpinner();
+        lblNCodigo = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         pnlGeneral = new javax.swing.JPanel();
         pnlOpciones = new javax.swing.JPanel();
@@ -168,6 +179,14 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
 
         spnGarantia.setModel(new javax.swing.SpinnerNumberModel(1, 0, 12, 1));
 
+        lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblNCodigo.setText("Codigo:");
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("Codigo:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -175,17 +194,6 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 403, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,11 +225,29 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                                 .addGap(147, 147, 147))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94))))))
+                                .addGap(94, 94, 94))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblNCodigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCodigo)
+                        .addGap(124, 124, 124))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,9 +291,13 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(spnGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNCodigo)
+                    .addComponent(lblCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         dlgProductoV.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 620));
@@ -407,12 +437,12 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -423,7 +453,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -465,6 +495,201 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
     /**
      * @param args the command line arguments
      */
+
+    public JButton getBtnActualizarA() {
+        return btnActualizarA;
+    }
+
+    public void setBtnActualizarA(JButton btnActualizarA) {
+        this.btnActualizarA = btnActualizarA;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEditarP() {
+        return btnEditarP;
+    }
+
+    public void setBtnEditarP(JButton btnEditarP) {
+        this.btnEditarP = btnEditarP;
+    }
+
+    public JButton getBtnEliminarP() {
+        return btnEliminarP;
+    }
+
+    public void setBtnEliminarP(JButton btnEliminarP) {
+        this.btnEliminarP = btnEliminarP;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
+    }
+
+    public JButton getBtnImprimirA() {
+        return btnImprimirA;
+    }
+
+    public void setBtnImprimirA(JButton btnImprimirA) {
+        this.btnImprimirA = btnImprimirA;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JButton getBtnNuevoP() {
+        return btnNuevoP;
+    }
+
+    public void setBtnNuevoP(JButton btnNuevoP) {
+        this.btnNuevoP = btnNuevoP;
+    }
+
+    public JComboBox<String> getCmbFabric() {
+        return cmbFabric;
+    }
+
+    public void setCmbFabric(JComboBox<String> cmbFabric) {
+        this.cmbFabric = cmbFabric;
+    }
+
+    public JDialog getDlgProductoV() {
+        return dlgProductoV;
+    }
+
+    public void setDlgProductoV(JDialog dlgProductoV) {
+        this.dlgProductoV = dlgProductoV;
+    }
+
+    public JLabel getLblImagen() {
+        return lblImagen;
+    }
+
+    public void setLblImagen(JLabel lblImagen) {
+        this.lblImagen = lblImagen;
+    }
+
+    public JSpinner getSpnCantidad() {
+        return spnCantidad;
+    }
+
+    public void setSpnCantidad(JSpinner spnCantidad) {
+        this.spnCantidad = spnCantidad;
+    }
+
+    public JSpinner getSpnDescuento() {
+        return spnDescuento;
+    }
+
+    public void setSpnDescuento(JSpinner spnDescuento) {
+        this.spnDescuento = spnDescuento;
+    }
+
+    public JSpinner getSpnGarantia() {
+        return spnGarantia;
+    }
+
+    public void setSpnGarantia(JSpinner spnGarantia) {
+        this.spnGarantia = spnGarantia;
+    }
+
+    public JTable getTblProducto() {
+        return tblProducto;
+    }
+
+    public void setTblProducto(JTable tblProducto) {
+        this.tblProducto = tblProducto;
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
+    }
+
+    public JTextArea getTxtDescrip() {
+        return txtDescrip;
+    }
+
+    public void setTxtDescrip(JTextArea txtDescrip) {
+        this.txtDescrip = txtDescrip;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public void setTxtModelo(JTextField txtModelo) {
+        this.txtModelo = txtModelo;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public JTextField getTxtPrecio() {
+        return txtPrecio;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setTxtPrecio(JTextField txtPrecio) {
+        this.txtPrecio = txtPrecio;
+    }
+
+    public JLabel getLblNCodigo() {
+        return lblNCodigo;
+    }
+
+    public void setLblNCodigo(JLabel lblNCodigo) {
+        this.lblNCodigo = lblNCodigo;
+    }
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -496,7 +721,9 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblNCodigo;
     private javax.swing.JPanel pnlGeneral;
     private javax.swing.JPanel pnlOp;
     private javax.swing.JPanel pnlOpciones;

@@ -95,4 +95,22 @@ public class Modelo_Fabricante extends fabricante {
         }
     }
 
+    
+    public String CADENA(int codigo){
+        String cadena="";
+        try {
+            String sql="select cod_fabricante,nombre"
+                    + "\n from fabricante"
+                    + "\n where cod_fabricante="+codigo;
+            ResultSet rs = conexion.Query(sql);
+            while (rs.next()) {
+                cadena=rs.getInt(1)+" "+rs.getString(2);
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Fabricante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return cadena;
+    }
 }

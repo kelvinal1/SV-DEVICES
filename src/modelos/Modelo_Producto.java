@@ -11,7 +11,11 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
@@ -51,7 +55,7 @@ public class Modelo_Producto extends producto {
         String sql = "INSERT INTO public.producto(nombre, cod_fab, modelo, descripcion, foto)\n"
                 + "VALUES ('" + getNombre() + "'," + getCodigo_fab() + " , '" + getModelo() + "', '" + getDescrip() + "','" + foto64 + "');";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--PRODUCTO CREADO"
+            System.out.println("--PRODUCTO CREADO "
                     + super.toString());
 
             return true;
@@ -60,6 +64,25 @@ public class Modelo_Producto extends producto {
             return false;
         }
 
+    }
+    
+    
+    public int  ConseguirCodigo(String descrip){
+        int codigo=0;
+        try {
+            String sql="select cod_producto"
+                    + "\n from producto"
+                    + "\n where descripcion like '%"+descrip+"%'";
+            ResultSet rs = conexion.Query(sql);
+            while(rs.next()){
+                codigo=rs.getInt(1);
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return codigo;
     }
 
     public boolean MODIFICAR() {
@@ -79,7 +102,7 @@ public class Modelo_Producto extends producto {
                 + "SET nombre='" + getNombre() + "', cod_fab=" + getCodigo_fab() + ", modelo='" + getModelo() + "', descripcion='" + getDescrip() + "', foto='" + foto64 + "'\n"
                 + "WHERE cod_producto=" + getCodigo() + ";";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--PRODUCTO MODIFICADO"
+            System.out.println("--PRODUCTO MODIFICADO "
                     + super.toString());
 
             return true;
@@ -94,7 +117,7 @@ public class Modelo_Producto extends producto {
         String sql = "DELETE FROM public.producto\n"
                 + "WHERE cod_producto="+getCodigo()+";";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--PRODUCTO ELIMINADO: " + this.toString());
+            System.out.println("--PRODUCTO ELIMINADO " + this.toString());
 
             return true;
         } else {

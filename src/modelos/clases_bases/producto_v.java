@@ -81,7 +81,7 @@ public class producto_v extends producto{
 
     @Override
     public String toString() {
-        return "\n\tproducto_v\n" +super.toString()+ "descuento=" + descuento + ", precio=" + precio + ", cant_stock=" + cant_stock + ", n_mes_garantia=" + n_mes_garantia+", codigo_pv="+codigo_p_v ;
+        return "\n\tPRODUCTO A VENDER\n" + "descuento=" + descuento + ", precio=" + precio + ", cant_stock=" + cant_stock + ", n_mes_garantia=" + n_mes_garantia+", codigo_pv="+codigo_p_v ;
     }
     
     

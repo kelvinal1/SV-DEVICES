@@ -81,7 +81,7 @@ public class producto {
 
     @Override
     public String toString() {
-        return  "codigo=" + codigo + ", nombre=" + nombre + ", codigo_fab=" + codigo_fab + ", modelo=" + modelo + ", descrip=" + descrip + ", foto=" + foto ;
+        return  "\n\tPRODUCTO\n"+"codigo=" + codigo + ", nombre=" + nombre + ", codigo_fab=" + codigo_fab + ", modelo=" + modelo + ", descrip=" + descrip + ", foto=" + foto ;
     }
     
     

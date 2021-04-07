@@ -50,9 +50,8 @@ public class Modelo_Producto_A extends producto_a {
         try {
             String sql = "select p.cod_producto,p.nombre,p.cod_fab,p.modelo,p.descripcion,p.foto, pa.cod_producto_a,pa.cantidad,pa.problema,pa.detalle,pa.costo\n"
                     + "from producto p, producto_a pa\n"
-                    + "where p.cod_producto=pv.cod_producto and( "
-                    + "\n p.cod_producto like '%" + inicial + "%'"
-                    + "\n or upper(p.nombre) like upper('%" + inicial + "%')"
+                    + "where p.cod_producto=pa.cod_producto and( "
+                    + "\n upper(p.nombre) like upper('%" + inicial + "%')"
                     + "\n or upper(p.modelo) like upper('%" + inicial + "%')"
                     + "\n or upper(p.descripcion) like upper('%" + inicial + "%'))";
             ResultSet rs = conexion.Query(sql);

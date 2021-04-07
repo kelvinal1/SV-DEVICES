@@ -55,7 +55,7 @@ public class cliente extends persona{
 
     @Override
     public String toString() {
-        return "\n\tCLIENTE  "+super.toString()+"\ncod_cliente="+cod_cliente+"\ndescuent=" + descuent+"\ncedulafk="+cedulafk ;
+        return "\n\tCLIENTE \n"+"cod_cliente="+cod_cliente+"\ndescuent=" + descuent+"\ncedulafk="+cedulafk ;
     }
     
 }

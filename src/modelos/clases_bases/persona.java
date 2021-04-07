@@ -108,7 +108,7 @@ public class persona {
 
     @Override
     public String toString() {
-        return  "\ncedula=" + cedula + "\nnombres=" + nombres + "\napellidos=" + apellidos + "\nfecha_n=" + fecha_n + "\nsexo=" + sexo + "\ntelef=" + telef + "\ncorreo=" + correo + "\ndirec=" + direc + "\nfoto=" + foto;
+        return  "\n\tPERSONA\n"+"cedula=" + cedula + "\nnombres=" + nombres + "\napellidos=" + apellidos + "\nfecha_n=" + fecha_n + "\nsexo=" + sexo + "\ntelef=" + telef + "\ncorreo=" + correo + "\ndirec=" + direc + "\nfoto=" + foto;
     }
 
     

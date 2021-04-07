@@ -150,6 +150,10 @@ public class Modelo_Cliente extends cliente{
      public boolean CREAR_C(Modelo_Persona p, Modelo_Cliente a) {
         if (p.CREAR()) {
             if (a.CREAR()) {
+                System.out.println("--SE CREO PERSONA"
+                        + p.toString()+"\n"+
+                        "--SE CREO CLIENTE"
+                                + a.toString());
                 return true;
             } else {
                 p.ELIMINAR();
@@ -164,6 +168,10 @@ public class Modelo_Cliente extends cliente{
     public boolean MODIFICAR_C(Modelo_Persona p, Modelo_Cliente a) {
         if (p.MODIFICAR()) {
             if (a.MODIFICAR()) {
+                System.out.println("--SE MODIFICO PERSONA"
+                        + p.toString()+"\n"
+                                + "--SE MODIFICO ADMIN"
+                                + a.toString());
                 return true;
             } else {
 

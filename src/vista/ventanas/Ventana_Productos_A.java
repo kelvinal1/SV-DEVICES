@@ -5,6 +5,15 @@
  */
 package vista.ventanas;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Kevin
@@ -55,6 +64,8 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
         txtDescrip = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtDetalle = new javax.swing.JTextArea();
+        lblNCodigo = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         pnlGeneral = new javax.swing.JPanel();
         pnlOpciones = new javax.swing.JPanel();
@@ -174,6 +185,14 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
         txtDetalle.setRows(5);
         jScrollPane4.setViewportView(txtDetalle);
 
+        lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblNCodigo.setText("Codigo:");
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("Codigo:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -219,7 +238,12 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
                                         .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(41, 41, 41)
-                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(lblNCodigo)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblCodigo))
+                                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(50, 50, 50))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -272,8 +296,12 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnBuscar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNCodigo)
+                                .addComponent(lblCodigo)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -394,11 +422,11 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "NOMBRE", "FABRICANTE", "MODELO", "DESCRPCION", "CANTIDAD", "PROBLEMA", "DETALLE", "COSTO", "FOTO", "CODIGOl"
+                "CODIGO", "NOMBRE", "FABRICANTE", "MODELO", "DESCRPCION", "CANTIDAD", "PROBLEMA", "DETALLE", "COSTO", "FOTO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -473,6 +501,201 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
     /**
      * @param args the command line arguments
      */
+
+    public JButton getBtnActualizarA() {
+        return btnActualizarA;
+    }
+
+    public void setBtnActualizarA(JButton btnActualizarA) {
+        this.btnActualizarA = btnActualizarA;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEditarP() {
+        return btnEditarP;
+    }
+
+    public void setBtnEditarP(JButton btnEditarP) {
+        this.btnEditarP = btnEditarP;
+    }
+
+    public JButton getBtnEliminarP() {
+        return btnEliminarP;
+    }
+
+    public void setBtnEliminarP(JButton btnEliminarP) {
+        this.btnEliminarP = btnEliminarP;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
+    }
+
+    public JButton getBtnImprimirA() {
+        return btnImprimirA;
+    }
+
+    public void setBtnImprimirA(JButton btnImprimirA) {
+        this.btnImprimirA = btnImprimirA;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JButton getBtnNuevoP() {
+        return btnNuevoP;
+    }
+
+    public void setBtnNuevoP(JButton btnNuevoP) {
+        this.btnNuevoP = btnNuevoP;
+    }
+
+    public JComboBox<String> getCmbFabric() {
+        return cmbFabric;
+    }
+
+    public void setCmbFabric(JComboBox<String> cmbFabric) {
+        this.cmbFabric = cmbFabric;
+    }
+
+    public JDialog getDlgProductoA() {
+        return dlgProductoA;
+    }
+
+    public void setDlgProductoA(JDialog dlgProductoA) {
+        this.dlgProductoA = dlgProductoA;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
+
+    public JLabel getLblImagen() {
+        return lblImagen;
+    }
+
+    public void setLblImagen(JLabel lblImagen) {
+        this.lblImagen = lblImagen;
+    }
+
+    public JLabel getLblNCodigo() {
+        return lblNCodigo;
+    }
+
+    public void setLblNCodigo(JLabel lblNCodigo) {
+        this.lblNCodigo = lblNCodigo;
+    }
+
+    public JSpinner getSpnCantidad() {
+        return spnCantidad;
+    }
+
+    public void setSpnCantidad(JSpinner spnCantidad) {
+        this.spnCantidad = spnCantidad;
+    }
+
+    public JTable getTblProducto() {
+        return tblProducto;
+    }
+
+    public void setTblProducto(JTable tblProducto) {
+        this.tblProducto = tblProducto;
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
+    }
+
+    public JTextField getTxtCosto() {
+        return txtCosto;
+    }
+
+    public void setTxtCosto(JTextField txtCosto) {
+        this.txtCosto = txtCosto;
+    }
+
+    public JTextArea getTxtDescrip() {
+        return txtDescrip;
+    }
+
+    public void setTxtDescrip(JTextArea txtDescrip) {
+        this.txtDescrip = txtDescrip;
+    }
+
+    public JTextArea getTxtDetalle() {
+        return txtDetalle;
+    }
+
+    public void setTxtDetalle(JTextArea txtDetalle) {
+        this.txtDetalle = txtDetalle;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public void setTxtModelo(JTextField txtModelo) {
+        this.txtModelo = txtModelo;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public JTextArea getTxtProblema() {
+        return txtProblema;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setTxtProblema(JTextArea txtProblema) {
+        this.txtProblema = txtProblema;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -506,7 +729,9 @@ public class Ventana_Productos_A extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblNCodigo;
     private javax.swing.JPanel pnlGeneral;
     private javax.swing.JPanel pnlOp;
     private javax.swing.JPanel pnlOpciones;

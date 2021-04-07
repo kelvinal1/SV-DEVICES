@@ -51,6 +51,8 @@ public class Ventana_Principal extends javax.swing.JFrame {
         btnAdmins = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         btnProductos = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
+        btnProductosA = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         btnVentas = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
@@ -80,6 +82,13 @@ public class Ventana_Principal extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         smReporteAdmin = new javax.swing.JMenuItem();
         mProductos = new javax.swing.JMenu();
+        smMantProV = new javax.swing.JMenuItem();
+        jSeparator11 = new javax.swing.JPopupMenu.Separator();
+        smMantProA = new javax.swing.JMenuItem();
+        jSeparator12 = new javax.swing.JPopupMenu.Separator();
+        smReporteProV = new javax.swing.JMenuItem();
+        jSeparator13 = new javax.swing.JPopupMenu.Separator();
+        smReporteProA = new javax.swing.JMenuItem();
         mVentas = new javax.swing.JMenu();
         mReparaciones = new javax.swing.JMenu();
         mGarantias = new javax.swing.JMenu();
@@ -112,12 +121,21 @@ public class Ventana_Principal extends javax.swing.JFrame {
         tbHerramienta.add(jSeparator2);
 
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_product_16px.png"))); // NOI18N
-        btnProductos.setToolTipText("Mantenimiento de Productos");
+        btnProductos.setToolTipText("Mantenimiento de Productos a la Venta");
         btnProductos.setContentAreaFilled(false);
         btnProductos.setFocusable(false);
         btnProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnProductos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tbHerramienta.add(btnProductos);
+        tbHerramienta.add(jSeparator10);
+
+        btnProductosA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_multiple_devices_16px.png"))); // NOI18N
+        btnProductosA.setToolTipText("Mantenimiento de Producto a Reparar");
+        btnProductosA.setContentAreaFilled(false);
+        btnProductosA.setFocusable(false);
+        btnProductosA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProductosA.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        tbHerramienta.add(btnProductosA);
         tbHerramienta.add(jSeparator3);
 
         btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_sales_performance_16px_1.png"))); // NOI18N
@@ -286,6 +304,30 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         mProductos.setForeground(new java.awt.Color(255, 255, 255));
         mProductos.setText("Productos");
+
+        smMantProV.setBackground(new java.awt.Color(94, 33, 41));
+        smMantProV.setForeground(new java.awt.Color(255, 255, 255));
+        smMantProV.setText("Mant. Productos a la Venta");
+        mProductos.add(smMantProV);
+        mProductos.add(jSeparator11);
+
+        smMantProA.setBackground(new java.awt.Color(94, 33, 41));
+        smMantProA.setForeground(new java.awt.Color(255, 255, 255));
+        smMantProA.setText("Mant. Productos a Reparar");
+        mProductos.add(smMantProA);
+        mProductos.add(jSeparator12);
+
+        smReporteProV.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteProV.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteProV.setText("Reportes Productos a la Venta");
+        mProductos.add(smReporteProV);
+        mProductos.add(jSeparator13);
+
+        smReporteProA.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteProA.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteProA.setText("Reportes");
+        mProductos.add(smReporteProA);
+
         mpOpciones.add(mProductos);
 
         mVentas.setForeground(new java.awt.Color(255, 255, 255));
@@ -532,12 +574,56 @@ public class Ventana_Principal extends javax.swing.JFrame {
         this.smReporteAdmin = smReporteAdmin;
     }
 
+    public JButton getBtnProductosA() {
+        return btnProductosA;
+    }
+
+    public void setBtnProductosA(JButton btnProductosA) {
+        this.btnProductosA = btnProductosA;
+    }
+
+    public JMenuItem getSmMantProA() {
+        return smMantProA;
+    }
+
+    public void setSmMantProA(JMenuItem smMantProA) {
+        this.smMantProA = smMantProA;
+    }
+
+    public JMenuItem getSmMantProV() {
+        return smMantProV;
+    }
+
+    public void setSmMantProV(JMenuItem smMantProV) {
+        this.smMantProV = smMantProV;
+    }
+
+    public JMenuItem getSmReporteProA() {
+        return smReporteProA;
+    }
+
+    public void setSmReporteProA(JMenuItem smReporteProA) {
+        this.smReporteProA = smReporteProA;
+    }
+
+    public JMenuItem getSmReporteProV() {
+        return smReporteProV;
+    }
+
+    public void setSmReporteProV(JMenuItem smReporteProV) {
+        this.smReporteProV = smReporteProV;
+    }
+
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmins;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnFabricantes;
     private javax.swing.JButton btnGarantias;
     private javax.swing.JButton btnProductos;
+    private javax.swing.JButton btnProductosA;
     private javax.swing.JButton btnReparaciones;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVentas;
@@ -549,6 +635,10 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator10;
+    private javax.swing.JPopupMenu.Separator jSeparator11;
+    private javax.swing.JPopupMenu.Separator jSeparator12;
+    private javax.swing.JPopupMenu.Separator jSeparator13;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
@@ -571,8 +661,12 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem smFabricantes;
     private javax.swing.JMenuItem smMantAdmin;
     private javax.swing.JMenuItem smMantCliente;
+    private javax.swing.JMenuItem smMantProA;
+    private javax.swing.JMenuItem smMantProV;
     private javax.swing.JMenuItem smReporteAdmin;
     private javax.swing.JMenuItem smReporteCliente;
+    private javax.swing.JMenuItem smReporteProA;
+    private javax.swing.JMenuItem smReporteProV;
     private javax.swing.JMenuItem smReportesFabricantes;
     private javax.swing.JToolBar tbHerramienta;
     // End of variables declaration//GEN-END:variables

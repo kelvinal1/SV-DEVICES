@@ -49,6 +49,7 @@ public class Controlador_Cliente {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
+        CargarLista("");
     }
 
     public void Iniciar_Control() {
@@ -179,7 +180,6 @@ public class Controlador_Cliente {
             a.setCedulafk(cedula);
 
             if (modelo.CREAR_C(p, a)) {
-                System.out.println(a.toString());
                 JOptionPane.showMessageDialog(null, "EL CLIENTE FUE CREADO SATISFACTORIAMENTE");
                 limpiarCajas();
                 vista.getDlgCliente().setVisible(false);
@@ -225,7 +225,7 @@ public class Controlador_Cliente {
             a.setCedulafk(cedula);
 
             if (modelo.MODIFICAR_C(p, a)) {
-                System.out.println(a.toString());
+                
                 JOptionPane.showMessageDialog(null, "EL CLIENTE FUE MODIFICADO SATISFACTORIAMENTE");
                 vista.getDlgCliente().setVisible(false);
                 limpiarCajas();

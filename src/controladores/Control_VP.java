@@ -9,11 +9,15 @@ import javax.swing.JOptionPane;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_Fabricante;
+import modelos.Modelo_Producto_A;
+import modelos.Modelo_Producto_V;
 import vista.ventanas.Inicio_Sesion;
 import vista.ventanas.Ventana_Admins;
 import vista.ventanas.Ventana_Clientes;
 import vista.ventanas.Ventana_Fabricantes;
 import vista.ventanas.Ventana_Principal;
+import vista.ventanas.Ventana_Productos_A;
+import vista.ventanas.Ventana_Productos_V;
 
 /**
  *
@@ -39,6 +43,10 @@ public class Control_VP {
         vista.getBtnAdmins().addActionListener(l->VentanaAdmins());
         vista.getBtnFabricantes().addActionListener(l->VentanaFabricante());
         vista.getSmFabricantes().addActionListener(l->VentanaFabricante());
+        vista.getSmMantProV().addActionListener(l->VentanaProductoV());
+        vista.getBtnProductos().addActionListener(l->VentanaProductoV());
+        vista.getBtnProductosA().addActionListener(l->VentanaProductoA());
+        vista.getSmMantProA().addActionListener(l->VentanaProductoA());
 
     }
 
@@ -77,6 +85,22 @@ public class Control_VP {
         Ventana_Fabricantes v = new Ventana_Fabricantes();
         Modelo_Fabricante m = new Modelo_Fabricante();
         Controlador_Fabricantes c = new Controlador_Fabricantes(m, v);
+        c.IniciarControl();
+        this.vista.getDpVentana().add(v);
+    }
+    
+    public void VentanaProductoV(){
+        Ventana_Productos_V v = new Ventana_Productos_V();
+        Modelo_Producto_V m = new Modelo_Producto_V();
+        Controlador_Producto_V c = new Controlador_Producto_V(m, v);
+        c.IniciarControl();
+        this.vista.getDpVentana().add(v);
+    }
+    
+    public void VentanaProductoA(){
+        Ventana_Productos_A v = new Ventana_Productos_A();
+        Modelo_Producto_A m = new Modelo_Producto_A();
+        Controlador_Producto_A c = new Controlador_Producto_A(m, v);
         c.IniciarControl();
         this.vista.getDpVentana().add(v);
     }
