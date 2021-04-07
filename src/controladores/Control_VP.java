@@ -8,6 +8,8 @@ package controladores;
 import javax.swing.JOptionPane;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
+import modelos.Modelo_Det_Factura;
+import modelos.Modelo_Enc_Factura;
 import modelos.Modelo_Fabricante;
 import modelos.Modelo_Producto_A;
 import modelos.Modelo_Producto_V;
@@ -18,6 +20,7 @@ import vista.ventanas.Ventana_Fabricantes;
 import vista.ventanas.Ventana_Principal;
 import vista.ventanas.Ventana_Productos_A;
 import vista.ventanas.Ventana_Productos_V;
+import vista.ventanas.Ventana_Ventas;
 
 /**
  *
@@ -47,6 +50,10 @@ public class Control_VP {
         vista.getBtnProductos().addActionListener(l->VentanaProductoV());
         vista.getBtnProductosA().addActionListener(l->VentanaProductoA());
         vista.getSmMantProA().addActionListener(l->VentanaProductoA());
+        vista.getBtnVentas().addActionListener(l->VentanaVentas());
+        vista.getSmMantVentas().addActionListener(l->VentanaVentas());
+               
+               
 
     }
 
@@ -101,6 +108,15 @@ public class Control_VP {
         Ventana_Productos_A v = new Ventana_Productos_A();
         Modelo_Producto_A m = new Modelo_Producto_A();
         Controlador_Producto_A c = new Controlador_Producto_A(m, v);
+        c.IniciarControl();
+        this.vista.getDpVentana().add(v);
+    }
+    
+    public void VentanaVentas(){
+        Ventana_Ventas v = new Ventana_Ventas();
+        Modelo_Enc_Factura e = new Modelo_Enc_Factura();
+        Modelo_Det_Factura d = new Modelo_Det_Factura();
+        Controlador_Factura c = new Controlador_Factura(e, d, v);
         c.IniciarControl();
         this.vista.getDpVentana().add(v);
     }

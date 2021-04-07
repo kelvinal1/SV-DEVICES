@@ -53,6 +53,7 @@ public class Controlador_Producto_A {
         vista.getBtnGuardar().addActionListener(l -> CrearProductoA());
         vista.getBtnBuscar().addActionListener(l -> AnadirImagen());
         vista.getBtnModificar().addActionListener(l->ModificarProductoA());
+        vista.getBtnEliminarP().addActionListener(l->EliminarProductoA());
 
     }
 
@@ -216,6 +217,36 @@ public class Controlador_Producto_A {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No ha seleccionada una fila para editarla", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    
+    public void EliminarProductoA() {
+        try {
+            int fila = vista.getTblProducto().getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) vista.getTblProducto().getModel();
+            int op = JOptionPane.showConfirmDialog(vista, "\tDesea eliminar este Producto:\n"
+                    + "Codigo: " + model.getValueAt(fila, 0).toString() + "\n"
+                    + "Nombre: " + model.getValueAt(fila, 1).toString() + "\n"
+                    + "Modelo: " + model.getValueAt(fila, 3).toString() + "\n"
+                    + "Problema: " + model.getValueAt(fila, 6).toString());
+            if (op == 0) {
+                Modelo_Producto p = new Modelo_Producto();
+                p.setCodigo(Integer.parseInt(model.getValueAt(fila, 0).toString()));
+
+                Modelo_Producto_A pv = new Modelo_Producto_A();
+                pv.setCodigo(Integer.parseInt(model.getValueAt(fila, 0).toString()));
+                if (pv.ELIMINAR_PA(p, pv)) {
+                    JOptionPane.showMessageDialog(vista, "PRODUCTO AJENO ELIMINADO");
+                    CargarLista("");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al borrar producto a la venta", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(vista, "No ha seleccionado ninguna fila para eliminarla", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
     private void AnadirImagen() {

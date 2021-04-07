@@ -99,7 +99,7 @@ public class Modelo_Enc_Factura extends enc_factura {
 
     public boolean ELIMINAR() {
         String sql = "DELETE FROM public.enc_factura\n"
-                + "WHERE cod_fact='"+getCodigo_fact()+"';";
+                + "WHERE cod_fact='" + getCodigo_fact() + "';";
         if (conexion.NoQuery(sql) == null) {
             System.out.println("--ENCABEZADO FACTURA ELIMINADO"
                     + super.toString());
@@ -109,4 +109,24 @@ public class Modelo_Enc_Factura extends enc_factura {
         }
     }
 
+    public String NuevoFact() {
+        String codCompleto="";
+        try {
+            
+            String sql = "select cod_fact\n"
+                    + "from enc_factura\n"
+                    + "order by 1 asc";
+            String codigo = null;
+            ResultSet rs = conexion.Query(sql);
+            while (rs.next()) {
+                codigo=rs.getString(1);
+            }
+            
+            codCompleto="fact"+(Integer.parseInt(codigo.substring(4))+1);
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return codCompleto;
+    }
 }
