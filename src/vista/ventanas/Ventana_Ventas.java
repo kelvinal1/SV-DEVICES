@@ -5,6 +5,11 @@
  */
 package vista.ventanas;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Kevin
@@ -47,7 +52,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         txtTotal = new javax.swing.JTextField();
         pnlDatosCliente = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNomApell = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -58,7 +63,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         txtVendedor = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtDescuento = new javax.swing.JTextField();
-        btnGuardar1 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         pnlDetFact = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDetalle = new javax.swing.JTable();
@@ -73,13 +78,13 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel28 = new javax.swing.JLabel();
         txtCliente = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tblProducto1 = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
         dlgListaP = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        btnGuardar3 = new javax.swing.JButton();
+        btnInsertarProducto = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        txtCedula1 = new javax.swing.JTextField();
+        txtBuscarProducto = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
@@ -157,9 +162,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel9.setText("Fecha de Emision");
 
         txtNFact.setEditable(false);
-        txtNFact.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtNFact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNFact.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNFact.setEnabled(false);
         txtNFact.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -185,19 +189,18 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel21.setText("TOTAL");
 
         txtSubtotal.setEditable(false);
+        txtSubtotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtSubtotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtSubtotal.setEnabled(false);
         txtSubtotal.setPreferredSize(new java.awt.Dimension(160, 25));
 
         txtIVA.setEditable(false);
+        txtIVA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtIVA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtIVA.setEnabled(false);
         txtIVA.setPreferredSize(new java.awt.Dimension(160, 25));
 
         txtTotal.setEditable(false);
-        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtTotal.setEnabled(false);
         txtTotal.setPreferredSize(new java.awt.Dimension(160, 25));
 
         javax.swing.GroupLayout pnlEncFactLayout = new javax.swing.GroupLayout(pnlEncFact);
@@ -273,20 +276,18 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Direccion:");
 
-        txtNombre.setEditable(false);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNombre.setEnabled(false);
-        txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
+        txtNomApell.setEditable(false);
+        txtNomApell.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNomApell.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtNomApell.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Cliente:");
 
         txtDireccion.setEditable(false);
-        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDireccion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDireccion.setEnabled(false);
         txtDireccion.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -294,9 +295,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel15.setText("Cedula:");
 
         txtCedula.setEditable(false);
-        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtCedula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtCedula.setEnabled(false);
         txtCedula.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -304,9 +304,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel16.setText("Telefono:");
 
         txtTelefono.setEditable(false);
-        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtTelefono.setEnabled(false);
         txtTelefono.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -314,9 +313,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel17.setText("Vendedor:");
 
         txtVendedor.setEditable(false);
-        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtVendedor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtVendedor.setEnabled(false);
         txtVendedor.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -324,20 +322,19 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel18.setText("Descuento:");
 
         txtDescuento.setEditable(false);
-        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDescuento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDescuento.setEnabled(false);
         txtDescuento.setPreferredSize(new java.awt.Dimension(160, 25));
 
-        btnGuardar1.setBackground(new java.awt.Color(71, 75, 78));
-        btnGuardar1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_customer_96px_1.png"))); // NOI18N
-        btnGuardar1.setToolTipText("Coloque el cliente");
-        btnGuardar1.setBorderPainted(false);
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+        btnClientes.setBackground(new java.awt.Color(71, 75, 78));
+        btnClientes.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_customer_96px_1.png"))); // NOI18N
+        btnClientes.setToolTipText("Coloque el cliente");
+        btnClientes.setBorderPainted(false);
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
+                btnClientesActionPerformed(evt);
             }
         });
 
@@ -359,7 +356,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomApell, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlDatosClienteLayout.createSequentialGroup()
                                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,7 +369,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlDatosClienteLayout.setVerticalGroup(
@@ -383,7 +380,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                     .addGroup(pnlDatosClienteLayout.createSequentialGroup()
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel13)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNomApell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -401,8 +398,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel17)
                             .addComponent(txtVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnGuardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
 
         pnlDetFact.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle Factura", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -474,12 +471,9 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         pnlDetFactLayout.setVerticalGroup(
             pnlDetFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDetFactLayout.createSequentialGroup()
-                .addGroup(pnlDetFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDetFactLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-                    .addComponent(pnlOpcFact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addComponent(pnlOpcFact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlFACTURALayout = new javax.swing.GroupLayout(pnlFACTURA);
@@ -502,20 +496,21 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
             pnlFACTURALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFACTURALayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlFACTURALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlFACTURALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFACTURALayout.createSequentialGroup()
-                        .addComponent(pnlEncFact, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlEncFact, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlDatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlOp, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlDetFact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlDetFact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        dlgFactura.getContentPane().add(pnlFACTURA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+        dlgFactura.getContentPane().add(pnlFACTURA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
-        dlgFactura.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 710));
+        dlgFactura.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 670));
 
         dlgListaC.setTitle("Lista Productos");
         dlgListaC.setResizable(false);
@@ -538,7 +533,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         txtCliente.setPreferredSize(new java.awt.Dimension(160, 25));
 
-        tblProducto1.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -554,7 +549,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tblProducto1);
+        jScrollPane4.setViewportView(tblClientes);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -601,18 +596,18 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setOpaque(false);
 
-        btnGuardar3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnGuardar3.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_add_64px.png"))); // NOI18N
-        btnGuardar3.setText("Insertar");
-        btnGuardar3.setBorderPainted(false);
-        btnGuardar3.setContentAreaFilled(false);
+        btnInsertarProducto.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnInsertarProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnInsertarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_add_64px.png"))); // NOI18N
+        btnInsertarProducto.setText("Insertar");
+        btnInsertarProducto.setBorderPainted(false);
+        btnInsertarProducto.setContentAreaFilled(false);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Producto:");
 
-        txtCedula1.setPreferredSize(new java.awt.Dimension(160, 25));
+        txtBuscarProducto.setPreferredSize(new java.awt.Dimension(160, 25));
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -642,9 +637,9 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCedula1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                        .addComponent(txtBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnInsertarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3)))
@@ -658,8 +653,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnInsertarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                 .addContainerGap())
@@ -987,13 +982,160 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
      */
+
+    public JButton getBtnClientes() {
+        return btnClientes;
+    }
+
+    public void setBtnClientes(JButton btnClientes) {
+        this.btnClientes = btnClientes;
+    }
+
+    public JButton getBtnInsertCliente() {
+        return btnInsertCliente;
+    }
+
+    public void setBtnInsertCliente(JButton btnInsertCliente) {
+        this.btnInsertCliente = btnInsertCliente;
+    }
+
+    public JTable getTblClientes() {
+        return tblClientes;
+    }
+
+    public void setTblClientes(JTable tblClientes) {
+        this.tblClientes = tblClientes;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
+    }
+
+    public JTextField getTxtCliente() {
+        return txtCliente;
+    }
+
+    public void setTxtCliente(JTextField txtCliente) {
+        this.txtCliente = txtCliente;
+    }
+
+    public JTextField getTxtDescuento() {
+        return txtDescuento;
+    }
+
+    public void setTxtDescuento(JTextField txtDescuento) {
+        this.txtDescuento = txtDescuento;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public void setTxtDireccion(JTextField txtDireccion) {
+        this.txtDireccion = txtDireccion;
+    }
+
+    public JTextField getTxtIVA() {
+        return txtIVA;
+    }
+
+    public void setTxtIVA(JTextField txtIVA) {
+        this.txtIVA = txtIVA;
+    }
+
+    public JTextField getTxtNFact() {
+        return txtNFact;
+    }
+
+    public void setTxtNFact(JTextField txtNFact) {
+        this.txtNFact = txtNFact;
+    }
+
+    public JTextField getTxtNomApell() {
+        return txtNomApell;
+    }
+
+    public void setTxtNomApell(JTextField txtNomApell) {
+        this.txtNomApell = txtNomApell;
+    }
+
+    public JTextField getTxtProducto() {
+        return txtProducto;
+    }
+
+    public void setTxtProducto(JTextField txtProducto) {
+        this.txtProducto = txtProducto;
+    }
+
+    public JTextField getTxtSubtotal() {
+        return txtSubtotal;
+    }
+
+    public void setTxtSubtotal(JTextField txtSubtotal) {
+        this.txtSubtotal = txtSubtotal;
+    }
+
+    public JTextField getTxtTelefono() {
+        return txtTelefono;
+    }
+
+    public void setTxtTelefono(JTextField txtTelefono) {
+        this.txtTelefono = txtTelefono;
+    }
+
+    public JTextField getTxtTotal() {
+        return txtTotal;
+    }
+
+    public void setTxtTotal(JTextField txtTotal) {
+        this.txtTotal = txtTotal;
+    }
+
+    public JTextField getTxtVendedor() {
+        return txtVendedor;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setTxtVendedor(JTextField txtVendedor) {
+        this.txtVendedor = txtVendedor;
+    }
+
+    public JButton getBtnNuevoF() {
+        return btnNuevoF;
+    }
+
+    public void setBtnNuevoF(JButton btnNuevoF) {
+        this.btnNuevoF = btnNuevoF;
+    }
+
+    public JDialog getDlgFactura() {
+        return dlgFactura;
+    }
+
+    public void setDlgFactura(JDialog dlgFactura) {
+        this.dlgFactura = dlgFactura;
+    }
+
+    public JDialog getDlgListaC() {
+        return dlgListaC;
+    }
+
+    public void setDlgListaC(JDialog dlgListaC) {
+        this.dlgListaC = dlgListaC;
+    }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DtcFecha;
@@ -1002,14 +1144,14 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAnadirPro;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarPro;
+    private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnEditarF;
     private javax.swing.JButton btnEliminarF;
     private javax.swing.JButton btnElminarP;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardar1;
-    private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnInsertCliente;
+    private javax.swing.JButton btnInsertarProducto;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnModificarP;
     private javax.swing.JButton btnModificarP1;
@@ -1062,19 +1204,19 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlOpcFact;
     private javax.swing.JPanel pnlOpciones;
     private javax.swing.JSpinner spnCantidad;
+    private javax.swing.JTable tblClientes;
     private javax.swing.JTable tblDetalle;
     private javax.swing.JTable tblFactura;
     private javax.swing.JTable tblProducto;
-    private javax.swing.JTable tblProducto1;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtBuscarProducto;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCedula1;
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtIVA;
     private javax.swing.JTextField txtNFact;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNomApell;
     private javax.swing.JTextField txtProducto;
     private javax.swing.JTextField txtSubtotal;
     private javax.swing.JTextField txtTelefono;

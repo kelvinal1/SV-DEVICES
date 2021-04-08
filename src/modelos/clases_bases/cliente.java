@@ -16,7 +16,7 @@ public class cliente extends persona{
     private int descuent,cod_cliente;
     private String cedulafk;
     
-
+    private String cliente;
     public cliente() {
     }
 
@@ -51,6 +51,14 @@ public class cliente extends persona{
 
     public void setCedulafk(String cedulafk) {
         this.cedulafk = cedulafk;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     @Override

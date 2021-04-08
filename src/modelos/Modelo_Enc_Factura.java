@@ -121,7 +121,7 @@ public class Modelo_Enc_Factura extends enc_factura {
             while (rs.next()) {
                 codigo=rs.getString(1);
             }
-            
+            rs.close();
             codCompleto="fact"+(Integer.parseInt(codigo.substring(4))+1);
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
