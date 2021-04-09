@@ -229,7 +229,6 @@ public class Modelo_Cliente extends cliente {
             
             ResultSet rs = conexion.Query(sql);
             List<cliente> lista = new ArrayList<>();
-            byte[] bf;
             while (rs.next()) {
                 cliente c1 = new cliente();
                 c1.setCliente(rs.getString(1));

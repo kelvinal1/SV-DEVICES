@@ -7,6 +7,8 @@ package vista.ventanas;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -96,11 +98,13 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         spnCantidad = new javax.swing.JSpinner();
         jLabel27 = new javax.swing.JLabel();
-        lblPrecio = new javax.swing.JLabel();
+        lblPrecioPU = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         lblPrecioT = new javax.swing.JLabel();
         btnCancelarPro = new javax.swing.JButton();
         btnModificarP1 = new javax.swing.JButton();
+        lblCodigoP = new javax.swing.JLabel();
+        lblNumCodigoP = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         pnlGeneral = new javax.swing.JPanel();
         pnlOpciones = new javax.swing.JPanel();
@@ -614,11 +618,11 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombrel", "Precio", "Cant Stock"
+                "Codigo", "Nombre", "Precio", "Cant Stock"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -697,10 +701,10 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Precio c/u:");
 
-        lblPrecio.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
-        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecio.setText("0");
+        lblPrecioPU.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblPrecioPU.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecioPU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPrecioPU.setText("0");
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -725,26 +729,34 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnModificarP1.setBorderPainted(false);
         btnModificarP1.setContentAreaFilled(false);
 
+        lblCodigoP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblCodigoP.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoP.setText("Codigo:");
+
+        lblNumCodigoP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNumCodigoP.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumCodigoP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumCodigoP.setText("0");
+
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(btnAnadirPro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarP1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(14, 14, 14)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addComponent(jLabel29)
                         .addGap(18, 18, 18)
                         .addComponent(lblPrecioT, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlDatosLayout.createSequentialGroup()
@@ -754,18 +766,28 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblPrecioPU, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(pnlDatosLayout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(44, 44, 44))))
+                        .addGap(29, 29, 29))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCodigoP)
+                .addGap(27, 27, 27)
+                .addComponent(lblNumCodigoP, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoP)
+                    .addComponent(lblNumCodigoP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -774,7 +796,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                     .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel27)
-                        .addComponent(lblPrecio))
+                        .addComponent(lblPrecioPU))
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -786,13 +808,13 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                     .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAnadirPro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43))
+                .addContainerGap())
         );
 
-        dlgAnadirP.getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 220));
+        dlgAnadirP.getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 250));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
-        dlgAnadirP.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 240));
+        dlgAnadirP.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 270));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1136,6 +1158,102 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     public void setDlgListaC(JDialog dlgListaC) {
         this.dlgListaC = dlgListaC;
     }
+
+    public JDialog getDlgAnadirP() {
+        return dlgAnadirP;
+    }
+
+    public void setDlgAnadirP(JDialog dlgAnadirP) {
+        this.dlgAnadirP = dlgAnadirP;
+    }
+
+    public JDialog getDlgListaP() {
+        return dlgListaP;
+    }
+
+    public void setDlgListaP(JDialog dlgListaP) {
+        this.dlgListaP = dlgListaP;
+    }
+
+    public JTable getTblProducto() {
+        return tblProducto;
+    }
+
+    public void setTblProducto(JTable tblProducto) {
+        this.tblProducto = tblProducto;
+    }
+
+    public JTextField getTxtBuscarProducto() {
+        return txtBuscarProducto;
+    }
+
+    public void setTxtBuscarProducto(JTextField txtBuscarProducto) {
+        this.txtBuscarProducto = txtBuscarProducto;
+    }
+
+    public JButton getBtnAnadirP() {
+        return btnAnadirP;
+    }
+
+    public void setBtnAnadirP(JButton btnAnadirP) {
+        this.btnAnadirP = btnAnadirP;
+    }
+
+    public JButton getBtnInsertarProducto() {
+        return btnInsertarProducto;
+    }
+
+    public void setBtnInsertarProducto(JButton btnInsertarProducto) {
+        this.btnInsertarProducto = btnInsertarProducto;
+    }
+
+    public JLabel getLblNumCodigoP() {
+        return lblNumCodigoP;
+    }
+
+    public void setLblNumCodigoP(JLabel lblNumCodigoP) {
+        this.lblNumCodigoP = lblNumCodigoP;
+    }
+
+    public JTable getTblDetalle() {
+        return tblDetalle;
+    }
+
+    public void setTblDetalle(JTable tblDetalle) {
+        this.tblDetalle = tblDetalle;
+    }
+
+    public JButton getBtnAnadirPro() {
+        return btnAnadirPro;
+    }
+
+    public void setBtnAnadirPro(JButton btnAnadirPro) {
+        this.btnAnadirPro = btnAnadirPro;
+    }
+
+    public JLabel getLblPrecioPU() {
+        return lblPrecioPU;
+    }
+
+    public void setLblPrecioPU(JLabel lblPrecioPU) {
+        this.lblPrecioPU = lblPrecioPU;
+    }
+
+    public JSpinner getSpnCantidad() {
+        return spnCantidad;
+    }
+
+    public void setSpnCantidad(JSpinner spnCantidad) {
+        this.spnCantidad = spnCantidad;
+    }
+
+    public JLabel getLblPrecioT() {
+        return lblPrecioT;
+    }
+
+    public void setLblPrecioT(JLabel lblPrecioT) {
+        this.lblPrecioT = lblPrecioT;
+    }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DtcFecha;
@@ -1191,8 +1309,10 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblCodigoP;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblNumCodigoP;
+    private javax.swing.JLabel lblPrecioPU;
     private javax.swing.JLabel lblPrecioT;
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlDatosCliente;

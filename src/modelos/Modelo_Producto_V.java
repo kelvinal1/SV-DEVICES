@@ -191,5 +191,34 @@ public class Modelo_Producto_V extends producto_v {
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
+    
+    public List<producto_v> VistaProductos (String aguja){
+        try {
+            String sql="select *"
+                    + "\n from ProductosVenta"
+                    + "\n where upper(nombre) like upper('%"+aguja+"%')";
+            ResultSet rs = conexion.Query(sql);
+            
+            List<producto_v> lista = new ArrayList<>();
+            while(rs.next()){
+                producto_v v = new producto_v();
+                v.setCodigo(rs.getInt(1));
+                v.setNombre(rs.getString(2));
+                v.setPrecio(rs.getDouble(3));
+                v.setCant_stock(rs.getInt(4));
+                
+                lista.add(v);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Producto_V.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+        
+        
+        
+    }
 
 }
