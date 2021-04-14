@@ -117,7 +117,7 @@ public class Control_VP {
         Modelo_Enc_Factura e = new Modelo_Enc_Factura();
         Modelo_Det_Factura d = new Modelo_Det_Factura();
         Controlador_Factura c = new Controlador_Factura(e, d, v);
-        c.IniciarControl();
+        c.IniciarControl(vista.getLblUsuario().getText());
         this.vista.getDpVentana().add(v);
     }
 

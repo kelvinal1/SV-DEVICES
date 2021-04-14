@@ -110,23 +110,91 @@ public class Modelo_Enc_Factura extends enc_factura {
     }
 
     public String NuevoFact() {
-        String codCompleto="";
+        String codCompleto = "";
         try {
-            
+
             String sql = "select cod_fact\n"
                     + "from enc_factura\n"
                     + "order by 1 asc";
             String codigo = null;
             ResultSet rs = conexion.Query(sql);
             while (rs.next()) {
-                codigo=rs.getString(1);
+                codigo = rs.getString(1);
             }
             rs.close();
-            codCompleto="fact"+(Integer.parseInt(codigo.substring(4))+1);
+            codCompleto = "fact" + (Integer.parseInt(codigo.substring(4)) + 1);
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return codCompleto;
     }
+
+    public int Cliente(String cedula) {
+
+        try {
+            int codigo = 0;
+            String sql = "select cod_cliente\n"
+                    + "from cliente\n"
+                    + "where cedula='" + cedula + "'";
+
+            ResultSet rs = conexion.Query(sql);
+            while (rs.next()) {
+                codigo = rs.getInt(1);
+            }
+            rs.close();
+            return codigo;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+
+    }
+
+    public String ColocarAdmin(String usuario) {
+
+        try {
+            String adminAsignado = "";
+            String sql = "select p.nombres||' '||p.apellidos \n"
+                    + "from admin a, persona p\n"
+                    + "where p.cedula=a.cedula\n"
+                    + "and a.usuario='"+usuario+"';";
+
+            ResultSet rs = conexion.Query(sql);
+            while (rs.next()) {
+                adminAsignado = rs.getString(1);
+            }
+            rs.close();
+            return adminAsignado;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            return "";
+        }
+
+    }
+
+    public int Admin(String usuario) {
+
+        try {
+            int codigo = 0;
+            String sql = "select cod_admin\n"
+                    + "from admin\n"
+                    + "where usuario='" + usuario + "'";
+
+            ResultSet rs = conexion.Query(sql);
+            while (rs.next()) {
+                codigo = rs.getInt(1);
+            }
+            rs.close();
+            return codigo;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+
+    }
+
 }

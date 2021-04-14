@@ -144,6 +144,8 @@ public class Modelo_Cliente extends cliente {
             return false;
         }
     }
+    
+    
 
     public boolean CREAR_C(Modelo_Persona p, Modelo_Cliente a) {
         if (p.CREAR()) {

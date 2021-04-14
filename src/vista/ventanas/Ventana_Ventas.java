@@ -5,6 +5,7 @@
  */
 package vista.ventanas;
 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -214,6 +215,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Iva:");
+
+        spnIVA.setModel(new javax.swing.SpinnerNumberModel(12, 1, null, 1));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
@@ -1039,9 +1042,25 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    public JDateChooser getDtcFecha() {
+        return DtcFecha;
+    }
+
+    public void setDtcFecha(JDateChooser DtcFecha) {
+        this.DtcFecha = DtcFecha;
+    }
+
+
+    public JButton getBtnElminarP() {
+        return btnElminarP;
+    }
+
     /**
      * @param args the command line arguments
      */
+    public void setBtnElminarP(JButton btnElminarP) {
+        this.btnElminarP = btnElminarP;
+    }
 
     public JButton getBtnClientes() {
         return btnClientes;
@@ -1300,6 +1319,14 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
     public void setTxtTotalSN(JTextField txtTotalSN) {
         this.txtTotalSN = txtTotalSN;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
     }
     
     

@@ -89,9 +89,9 @@ public class det_factura {
 
     @Override
     public String toString() {
-        return "\n\tdet_factura\n" + "codigo_factura=" + codigo_factura + ", cod_detalle_fact=" + cod_detalle_fact + ", cod_producto=" + cod_producto + ", cantidad=" + cantidad + ", subtotal=" + subtotal ;
+        return "\n\tdet_factura\n"  + "codigo_factura=" + codigo_factura + ", cod_detalle_fact=" + cod_detalle_fact + ", cod_producto=" + cod_producto + ", cantidad=" + cantidad + ", subtotal=" + subtotal + ", producto=" + producto + ", precioU=" + precioU ;
     }
-    
+
     
     
 }
