@@ -49,7 +49,7 @@ public class Modelo_Det_Factura extends det_factura {
         }
     }
 
-    public boolean ELIMINAR() {
+    public boolean ELIMINAR(    ) {
         String sql = "DELETE FROM public.det_factura\n"
                 + "WHERE cod_enc_fact='"+getCodigo_factura()+"';";
         if (conexion.NoQuery(sql) == null) {

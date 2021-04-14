@@ -12,12 +12,17 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerModel;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import modelos.ConexionPG;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_Det_Factura;
 import modelos.Modelo_Enc_Factura;
@@ -25,6 +30,12 @@ import modelos.Modelo_Producto_V;
 import modelos.clases_bases.cliente;
 import modelos.clases_bases.det_factura;
 import modelos.clases_bases.producto_v;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.ventanas.Ventana_Principal;
 import vista.ventanas.Ventana_Ventas;
 
@@ -337,6 +348,7 @@ public class Controlador_Factura {
             System.out.println("detalle: "+detalles.size());
             if (rep==detalles.size()) {
                 JOptionPane.showMessageDialog(null, "FACTURA CREADA");
+                Imprimir(encabezado);
             }
         }else{
             JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO FACTURA","ERROR ENCABEZADO",JOptionPane.ERROR_MESSAGE);
@@ -344,6 +356,40 @@ public class Controlador_Factura {
         
         
 
+    }
+    
+    
+    
+    public void Imprimir(Modelo_Enc_Factura enc){
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteFactura.jasper"));
+           
+            Map<String,Object> parametros= new HashMap<String, Object>();
+            parametros.put("factura","%"+vista.getTxtNFact().getText()+"%");
+            parametros.put("num_Fact",enc.getCodigo_fact());
+            parametros.put("cedula",vista.getTxtCedula().getText());
+            parametros.put("fecha",enc.getFechaEmision());
+            parametros.put("cliente",vista.getTxtNomApell().getText());
+            parametros.put("telefono",vista.getTxtTelefono().getText());
+            parametros.put("vendedor",vista.getTxtVendedor().getText());
+            parametros.put("direccion",vista.getTxtDireccion().getText());
+            parametros.put("descuento",Double.parseDouble(vista.getTxtDescuento().getText()));
+            parametros.put("iva",enc.getTotal_iva());
+            parametros.put("total",enc.getTotal());
+            parametros.put("subtotal",enc.getSubtotal());
+            
+            
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+            
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

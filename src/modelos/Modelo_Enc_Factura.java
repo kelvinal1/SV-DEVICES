@@ -114,19 +114,23 @@ public class Modelo_Enc_Factura extends enc_factura {
         try {
 
             String sql = "select cod_fact\n"
-                    + "from enc_factura\n"
-                    + "order by 1 asc";
+                    + "from enc_factura";
             String codigo = null;
             ResultSet rs = conexion.Query(sql);
             while (rs.next()) {
                 codigo = rs.getString(1);
             }
+            
             rs.close();
             codCompleto = "fact" + (Integer.parseInt(codigo.substring(4)) + 1);
+            
+                    
+            
+           
         } catch (SQLException ex) {
             Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        System.out.println(codCompleto);
         return codCompleto;
     }
 
