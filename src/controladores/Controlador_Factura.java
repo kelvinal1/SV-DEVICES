@@ -75,6 +75,7 @@ public class Controlador_Factura {
                 CargarProductos(vista.getTxtBuscarProducto().getText());
             }
         };
+        
         vista.getBtnNuevoF().addActionListener(l->Dialogo());
         vista.getBtnClientes().addActionListener(l->CargarClientes(""));
         vista.getTxtCliente().addKeyListener(k1);
@@ -192,7 +193,6 @@ public class Controlador_Factura {
         tablaA.setNumRows(0);
         int ncols = tablaA.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
-        
         detalles.stream().forEach(t->{
             
             tablaA.addRow(new Object[ncols]);
@@ -201,14 +201,53 @@ public class Controlador_Factura {
             vista.getTblDetalle().setValueAt(t.getPrecioU(), i.value, 2);
             vista.getTblDetalle().setValueAt(t.getCantidad(), i.value, 3);
             vista.getTblDetalle().setValueAt(t.getSubtotal(), i.value, 4);
+            
             i.value++;
             
         });
         vista.getDlgAnadirP().setVisible(false);
         
+       
+       
+        CalcularTotales();
+
+                
         
     }
     
+    
+    public void CalcularTotales(){
+        String iva="0."+vista.getSpnIVA().getValue().toString();
+       
+        DecimalFormat df = new DecimalFormat("#.00");
+        double subtotal=0;
+        
+        for (int i = 0; i < detalles.size(); i++) {
+            subtotal=subtotal+detalles.get(i).getSubtotal();
+        }
+       
+        vista.getTxtSubtotal().setText(""+df.format(subtotal));
+        
+        double ivaT=subtotal*Double.parseDouble(iva);
+        vista.getTxtIVA().setText(""+df.format(ivaT));
+        String dc=vista.getTxtDescuento().getText();
+      
+        if (dc.length()==1) {
+            dc="0.0"+dc;
+        }else if (dc.length()==2) {
+            dc="0."+dc;
+        }
+        double TOTAL=(subtotal+ivaT);
+        double TOTALdescuento=(subtotal+ivaT)-(TOTAL*Double.parseDouble(dc));
+       
+                
+        
+        vista.getTxtTotal().setText(df.format(TOTALdescuento));
+        vista.getTxtTotalSN().setText(df.format(TOTAL));
+               
+        
+        
+    }
     
     
     
