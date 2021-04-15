@@ -116,7 +116,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnNuevoF = new javax.swing.JButton();
-        btnEditarF = new javax.swing.JButton();
         btnEliminarF = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
@@ -874,12 +873,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnNuevoF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_new_16px.png"))); // NOI18N
         btnNuevoF.setText("Nuevo Factura");
 
-        btnEditarF.setBackground(new java.awt.Color(94, 33, 41));
-        btnEditarF.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnEditarF.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_16px.png"))); // NOI18N
-        btnEditarF.setText("Editar Factura");
-
         btnEliminarF.setBackground(new java.awt.Color(94, 33, 41));
         btnEliminarF.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnEliminarF.setForeground(new java.awt.Color(255, 255, 255));
@@ -906,16 +899,13 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
             pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOpcionesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlOpcionesLayout.createSequentialGroup()
-                        .addComponent(btnNuevoF)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditarF))
+                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlOpcionesLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNuevoF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
                 .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEliminarF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -936,7 +926,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnNuevoF)
-                            .addComponent(btnEditarF)
                             .addComponent(btnEliminarF)))
                     .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1339,7 +1328,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarPro;
     private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnEditarF;
     private javax.swing.JButton btnEliminarF;
     private javax.swing.JButton btnElminarP;
     private javax.swing.JButton btnGuardar;

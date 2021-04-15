@@ -6,8 +6,6 @@
 package sv_devices;
 
 import controladores.Controlador_IS;
-import modelos.ConexionPG;
-import modelos.Modelo_IS;
 import vista.ventanas.Inicio_Sesion;
 
 /**
