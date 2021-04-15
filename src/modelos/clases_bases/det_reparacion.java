@@ -15,19 +15,19 @@ public class det_reparacion {
     private String codigo_reparacion;
     private int codigo_det_reparacion;
     private int cod_producto;
-    private int cantidad;
     private double subtotal;
 
     public det_reparacion() {
     }
 
-    public det_reparacion(String codigo_reparacion, int codigo_det_reparacion, int cod_producto, int cantidad, double subtotal) {
+    public det_reparacion(String codigo_reparacion, int codigo_det_reparacion, int cod_producto, double subtotal) {
         this.codigo_reparacion = codigo_reparacion;
         this.codigo_det_reparacion = codigo_det_reparacion;
         this.cod_producto = cod_producto;
-        this.cantidad = cantidad;
         this.subtotal = subtotal;
     }
+
+   
 
     public String getCodigo_reparacion() {
         return codigo_reparacion;
@@ -53,13 +53,7 @@ public class det_reparacion {
         this.cod_producto = cod_producto;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
+   
 
     public double getSubtotal() {
         return subtotal;
@@ -71,8 +65,10 @@ public class det_reparacion {
 
     @Override
     public String toString() {
-        return "\n\tdet_reparacion\n" + "codigo_reparacion=" + codigo_reparacion + ", codigo_det_reparacion=" + codigo_det_reparacion + ", cod_producto=" + cod_producto + ", cantidad=" + cantidad + ", subtotal=" + subtotal ;
+        return "\n\tdet_reparacion\n" + "codigo_reparacion=" + codigo_reparacion + ", codigo_det_reparacion=" + codigo_det_reparacion + ", cod_producto=" + cod_producto + ", subtotal=" + subtotal ;
     }
+
+    
     
     
     

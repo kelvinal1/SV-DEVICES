@@ -16,6 +16,8 @@ public class enc_reparacion {
     
     private String codigo_reparacion;
     private int cod_cliente;
+    private String cliente;
+    private String vendedor;
     private int cod_admin;
     private Date fecha_Emision;
     private Date fecha_retiro;
@@ -109,6 +111,22 @@ public class enc_reparacion {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
     }
 
     @Override
