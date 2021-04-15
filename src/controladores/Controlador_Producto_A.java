@@ -6,6 +6,8 @@
 package controladores;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,12 +50,27 @@ public class Controlador_Producto_A {
     }
 
     public void IniciarControl() {
+        KeyListener k = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarLista(vista.getTxtBuscar().getText());
+            }
+        };
         vista.getBtnNuevoP().addActionListener(l -> Dialogo(1));
         vista.getBtnEditarP().addActionListener(l -> CargarCampos());
         vista.getBtnGuardar().addActionListener(l -> CrearProductoA());
         vista.getBtnBuscar().addActionListener(l -> AnadirImagen());
         vista.getBtnModificar().addActionListener(l->ModificarProductoA());
         vista.getBtnEliminarP().addActionListener(l->EliminarProductoA());
+        vista.getTxtBuscar().addKeyListener(k);
 
     }
 

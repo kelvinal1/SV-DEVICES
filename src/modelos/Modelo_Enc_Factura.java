@@ -31,17 +31,10 @@ public class Modelo_Enc_Factura extends enc_factura {
 
     public static List<enc_factura> LISTAR(String inicial) {
         try {
-            String sql = "SELECT f.cod_fact,f.cod_cliente, pc.nombres ||' '||pc.apellidos as \"cliente\", \n"
-                    + "f.cod_admin,pa.nombres||' '||pa.apellidos as \"administrador\",\n"
-                    + "f.fecha_emision, f.descuento, f.subtotal, f.total_iva, f.total\n"
-                    + "FROM enc_factura f,  persona pc,  cliente c,  persona pa,  admin a \n"
-                    + "where f.cod_cliente = c.cod_cliente and\n"
-                    + "	c.cedula= pc.cedula and\n"
-                    + "	f.cod_admin=a.cod_admin and\n"
-                    + "	a.cedula=pa.cedula  and (\n"
-                    + "		concat(upper(pc.nombres),upper(pc.apellidos)) like upper('%" + inicial + "%') and\n"
-                    + "		concat(upper(pa.nombres),upper(pa.apellidos)) like upper('%" + inicial + "%') and\n"
-                    + "		upper(f.cod_fact) like upper('%" + inicial + "%') );";
+            String sql = "select * from facturascreadas "
+                    + "\n where upper(cliente) like upper('%"+inicial+"%')"
+                    + "\n or upper(vendedor) like upper('%"+inicial+"%')"
+                    + "\n or upper(codigofact) like upper('%"+inicial+"%')";
 
             ResultSet rs = conexion.Query(sql);
             List<enc_factura> lista = new ArrayList<>();
@@ -49,10 +42,8 @@ public class Modelo_Enc_Factura extends enc_factura {
             while (rs.next()) {
                 enc_factura ef = new enc_factura();
                 ef.setCodigo_fact(rs.getString(1));
-                ef.setCod_cliente(rs.getInt(2));
-                ef.setCliente(rs.getString(3));
-                ef.setCod_administrador(rs.getInt(4));
-                ef.setAdministrador(rs.getString(5));
+                ef.setCliente(rs.getString(2));
+                ef.setAdministrador(rs.getString(4));
                 ef.setFechaEmision(rs.getDate(6));
                 ef.setDescuento(rs.getDouble(7));
                 ef.setSubtotal(rs.getDouble(8));

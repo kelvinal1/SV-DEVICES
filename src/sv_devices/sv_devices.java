@@ -9,7 +9,7 @@ import controladores.Controlador_IS;
 import vista.ventanas.Inicio_Sesion;
 
 /**
- *
+ *  
  * @author Kevin
  */
 public class sv_devices {

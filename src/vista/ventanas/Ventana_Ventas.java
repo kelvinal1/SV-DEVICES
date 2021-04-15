@@ -39,7 +39,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         pnlFACTURA = new javax.swing.JPanel();
         pnlOp = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         pnlEncFact = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -76,7 +75,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         tblDetalle = new javax.swing.JTable();
         pnlOpcFact = new javax.swing.JPanel();
         btnAnadirP = new javax.swing.JButton();
-        btnModificarP = new javax.swing.JButton();
         btnElminarP = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
         dlgListaC = new javax.swing.JDialog();
@@ -107,7 +105,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         jLabel29 = new javax.swing.JLabel();
         lblPrecioT = new javax.swing.JLabel();
         btnCancelarPro = new javax.swing.JButton();
-        btnModificarP1 = new javax.swing.JButton();
         lblCodigoP = new javax.swing.JLabel();
         lblNumCodigoP = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -143,15 +140,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnGuardar.setBorderPainted(false);
         btnGuardar.setContentAreaFilled(false);
         pnlOp.add(btnGuardar);
-
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_file_64px.png"))); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.setToolTipText("Clic para modificar factura");
-        btnModificar.setBorderPainted(false);
-        btnModificar.setContentAreaFilled(false);
-        pnlOp.add(btnModificar);
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -475,15 +463,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnAnadirP.setContentAreaFilled(false);
         pnlOpcFact.add(btnAnadirP);
 
-        btnModificarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificarP.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_64px.png"))); // NOI18N
-        btnModificarP.setText("Modificar");
-        btnModificarP.setToolTipText("Modificar Producto");
-        btnModificarP.setBorderPainted(false);
-        btnModificarP.setContentAreaFilled(false);
-        pnlOpcFact.add(btnModificarP);
-
         btnElminarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnElminarP.setForeground(new java.awt.Color(255, 255, 255));
         btnElminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_cancel_64px_1.png"))); // NOI18N
@@ -754,13 +733,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnCancelarPro.setBorderPainted(false);
         btnCancelarPro.setContentAreaFilled(false);
 
-        btnModificarP1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificarP1.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificarP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_64px.png"))); // NOI18N
-        btnModificarP1.setText("Modificar");
-        btnModificarP1.setBorderPainted(false);
-        btnModificarP1.setContentAreaFilled(false);
-
         lblCodigoP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCodigoP.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigoP.setText("Codigo:");
@@ -775,20 +747,8 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addComponent(btnAnadirPro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModificarP1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPrecioT, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlDatosLayout.createSequentialGroup()
@@ -799,12 +759,23 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblPrecioPU, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 83, Short.MAX_VALUE))
                             .addGroup(pnlDatosLayout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(29, 29, 29))))
+                        .addGap(29, 29, 29))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecioT, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnAnadirPro, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCodigoP)
@@ -814,7 +785,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+            .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoP)
@@ -835,13 +806,10 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel29)
                     .addComponent(lblPrecioT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModificarP1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAnadirPro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap())
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAnadirPro))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dlgAnadirP.getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 250));
@@ -972,12 +940,12 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -988,7 +956,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1030,6 +998,22 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    public JTable getTblFactura() {
+        return tblFactura;
+    }
+
+    public void setTblFactura(JTable tblFactura) {
+        this.tblFactura = tblFactura;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
 
     public JDateChooser getDtcFecha() {
         return DtcFecha;
@@ -1141,6 +1125,14 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
     public JTextField getTxtSubtotal() {
         return txtSubtotal;
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
     }
 
     public void setTxtSubtotal(JTextField txtSubtotal) {
@@ -1334,9 +1326,6 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnInsertCliente;
     private javax.swing.JButton btnInsertarProducto;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificarP;
-    private javax.swing.JButton btnModificarP1;
     private javax.swing.JButton btnNuevoF;
     private javax.swing.JDialog dlgAnadirP;
     private javax.swing.JDialog dlgFactura;
