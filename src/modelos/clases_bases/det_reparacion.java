@@ -14,9 +14,13 @@ public class det_reparacion {
     
     private String codigo_reparacion;
     private int codigo_det_reparacion;
+    private String problema;
+    private String nombre;
+    private String detalle;
     private int cod_producto;
     private double subtotal;
-
+    private String producto;
+    private double costo;
     public det_reparacion() {
     }
 
@@ -25,6 +29,14 @@ public class det_reparacion {
         this.codigo_det_reparacion = codigo_det_reparacion;
         this.cod_producto = cod_producto;
         this.subtotal = subtotal;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
 
    
@@ -53,6 +65,14 @@ public class det_reparacion {
         this.cod_producto = cod_producto;
     }
 
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
    
 
     public double getSubtotal() {
@@ -61,6 +81,30 @@ public class det_reparacion {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public String getProblema() {
+        return problema;
+    }
+
+    public void setProblema(String problema) {
+        this.problema = problema;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
     @Override

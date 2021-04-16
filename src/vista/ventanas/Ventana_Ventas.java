@@ -999,6 +999,14 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    public JButton getBtnEliminarF() {
+        return btnEliminarF;
+    }
+
+    public void setBtnEliminarF(JButton btnEliminarF) {
+        this.btnEliminarF = btnEliminarF;
+    }
+
     public JTable getTblFactura() {
         return tblFactura;
     }

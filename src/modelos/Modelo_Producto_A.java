@@ -191,4 +191,38 @@ public class Modelo_Producto_A extends producto_a {
         return reader.read(0, param);
     }
 
+    
+    public List<producto_a> VistaProductos (String aguja){
+        try {
+            String sql="select * "
+                    + "\n from productosA"
+                    + "\n where upper(nombre) like upper('%"+aguja+"%')"
+                    + "\n or upper(problema) like upper('%"+aguja+"%')"
+                    + "\n or upper(detalle) like upper('%"+aguja+"%');";
+            ResultSet rs = conexion.Query(sql);
+            
+            List<producto_a> lista = new ArrayList<>();
+            while(rs.next()){
+                producto_a a = new producto_a();
+                a.setCod_prod_a(rs.getInt(1));
+                a.setNombre(rs.getString(2));
+                a.setCantidad(rs.getInt(3));
+                a.setCosto(rs.getDouble(4));
+                a.setProblema(rs.getString(5));
+                a.setDetalle(rs.getString(6));
+                
+                
+                lista.add(a);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Producto_A.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+        
+        
+        
+    }
 }

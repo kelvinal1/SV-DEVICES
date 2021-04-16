@@ -93,7 +93,7 @@ public class Controlador_Factura {
                 CargarProductos(vista.getTxtBuscarProducto().getText());
             }
         };
-        
+
         KeyListener k3 = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -121,35 +121,34 @@ public class Controlador_Factura {
         vista.getBtnElminarP().addActionListener(l -> EliminarDetalle());
         vista.getTxtVendedor().setText(modeloEncabezado.ColocarAdmin(vendedor));
         modeloEncabezado.setCod_administrador(modeloEncabezado.Admin(vendedor));
-        vista.getBtnGuardar().addActionListener(l->RegistrarFactura());
+        vista.getBtnGuardar().addActionListener(l -> RegistrarFactura());
         vista.getTxtBuscar().addKeyListener(k3);
+        vista.getBtnEliminarF().addActionListener(l->EliminarFactura());
 
     }
-    
-    public void CargarFacturas(String aguja){
-        
+
+    public void CargarFacturas(String aguja) {
+
         List<enc_factura> lista = modeloEncabezado.LISTAR(aguja);
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblFactura().getModel();
         tablaA.setNumRows(0);
         int ncols = tablaA.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
-        lista.stream().forEach(f->{
-           tablaA.addRow(new Object[ncols]);
-           vista.getTblFactura().setValueAt(f.getCodigo_fact(), i.value,0);
-           vista.getTblFactura().setValueAt(f.getCliente(), i.value,1);
-           vista.getTblFactura().setValueAt(f.getAdministrador(), i.value,2);
-           vista.getTblFactura().setValueAt(f.getFechaEmision(), i.value,3);
-           vista.getTblFactura().setValueAt(f.getDescuento(), i.value,4);
-           vista.getTblFactura().setValueAt(f.getSubtotal(), i.value,5);
-           vista.getTblFactura().setValueAt(f.getTotal_iva(), i.value,6);
-           vista.getTblFactura().setValueAt(f.getTotal(), i.value,7);
-           i.value++;
+        lista.stream().forEach(f -> {
+            tablaA.addRow(new Object[ncols]);
+            vista.getTblFactura().setValueAt(f.getCodigo_fact(), i.value, 0);
+            vista.getTblFactura().setValueAt(f.getCliente(), i.value, 1);
+            vista.getTblFactura().setValueAt(f.getAdministrador(), i.value, 2);
+            vista.getTblFactura().setValueAt(f.getFechaEmision(), i.value, 3);
+            vista.getTblFactura().setValueAt(f.getDescuento(), i.value, 4);
+            vista.getTblFactura().setValueAt(f.getSubtotal(), i.value, 5);
+            vista.getTblFactura().setValueAt(f.getTotal_iva(), i.value, 6);
+            vista.getTblFactura().setValueAt(f.getTotal(), i.value, 7);
+            i.value++;
         });
-        
-        vista.getjLabel3().setText(""+vista.getTblFactura().getRowCount());
-        
-        
-        
+
+        vista.getjLabel3().setText("" + vista.getTblFactura().getRowCount());
+
     }
 
     public void CargarClientes(String aguja) {
@@ -338,7 +337,7 @@ public class Controlador_Factura {
         }
 
     }
-    
+
     public void RecargarDetalles() {
 
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
@@ -378,73 +377,67 @@ public class Controlador_Factura {
         encabezado.setSubtotal(Double.parseDouble(vista.getTxtSubtotal().getText()));
         encabezado.setTotal_iva(Double.parseDouble(vista.getTxtIVA().getText()));
         encabezado.setTotal(Double.parseDouble(vista.getTxtTotal().getText()));
-        
-        
+
         if (encabezado.CREAR()) {
-            int rep=0;
+            int rep = 0;
             for (int i = 0; i < detalles.size(); i++) {
                 if (detalles.get(i).CREAR()) {
                     rep++;
                 }
-                
+
             }
-            System.out.println("rep:"+rep);
-            System.out.println("detalle: "+detalles.size());
-            if (rep==detalles.size()) {
+            System.out.println("rep:" + rep);
+            System.out.println("detalle: " + detalles.size());
+            if (rep == detalles.size()) {
                 JOptionPane.showMessageDialog(null, "FACTURA CREADA");
                 CargarFacturas("");
-                int op= JOptionPane.showConfirmDialog(null,"¿Desea imprimir factura?");
-                if (op==0) {
+                int op = JOptionPane.showConfirmDialog(null, "¿Desea imprimir factura?");
+                if (op == 0) {
                     Imprimir(encabezado);
                     BorrarDatosFactura();
-                }else{
+                } else {
                     BorrarDatosFactura();
                 }
-               
+
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO FACTURA","ERROR ENCABEZADO",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO FACTURA", "ERROR ENCABEZADO", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
 
     }
-    
-    public void Imprimir(Modelo_Enc_Factura enc){
+
+    public void Imprimir(Modelo_Enc_Factura enc) {
         ConexionPG con = new ConexionPG();
-        
+
         try {
-            JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteFactura.jasper"));
-           
-            Map<String,Object> parametros= new HashMap<String, Object>();
-            parametros.put("factura","%"+vista.getTxtNFact().getText()+"%");
-            parametros.put("num_Fact",enc.getCodigo_fact());
-            parametros.put("cedula",vista.getTxtCedula().getText());
-            parametros.put("fecha",enc.getFechaEmision());
-            parametros.put("cliente",vista.getTxtNomApell().getText());
-            parametros.put("telefono",vista.getTxtTelefono().getText());
-            parametros.put("vendedor",vista.getTxtVendedor().getText());
-            parametros.put("direccion",vista.getTxtDireccion().getText());
-            parametros.put("descuento",Double.parseDouble(vista.getTxtDescuento().getText()));
-            parametros.put("iva",enc.getTotal_iva());
-            parametros.put("total",enc.getTotal());
-            parametros.put("subtotal",enc.getSubtotal());
-            
-            
-            
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteFactura.jasper"));
+
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("factura", "%" + vista.getTxtNFact().getText() + "%");
+            parametros.put("num_Fact", enc.getCodigo_fact());
+            parametros.put("cedula", vista.getTxtCedula().getText());
+            parametros.put("fecha", enc.getFechaEmision());
+            parametros.put("cliente", vista.getTxtNomApell().getText());
+            parametros.put("telefono", vista.getTxtTelefono().getText());
+            parametros.put("vendedor", vista.getTxtVendedor().getText());
+            parametros.put("direccion", vista.getTxtDireccion().getText());
+            parametros.put("descuento", Double.parseDouble(vista.getTxtDescuento().getText()));
+            parametros.put("iva", enc.getTotal_iva());
+            parametros.put("total", enc.getTotal());
+            parametros.put("subtotal", enc.getSubtotal());
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
             JasperViewer jv = new JasperViewer(jp);
-            
+
             jv.setVisible(true);
-            
-            
+
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Factura.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void BorrarDatosFactura(){
-        
+
+    public void BorrarDatosFactura() {
+
         vista.getTxtNomApell().setText("");
         vista.getDtcFecha().setDate(null);
         vista.getTxtDireccion().setText("");
@@ -458,13 +451,44 @@ public class Controlador_Factura {
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
         tablaA.setNumRows(0);
         detalles.clear();
-        if (detalles.size()==0) {
+        if (detalles.size() == 0) {
             System.out.println("--TODOS LOS DETALLES FUERON BORRADOS");
             vista.getTxtNFact().setText(modeloEncabezado.NuevoFact());
-                    
+
         }
-                
-                   
+
+    }
+
+    public void EliminarFactura() {
+        try {
+            int fila = vista.getTblFactura().getSelectedRow();
+            int op = JOptionPane.showConfirmDialog(null, "Seguro que desea eliminar la factura:"
+                    + "\nFactura: " + vista.getTblFactura().getValueAt(fila, 0)
+                    + "\nSubtotal: " + vista.getTblFactura().getValueAt(fila, 5)
+                    + "\nTotal: " + vista.getTblFactura().getValueAt(fila, 7));
+            if (op == 0) {
+                Modelo_Det_Factura d = new Modelo_Det_Factura();
+                d.setCodigo_factura(vista.getTblFactura().getValueAt(fila, 0).toString());
+                Modelo_Enc_Factura e = new Modelo_Enc_Factura();
+                e.setCodigo_fact(d.getCodigo_factura());
+
+                if (d.ELIMINAR()) {
+                    if (e.ELIMINAR()) {
+                        JOptionPane.showMessageDialog(null, "FACTURA ELIMINADA");
+                        CargarFacturas("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERROR AL BORRAR ENCABEZADO DE FACTURA", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERROR AL BORRAR DETALLE DE FACTURA", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUNA FILA ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }

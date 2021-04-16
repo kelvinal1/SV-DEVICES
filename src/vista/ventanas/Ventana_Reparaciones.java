@@ -5,7 +5,9 @@
  */
 package vista.ventanas;
 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -66,7 +68,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         txtDescuento = new javax.swing.JTextField();
         btnGuardar1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        cmbSexo = new javax.swing.JComboBox<>();
+        cmbEstado = new javax.swing.JComboBox<>();
         pnlDetFact = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDetalle = new javax.swing.JTable();
@@ -80,7 +82,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel28 = new javax.swing.JLabel();
         txtCliente = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tblProducto1 = new javax.swing.JTable();
+        tblCliente = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
         dlgListaP = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
@@ -320,7 +322,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Estado");
 
-        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "REALIZADO", "EN PROCESO" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "REALIZADO", "EN PROCESO" }));
 
         javax.swing.GroupLayout pnlDatosClienteLayout = new javax.swing.GroupLayout(pnlDatosCliente);
         pnlDatosCliente.setLayout(pnlDatosClienteLayout);
@@ -358,7 +360,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                         .addComponent(jLabel19))
                     .addGroup(pnlDatosClienteLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9))
@@ -378,7 +380,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,7 +523,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         txtCliente.setPreferredSize(new java.awt.Dimension(160, 25));
 
-        tblProducto1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -537,7 +539,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tblProducto1);
+        jScrollPane4.setViewportView(tblCliente);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -903,9 +905,249 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProductoActionPerformed
 
+
+    public JDialog getDlgListaC() {
+        return dlgListaC;
+    }
+
+    public JDateChooser getDtcFecha() {
+        return DtcFecha;
+    }
+
+    public void setDtcFecha(JDateChooser DtcFecha) {
+        this.DtcFecha = DtcFecha;
+    }
+
+    public JDateChooser getDtcFecha1() {
+        return DtcFecha1;
+    }
+
+    public void setDtcFecha1(JDateChooser DtcFecha1) {
+        this.DtcFecha1 = DtcFecha1;
+    }
+
+    public JButton getBtnActualizarR() {
+        return btnActualizarR;
+    }
+
+    public void setBtnActualizarR(JButton btnActualizarR) {
+        this.btnActualizarR = btnActualizarR;
+    }
+
+    public JButton getBtnAnadirP() {
+        return btnAnadirP;
+    }
+
+    public void setBtnAnadirP(JButton btnAnadirP) {
+        this.btnAnadirP = btnAnadirP;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEditarR() {
+        return btnEditarR;
+    }
+
+    public void setBtnEditarR(JButton btnEditarR) {
+        this.btnEditarR = btnEditarR;
+    }
+
+    public JButton getBtnEliminarR() {
+        return btnEliminarR;
+    }
+
+    public JComboBox<String> getCmbEstado() {
+        return cmbEstado;
+    }
+
+    public void setCmbEstado(JComboBox<String> cmbEstado) {
+        this.cmbEstado = cmbEstado;
+    }
+
+    public void setBtnEliminarR(JButton btnEliminarR) {
+        this.btnEliminarR = btnEliminarR;
+    }
+
+    public JButton getBtnElminarP() {
+        return btnElminarP;
+    }
+
+    public void setBtnElminarP(JButton btnElminarP) {
+        this.btnElminarP = btnElminarP;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
+    }
+
+    public JButton getBtnGuardar1() {
+        return btnGuardar1;
+    }
+
+    public void setBtnGuardar1(JButton btnGuardar1) {
+        this.btnGuardar1 = btnGuardar1;
+    }
+
+    public JButton getBtnGuardar3() {
+        return btnGuardar3;
+    }
+
+    public void setBtnGuardar3(JButton btnGuardar3) {
+        this.btnGuardar3 = btnGuardar3;
+    }
+
+    public JButton getBtnImprimirR() {
+        return btnImprimirR;
+    }
+
+    public void setBtnImprimirR(JButton btnImprimirR) {
+        this.btnImprimirR = btnImprimirR;
+    }
+
+    public JButton getBtnInsertCliente() {
+        return btnInsertCliente;
+    }
+
+    public void setBtnInsertCliente(JButton btnInsertCliente) {
+        this.btnInsertCliente = btnInsertCliente;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JTable getTblDetalle() {
+        return tblDetalle;
+    }
+
+    public void setTblDetalle(JTable tblDetalle) {
+        this.tblDetalle = tblDetalle;
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
+    }
+
+    public JTextField getTxtCliente() {
+        return txtCliente;
+    }
+
+    public void setTxtCliente(JTextField txtCliente) {
+        this.txtCliente = txtCliente;
+    }
+
+    public JTextField getTxtDescuento() {
+        return txtDescuento;
+    }
+
+    public void setTxtDescuento(JTextField txtDescuento) {
+        this.txtDescuento = txtDescuento;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public void setTxtDireccion(JTextField txtDireccion) {
+        this.txtDireccion = txtDireccion;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public JTextField getTxtProducto() {
+        return txtProducto;
+    }
+
+    public void setTxtProducto(JTextField txtProducto) {
+        this.txtProducto = txtProducto;
+    }
+
+    public JTextField getTxtSubtotal() {
+        return txtSubtotal;
+    }
+
+    public void setTxtSubtotal(JTextField txtSubtotal) {
+        this.txtSubtotal = txtSubtotal;
+    }
+
+    public JTextField getTxtTelefono() {
+        return txtTelefono;
+    }
+
+    public void setTxtTelefono(JTextField txtTelefono) {
+        this.txtTelefono = txtTelefono;
+    }
+
+    public JTextField getTxtTotal() {
+        return txtTotal;
+    }
+
+    public void setTxtTotal(JTextField txtTotal) {
+        this.txtTotal = txtTotal;
+    }
+
+    public JDialog getDlgListaP() {
+        return dlgListaP;
+    }
+
+    public void setDlgListaP(JDialog dlgListaP) {
+        this.dlgListaP = dlgListaP;
+    }
+
+    public JTable getTblProducto() {
+        return tblProducto;
+    }
+
+    public void setTblProducto(JTable tblProducto) {
+        this.tblProducto = tblProducto;
+    }
+
+    public JTable getTblCliente() {
+        return tblCliente;
+    }
+
+    public void setTblCliente(JTable tblCliente) {
+        this.tblCliente = tblCliente;
+    }
+
     /**
      * @param args the command line arguments
      */
+    public void setDlgListaC(JDialog dlgListaC) {
+        this.dlgListaC = dlgListaC;
+    }
 
     public JTable getTblReparacion() {
         return tblReparacion;
@@ -931,7 +1173,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnInsertCliente;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoR;
-    private javax.swing.JComboBox<String> cmbSexo;
+    private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JDialog dlgListaC;
     private javax.swing.JDialog dlgListaP;
     private javax.swing.JDialog dlgReparacion;
@@ -971,9 +1213,9 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlOp;
     private javax.swing.JPanel pnlOpcFact;
     private javax.swing.JPanel pnlOpciones;
+    private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblDetalle;
     private javax.swing.JTable tblProducto;
-    private javax.swing.JTable tblProducto1;
     private javax.swing.JTable tblReparacion;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCedula;
