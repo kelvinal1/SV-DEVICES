@@ -5,6 +5,12 @@
  */
 package vista.ventanas;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Kevin
@@ -12,7 +18,7 @@ package vista.ventanas;
 public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Ventana_Reparaciones
+     * Creates new form 
      */
     public Ventana_Reparaciones() {
         initComponents();
@@ -35,7 +41,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         pnlEncFact = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        txtNFact = new javax.swing.JTextField();
+        txtNRep = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         DtcFecha = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
@@ -66,7 +72,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         tblDetalle = new javax.swing.JTable();
         pnlOpcFact = new javax.swing.JPanel();
         btnAnadirP = new javax.swing.JButton();
-        btnModificarP = new javax.swing.JButton();
         btnElminarP = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
         dlgListaC = new javax.swing.JDialog();
@@ -100,7 +105,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReparacion = new javax.swing.JTable();
 
-        dlgReparacion.setTitle("Factura");
+        dlgReparacion.setTitle("Reparacion");
         dlgReparacion.setResizable(false);
         dlgReparacion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -144,10 +149,10 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Fecha de Emision:");
 
-        txtNFact.setEditable(false);
-        txtNFact.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNFact.setEnabled(false);
-        txtNFact.setPreferredSize(new java.awt.Dimension(160, 25));
+        txtNRep.setEditable(false);
+        txtNRep.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNRep.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtNRep.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,14 +173,13 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel21.setText("TOTAL: $");
 
         txtSubtotal.setEditable(false);
+        txtSubtotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtSubtotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtSubtotal.setEnabled(false);
         txtSubtotal.setPreferredSize(new java.awt.Dimension(160, 25));
 
         txtTotal.setEditable(false);
-        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtTotal.setEnabled(false);
         txtTotal.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -196,7 +200,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14))
                 .addGap(30, 30, 30)
                 .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNFact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNRep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DtcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DtcFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
@@ -221,7 +225,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                         .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlEncFactLayout.createSequentialGroup()
                                 .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtNFact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10))
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,9 +255,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel12.setText("Direccion:");
 
         txtNombre.setEditable(false);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNombre.setEnabled(false);
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -261,9 +264,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel13.setText("Cliente:");
 
         txtDireccion.setEditable(false);
-        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDireccion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDireccion.setEnabled(false);
         txtDireccion.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -271,9 +273,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel15.setText("Cedula:");
 
         txtCedula.setEditable(false);
-        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtCedula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtCedula.setEnabled(false);
         txtCedula.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -281,9 +282,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel16.setText("Telefono:");
 
         txtTelefono.setEditable(false);
-        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtTelefono.setEnabled(false);
         txtTelefono.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -291,9 +291,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel17.setText("Vendedor:");
 
         txtVendedor.setEditable(false);
-        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtVendedor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtVendedor.setEnabled(false);
         txtVendedor.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -301,9 +300,8 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel18.setText("Descuento:");
 
         txtDescuento.setEditable(false);
-        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDescuento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDescuento.setEnabled(false);
         txtDescuento.setPreferredSize(new java.awt.Dimension(160, 25));
 
         btnGuardar1.setBackground(new java.awt.Color(71, 75, 78));
@@ -434,15 +432,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         btnAnadirP.setBorderPainted(false);
         btnAnadirP.setContentAreaFilled(false);
         pnlOpcFact.add(btnAnadirP);
-
-        btnModificarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificarP.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_64px.png"))); // NOI18N
-        btnModificarP.setText("Modificar");
-        btnModificarP.setToolTipText("Modificar Producto");
-        btnModificarP.setBorderPainted(false);
-        btnModificarP.setContentAreaFilled(false);
-        pnlOpcFact.add(btnModificarP);
 
         btnElminarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnElminarP.setForeground(new java.awt.Color(255, 255, 255));
@@ -607,17 +596,22 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel22.setText("Producto:");
 
         txtProducto.setPreferredSize(new java.awt.Dimension(160, 25));
+        txtProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductoActionPerformed(evt);
+            }
+        });
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Costo", "Problema", "Detalle"
+                "Codigo", "Nombre", "Cantidad", "Costo", "Problema", "Detalle"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, true, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -781,11 +775,11 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "N° REPARACION", "CLIENTE", "ADMIN", "TELEFONO", "DIRECCION", "DESCUENTO", "FECHA EMISION", "FECHA RETIRO", "ESTADO", "SUBTOTAL", "TOTAL"
+                "N° REPARACION", "CLIENTE", "ADMIN", "DESCUENTO", "FECHA EMISION", "FECHA RETIRO", "ESTADO", "SUBTOTAL", "TOTAL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -861,13 +855,65 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JTextField getTxtVendedor() {
+        return txtVendedor;
+    }
+
+    public void setTxtVendedor(JTextField txtVendedor) {
+        this.txtVendedor = txtVendedor;
+    }
+
+    public JButton getBtnNuevoR() {
+        return btnNuevoR;
+    }
+
+    public void setBtnNuevoR(JButton btnNuevoR) {
+        this.btnNuevoR = btnNuevoR;
+    }
+
+    public JDialog getDlgReparacion() {
+        return dlgReparacion;
+    }
+
+    public void setDlgReparacion(JDialog dlgReparacion) {
+        this.dlgReparacion = dlgReparacion;
+    }
+
+    public JTextField getTxtNRep() {
+        return txtNRep;
+    }
+
+    public void setTxtNRep(JTextField txtNRep) {
+        this.txtNRep = txtNRep;
+    }
+
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
+    private void txtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public JTable getTblReparacion() {
+        return tblReparacion;
+    }
+
+    public void setTblReparacion(JTable tblReparacion) {
+        this.tblReparacion = tblReparacion;
+    }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DtcFecha;
@@ -884,7 +930,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimirR;
     private javax.swing.JButton btnInsertCliente;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificarP;
     private javax.swing.JButton btnNuevoR;
     private javax.swing.JComboBox<String> cmbSexo;
     private javax.swing.JDialog dlgListaC;
@@ -935,7 +980,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNFact;
+    private javax.swing.JTextField txtNRep;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtProducto;
     private javax.swing.JTextField txtSubtotal;

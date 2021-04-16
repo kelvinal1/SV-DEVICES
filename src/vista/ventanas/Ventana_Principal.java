@@ -94,6 +94,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
         jSeparator14 = new javax.swing.JPopupMenu.Separator();
         smReporteVentas = new javax.swing.JMenuItem();
         mReparaciones = new javax.swing.JMenu();
+        smMantRep = new javax.swing.JMenuItem();
+        jSeparator15 = new javax.swing.JPopupMenu.Separator();
+        smReporteRep = new javax.swing.JMenuItem();
         mGarantias = new javax.swing.JMenu();
         mFabricantes = new javax.swing.JMenu();
         smFabricantes = new javax.swing.JMenuItem();
@@ -351,6 +354,18 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         mReparaciones.setForeground(new java.awt.Color(255, 255, 255));
         mReparaciones.setText("Reparaciones");
+
+        smMantRep.setBackground(new java.awt.Color(94, 33, 41));
+        smMantRep.setForeground(new java.awt.Color(255, 255, 255));
+        smMantRep.setText("Mant. de Ventas");
+        mReparaciones.add(smMantRep);
+        mReparaciones.add(jSeparator15);
+
+        smReporteRep.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteRep.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteRep.setText("Reporte");
+        mReparaciones.add(smReporteRep);
+
         mpOpciones.add(mReparaciones);
 
         mGarantias.setForeground(new java.awt.Color(255, 255, 255));
@@ -388,6 +403,22 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JMenuItem getSmMantRep() {
+        return smMantRep;
+    }
+
+    public void setSmMantRep(JMenuItem smMantRep) {
+        this.smMantRep = smMantRep;
+    }
+
+    public JMenuItem getSmReporteRep() {
+        return smReporteRep;
+    }
+
+    public void setSmReporteRep(JMenuItem smReporteRep) {
+        this.smReporteRep = smReporteRep;
+    }
 
     public JMenuItem getSmFabricantes() {
         return smFabricantes;
@@ -671,6 +702,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator13;
     private javax.swing.JPopupMenu.Separator jSeparator14;
+    private javax.swing.JPopupMenu.Separator jSeparator15;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
@@ -695,11 +727,13 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem smMantCliente;
     private javax.swing.JMenuItem smMantProA;
     private javax.swing.JMenuItem smMantProV;
+    private javax.swing.JMenuItem smMantRep;
     private javax.swing.JMenuItem smMantVentas;
     private javax.swing.JMenuItem smReporteAdmin;
     private javax.swing.JMenuItem smReporteCliente;
     private javax.swing.JMenuItem smReporteProA;
     private javax.swing.JMenuItem smReporteProV;
+    private javax.swing.JMenuItem smReporteRep;
     private javax.swing.JMenuItem smReporteVentas;
     private javax.swing.JMenuItem smReportesFabricantes;
     private javax.swing.JToolBar tbHerramienta;

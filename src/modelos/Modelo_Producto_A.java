@@ -53,7 +53,9 @@ public class Modelo_Producto_A extends producto_a {
                     + "where p.cod_producto=pa.cod_producto and( "
                     + "\n upper(p.nombre) like upper('%" + inicial + "%')"
                     + "\n or upper(p.modelo) like upper('%" + inicial + "%')"
-                    + "\n or upper(p.descripcion) like upper('%" + inicial + "%'))";
+                    + "\n or upper(p.descripcion) like upper('%" + inicial + "%')"
+                    + "\n or upper(pa.problema) like upper('%"+inicial+"%')"
+                    + "\n or upper(pa.detalle) like upper('%"+inicial+"%'))";
             ResultSet rs = conexion.Query(sql);
             List<producto_a> lista = new ArrayList<>();
             byte[] bf;
