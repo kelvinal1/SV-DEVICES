@@ -14,6 +14,7 @@ public class det_garantia {
     private String codigo_garantia;
     private int cod_det_garantia;
     private int cod_producto;
+    private String producto;
     private String problema;
     private String detalle;
 
@@ -66,6 +67,14 @@ public class det_garantia {
 
     public void setDetalle(String detalle) {
         this.detalle = detalle;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     @Override

@@ -85,7 +85,7 @@ public class Controlador_Reparacion {
             }
         };
         
-        vista.getBtnNuevoR().addActionListener(l->Dialogo());
+        vista.getBtnNuevoR().addActionListener(l->Dialogo(1));
         vista.getTxtVendedor().setText(modeloER.ColocarAdmin(vendedor));
         modeloER.setCod_admin(modeloER.Admin(vendedor));
         vista.getBtnAnadirP().addActionListener(l->CargarProductos(""));
@@ -162,7 +162,7 @@ public class Controlador_Reparacion {
             if (rep==detalles.size()) {
                 JOptionPane.showMessageDialog(null, "REPARACION CREADA");
                 CargarReparaciones("");
-                BorrarDatosFactura();
+                BorrarDatosRepar();
                
             }
         }else{
@@ -173,10 +173,40 @@ public class Controlador_Reparacion {
 
     }
     
-    public void Dialogo() {
-        vista.getTxtNRep().setText(modeloER.NuevoMant());
-        vista.getDlgReparacion().setVisible(true);
-        vista.getDlgReparacion().setSize(1225, 705);
+    public void Dialogo(int op) {
+        BorrarDatosRepar();
+        if (op==1) {
+            
+            vista.getDlgReparacion().setVisible(true);
+            
+            vista.getDlgReparacion().setSize(1225, 705);
+        }else if(op==2){
+            
+        }
+        
+    }
+    
+    public void BorrarDatosRepar() {
+
+        vista.getTxtNombre().setText("");
+        vista.getDtcFecha().setDate(null);
+        vista.getDtcFecha1().setDate(null);
+        vista.getTxtDireccion().setText("");
+        vista.getTxtCedula().setText("");
+        vista.getTxtTelefono().setText("");
+        vista.getTxtDescuento().setText("");
+        vista.getTxtSubtotal().setText("");
+
+        vista.getTxtTotal().setText("");
+        DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
+        tablaA.setNumRows(0);
+        detalles.clear();
+        if (detalles.size() == 0) {
+            System.out.println("--TODOS LOS DETALLES FUERON BORRADOS");
+            vista.getTxtNRep().setText(modeloER.NuevoMant());
+
+        }
+
     }
     
     public void CargarClientes(String aguja) {
@@ -365,27 +395,5 @@ public class Controlador_Reparacion {
 
     }
     
-    public void BorrarDatosFactura(){
-        
-        vista.getTxtNombre().setText("");
-        vista.getDtcFecha().setDate(null);
-        vista.getTxtDireccion().setText("");
-        vista.getTxtCedula().setText("");
-        vista.getTxtTelefono().setText("");
-        vista.getTxtDescuento().setText("");
-        vista.getTxtSubtotal().setText("");
-
-        vista.getTxtTotal().setText("");
-      
-        DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
-        tablaA.setNumRows(0);
-        detalles.clear();
-        if (detalles.size()==0) {
-            System.out.println("--TODOS LOS DETALLES FUERON BORRADOS");
-            vista.getTxtNRep().setText(modeloER.NuevoMant());
-                    
-        }
-                
-                   
-    }
+    
 }

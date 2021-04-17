@@ -16,6 +16,8 @@ public class enc_garantia {
     
     private String codigo_garantia;
     private int cod_cliente;
+    private String cliente;
+    private String vendedor;
     private int cod_admin;
     private Date fecha_emision;
     private Date fecha_retiro;
@@ -24,15 +26,18 @@ public class enc_garantia {
     public enc_garantia() {
     }
 
-    public enc_garantia(String codigo_garantia, int cod_cliente, int cod_admin, Date fecha_emision, Date fecha_retiro, String estado) {
+    public enc_garantia(String codigo_garantia, int cod_cliente, String cliente, String vendedor, int cod_admin, Date fecha_emision, Date fecha_retiro, String estado) {
         this.codigo_garantia = codigo_garantia;
         this.cod_cliente = cod_cliente;
+        this.cliente = cliente;
+        this.vendedor = vendedor;
         this.cod_admin = cod_admin;
         this.fecha_emision = fecha_emision;
         this.fecha_retiro = fecha_retiro;
         this.estado = estado;
     }
 
+    
     public String getCodigo_garantia() {
         return codigo_garantia;
     }
@@ -59,6 +64,22 @@ public class enc_garantia {
 
     public Date getFecha_emision() {
         return fecha_emision;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
     }
 
     public void setFecha_emision(Date fecha_emision) {

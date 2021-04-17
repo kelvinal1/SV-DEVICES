@@ -741,7 +741,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "N° GARANTIA", "CLIENTE", "ADMIN", "FECHA EMISION", "FECHA RETIRO", "ESTADO", "PRODUCTO"
+                "N° GARANTIA", "CLIENTE", "ADMIN", "FECHA EMISION", "FECHA RETIRO", "ESTADO", "DETALLE"
             }
         ) {
             boolean[] canEdit = new boolean [] {

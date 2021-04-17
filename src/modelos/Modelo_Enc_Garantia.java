@@ -12,61 +12,63 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelos.clases_bases.enc_factura;
+import modelos.clases_bases.enc_garantia;
 
 /**
  *
  * @author Kevin
  */
-public class Modelo_Enc_Factura extends enc_factura {
+public class Modelo_Enc_Garantia extends enc_garantia {
 
     private static ConexionPG conexion = new ConexionPG();
 
-    public Modelo_Enc_Factura() {
+    public Modelo_Enc_Garantia() {
     }
 
-    public Modelo_Enc_Factura(String codigo_fact, int cod_cliente, int cod_administrador, Date fechaEmision, double descuento, Double subtotal, Double total_iva, Double total) {
-        super(codigo_fact, cod_cliente, cod_administrador, fechaEmision, descuento, subtotal, total_iva, total);
+    public Modelo_Enc_Garantia(String codigo_garantia, int cod_cliente, String cliente, String vendedor, int cod_admin, Date fecha_emision, Date fecha_retiro, String estado) {
+        super(codigo_garantia, cod_cliente, cliente, vendedor, cod_admin, fecha_emision, fecha_retiro, estado);
     }
 
-    public static List<enc_factura> LISTAR(String inicial) {
+   
+
+    public static List<enc_garantia> LISTAR(String inicial) {
         try {
-            String sql = "select * from facturascreadas "
+            String sql = "select * from garantias "
                     + "\n where upper(cliente) like upper('%"+inicial+"%')"
                     + "\n or upper(vendedor) like upper('%"+inicial+"%')"
-                    + "\n or upper(codigofact) like upper('%"+inicial+"%')";
+                    + "\n or upper(codigo) like upper('%"+inicial+"%')";
 
             ResultSet rs = conexion.Query(sql);
-            List<enc_factura> lista = new ArrayList<>();
+            List<enc_garantia> lista = new ArrayList<>();
 
             while (rs.next()) {
-                enc_factura ef = new enc_factura(); 
-                ef.setCodigo_fact(rs.getString(1));
-                ef.setCliente(rs.getString(2));
-                ef.setAdministrador(rs.getString(4));
-                ef.setFechaEmision(rs.getDate(6));
-                ef.setDescuento(rs.getDouble(7));
-                ef.setSubtotal(rs.getDouble(8));
-                ef.setTotal_iva(rs.getDouble(9));
-                ef.setTotal(rs.getDouble(10));
-                lista.add(ef);
+                enc_garantia eg = new enc_garantia(); 
+                eg.setCodigo_garantia(rs.getString(1));
+                eg.setCliente(rs.getString(2));
+                eg.setCod_cliente(rs.getInt(3));
+                eg.setVendedor(rs.getString(4));
+                eg.setCod_admin(rs.getInt(5));
+                eg.setFecha_emision(rs.getDate(6));
+                eg.setFecha_retiro(rs.getDate(7));
+                eg.setEstado(rs.getString(8));
+                
+                lista.add(eg);
             }
 
             rs.close();
             return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Garantia.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
 
     }
-
+    
     public boolean CREAR() {
-        String sql = "INSERT INTO public.enc_factura(cod_fact, cod_cliente, cod_admin, fecha_emision, subtotal, total_iva, total, descuento)\n"
-                + "VALUES ('" + getCodigo_fact() + "'," + getCod_cliente() + " ," + getCod_administrador() + ",'" + getFechaEmision() + "'," + getSubtotal() + " ," + getTotal_iva() + "," + getTotal() + "," + getDescuento() + ");";
-
+        String sql = "INSERT INTO public.enc_garantia(cod_garantia, cod_admin, cod_cliente, \"fechaE\", \"fechaS\", estado)\n"
+                + "VALUES ('" + getCodigo_garantia() + "', " + getCod_admin() + "," + getCod_cliente() + " , '" + getFecha_emision() + "', '" + getFecha_retiro() + "', '" + getEstado() + "');";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--ENCABEZADO FACTURA CREADO"
+            System.out.println("--ENCABEZADO GARANTIA CREADO"
                     + super.toString());
             return true;
         } else {
@@ -75,12 +77,12 @@ public class Modelo_Enc_Factura extends enc_factura {
     }
 
     public boolean MODIFICAR() {
-        String sql = "UPDATE public.enc_factura\n"
-                + "SET cod_cliente=" + getCod_cliente() + ", cod_admin=" + getCod_administrador() + ", fecha_emision='" + getFechaEmision() + "', subtotal=" + getSubtotal() + ", total_iva=" + getTotal_iva() + ", total=" + getTotal() + ", descuento=" + getDescuento() + "\n"
-                + "WHERE cod_fact='" + getCodigo_fact() + "';";
+        String sql = "UPDATE public.enc_garantia\n"
+                + "SET estado='" + getEstado() + "'\n"
+                + "WHERE cod_garantia='" + getCodigo_garantia() + "' ;";
 
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--ENCABEZADO FACTURA MODIFICADO"
+            System.out.println("--ENCABEZADO GARANTIA MODIFICADO"
                     + super.toString());
             return true;
         } else {
@@ -89,18 +91,18 @@ public class Modelo_Enc_Factura extends enc_factura {
     }
 
     public boolean ELIMINAR() {
-        String sql = "DELETE FROM public.enc_factura\n"
-                + "WHERE cod_fact='" + getCodigo_fact() + "';";
+        String sql = "DELETE FROM public.enc_garantia\n"
+                + "WHERE cod_garantia='"+getCodigo_garantia()+"';";
         if (conexion.NoQuery(sql) == null) {
-            System.out.println("--ENCABEZADO FACTURA ELIMINADO"
+            System.out.println("--ENCABEZADO GARANTIA ELIMINADO"
                     + super.toString());
             return true;
         } else {
             return false;
         }
     }
-
-    public String NuevoFact() {
+    
+    public String NuevaRprc() {
         String codCompleto = "";
         try {
 
@@ -111,15 +113,20 @@ public class Modelo_Enc_Factura extends enc_factura {
             while (rs.next()) {
                 codigo = rs.getString(1);
             }
-            
-            rs.close();
-            codCompleto = "fact" + (Integer.parseInt(codigo.substring(4)) + 1);
+             rs.close();
+            if (codigo==null) {
+                codCompleto = "rprc1";
+            }else{
+                 codCompleto = "rprc" + (Integer.parseInt(codigo.substring(4)) + 1);
+            }
+           
+           
             
                     
             
            
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Garantia.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(codCompleto);
         return codCompleto;
@@ -141,7 +148,7 @@ public class Modelo_Enc_Factura extends enc_factura {
             return codigo;
 
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Garantia.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
 
@@ -164,7 +171,7 @@ public class Modelo_Enc_Factura extends enc_factura {
             return adminAsignado;
 
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Garantia.class.getName()).log(Level.SEVERE, null, ex);
             return "";
         }
 
@@ -186,10 +193,9 @@ public class Modelo_Enc_Factura extends enc_factura {
             return codigo;
 
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Garantia.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
 
     }
-
 }

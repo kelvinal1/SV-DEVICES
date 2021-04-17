@@ -123,7 +123,7 @@ public class Modelo_Enc_Reparacion extends enc_reparacion {
             
 
         } catch (SQLException ex) {
-            Logger.getLogger(Modelo_Enc_Factura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modelo_Enc_Reparacion.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(codCompleto);
         return codCompleto;
