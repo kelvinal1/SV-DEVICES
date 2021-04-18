@@ -28,6 +28,22 @@ public class Ventana_Principal extends javax.swing.JFrame {
         
     }
 
+    public JMenuItem getSmMantGarant() {
+        return smMantGarant;
+    }
+
+    public void setSmMantGarant(JMenuItem smMantGarant) {
+        this.smMantGarant = smMantGarant;
+    }
+
+    public JMenuItem getSmReporteGarantia() {
+        return smReporteGarantia;
+    }
+
+    public void setSmReporteGarantia(JMenuItem smReporteGarantia) {
+        this.smReporteGarantia = smReporteGarantia;
+    }
+
     public JButton getBtnSalir() {
         return btnSalir;
     }
@@ -98,6 +114,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JPopupMenu.Separator();
         smReporteRep = new javax.swing.JMenuItem();
         mGarantias = new javax.swing.JMenu();
+        smMantGarant = new javax.swing.JMenuItem();
+        jSeparator16 = new javax.swing.JPopupMenu.Separator();
+        smReporteGarantia = new javax.swing.JMenuItem();
         mFabricantes = new javax.swing.JMenu();
         smFabricantes = new javax.swing.JMenuItem();
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
@@ -357,7 +376,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         smMantRep.setBackground(new java.awt.Color(94, 33, 41));
         smMantRep.setForeground(new java.awt.Color(255, 255, 255));
-        smMantRep.setText("Mant. de Ventas");
+        smMantRep.setText("Mant. de Reparaciones");
         mReparaciones.add(smMantRep);
         mReparaciones.add(jSeparator15);
 
@@ -370,6 +389,18 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         mGarantias.setForeground(new java.awt.Color(255, 255, 255));
         mGarantias.setText(" Garantias");
+
+        smMantGarant.setBackground(new java.awt.Color(94, 33, 41));
+        smMantGarant.setForeground(new java.awt.Color(255, 255, 255));
+        smMantGarant.setText("Mant. de Garantias");
+        mGarantias.add(smMantGarant);
+        mGarantias.add(jSeparator16);
+
+        smReporteGarantia.setBackground(new java.awt.Color(94, 33, 41));
+        smReporteGarantia.setForeground(new java.awt.Color(255, 255, 255));
+        smReporteGarantia.setText("Reporte");
+        mGarantias.add(smReporteGarantia);
+
         mpOpciones.add(mGarantias);
 
         mFabricantes.setForeground(new java.awt.Color(255, 255, 255));
@@ -703,6 +734,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator13;
     private javax.swing.JPopupMenu.Separator jSeparator14;
     private javax.swing.JPopupMenu.Separator jSeparator15;
+    private javax.swing.JPopupMenu.Separator jSeparator16;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
@@ -725,12 +757,14 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem smFabricantes;
     private javax.swing.JMenuItem smMantAdmin;
     private javax.swing.JMenuItem smMantCliente;
+    private javax.swing.JMenuItem smMantGarant;
     private javax.swing.JMenuItem smMantProA;
     private javax.swing.JMenuItem smMantProV;
     private javax.swing.JMenuItem smMantRep;
     private javax.swing.JMenuItem smMantVentas;
     private javax.swing.JMenuItem smReporteAdmin;
     private javax.swing.JMenuItem smReporteCliente;
+    private javax.swing.JMenuItem smReporteGarantia;
     private javax.swing.JMenuItem smReporteProA;
     private javax.swing.JMenuItem smReporteProV;
     private javax.swing.JMenuItem smReporteRep;

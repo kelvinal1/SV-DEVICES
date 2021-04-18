@@ -9,8 +9,10 @@ import javax.swing.JOptionPane;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_Det_Factura;
+import modelos.Modelo_Det_Garantia;
 import modelos.Modelo_Det_Reparacion;
 import modelos.Modelo_Enc_Factura;
+import modelos.Modelo_Enc_Garantia;
 import modelos.Modelo_Enc_Reparacion;
 import modelos.Modelo_Fabricante;
 import modelos.Modelo_Producto_A;
@@ -19,6 +21,7 @@ import vista.ventanas.Inicio_Sesion;
 import vista.ventanas.Ventana_Admins;
 import vista.ventanas.Ventana_Clientes;
 import vista.ventanas.Ventana_Fabricantes;
+import vista.ventanas.Ventana_Garantias;
 import vista.ventanas.Ventana_Principal;
 import vista.ventanas.Ventana_Productos_A;
 import vista.ventanas.Ventana_Productos_V;
@@ -57,6 +60,8 @@ public class Control_VP {
         vista.getSmMantVentas().addActionListener(l->VentanaVentas());
         vista.getBtnReparaciones().addActionListener(l->VentanaReparaciones());
         vista.getSmMantRep().addActionListener(l->VentanaReparaciones());
+        vista.getSmMantGarant().addActionListener(l->VentanaGarantias());
+        vista.getBtnGarantias().addActionListener(l->VentanaGarantias());
                
                
 
@@ -131,6 +136,15 @@ public class Control_VP {
         Modelo_Enc_Reparacion e = new Modelo_Enc_Reparacion();
         Modelo_Det_Reparacion d = new Modelo_Det_Reparacion();
         Controlador_Reparacion c = new Controlador_Reparacion(e, d, v);
+        c.IniciarControl(vista.getLblUsuario().getText());
+        this.vista.getDpVentana().add(v);
+    }
+    
+    public void VentanaGarantias(){
+        Ventana_Garantias v = new Ventana_Garantias();
+        Modelo_Enc_Garantia e = new Modelo_Enc_Garantia();
+        Modelo_Det_Garantia d = new Modelo_Det_Garantia();
+        Controlador_Garantias c = new Controlador_Garantias(e, d, v);
         c.IniciarControl(vista.getLblUsuario().getText());
         this.vista.getDpVentana().add(v);
     }

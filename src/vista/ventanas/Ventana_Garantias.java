@@ -5,17 +5,338 @@
  */
 package vista.ventanas;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Kevin
  */
 public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
+    public JButton getBtnInsertarInfo() {
+        return btnInsertarInfo;
+    }
+
+    public void setBtnInsertarInfo(JButton btnInsertarInfo) {
+        this.btnInsertarInfo = btnInsertarInfo;
+    }
+
+    public JDialog getDlgInformacion() {
+        return dlgInformacion;
+    }
+
+    public void setDlgInformacion(JDialog dlgInformacion) {
+        this.dlgInformacion = dlgInformacion;
+    }
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
+
+    public JLabel getLblNCodigo() {
+        return lblNCodigo;
+    }
+
+    public void setLblNCodigo(JLabel lblNCodigo) {
+        this.lblNCodigo = lblNCodigo;
+    }
+
+    public JTextArea getTxtDetalle() {
+        return txtDetalle;
+    }
+
+    public void setTxtDetalle(JTextArea txtDetalle) {
+        this.txtDetalle = txtDetalle;
+    }
+
+    public JTextArea getTxtProblema() {
+        return txtProblema;
+    }
+
+    public void setTxtProblema(JTextArea txtProblema) {
+        this.txtProblema = txtProblema;
+    }
+
+    public JTextField getTxtProducto1() {
+        return txtProducto1;
+    }
+
+    public void setTxtProducto1(JTextField txtProducto1) {
+        this.txtProducto1 = txtProducto1;
+    }
+
     /**
      * Creates new form Ventana_Reparaciones
      */
     public Ventana_Garantias() {
         initComponents();
+    }
+
+    public JDateChooser getDtcFecha() {
+        return DtcFecha;
+    }
+
+    public void setDtcFecha(JDateChooser DtcFecha) {
+        this.DtcFecha = DtcFecha;
+    }
+
+    public JButton getBtnActualizar() {
+        return btnActualizar;
+    }
+
+    public void setBtnActualizar(JButton btnActualizar) {
+        this.btnActualizar = btnActualizar;
+    }
+
+    public JButton getBtnAnadirP() {
+        return btnAnadirP;
+    }
+
+    public void setBtnAnadirP(JButton btnAnadirP) {
+        this.btnAnadirP = btnAnadirP;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEditarG() {
+        return btnEditarG;
+    }
+
+    public void setBtnEditarG(JButton btnEditarG) {
+        this.btnEditarG = btnEditarG;
+    }
+
+    public JButton getBtnEliminarG() {
+        return btnEliminarG;
+    }
+
+    public void setBtnEliminarG(JButton btnEliminarG) {
+        this.btnEliminarG = btnEliminarG;
+    }
+
+    public JButton getBtnElminarP() {
+        return btnElminarP;
+    }
+
+    public void setBtnElminarP(JButton btnElminarP) {
+        this.btnElminarP = btnElminarP;
+    }
+
+    public JTextField getTxtNGarant() {
+        return txtNGarant;
+    }
+
+    public void setTxtNGarant(JTextField txtNGarant) {
+        this.txtNGarant = txtNGarant;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
+    }
+
+    public JButton getBtnGuardar1() {
+        return btnGuardar1;
+    }
+
+    public void setBtnGuardar1(JButton btnGuardar1) {
+        this.btnGuardar1 = btnGuardar1;
+    }
+
+    public JButton getBtnGuardar3() {
+        return btnGuardar3;
+    }
+
+    public void setBtnGuardar3(JButton btnGuardar3) {
+        this.btnGuardar3 = btnGuardar3;
+    }
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
+
+    public void setBtnImprimir(JButton btnImprimir) {
+        this.btnImprimir = btnImprimir;
+    }
+
+    public JButton getBtnInsertCliente() {
+        return btnInsertCliente;
+    }
+
+    public void setBtnInsertCliente(JButton btnInsertCliente) {
+        this.btnInsertCliente = btnInsertCliente;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JButton getBtnNuevoG() {
+        return btnNuevoG;
+    }
+
+    public void setBtnNuevoG(JButton btnNuevoG) {
+        this.btnNuevoG = btnNuevoG;
+    }
+
+    public JComboBox<String> getCmbEstado() {
+        return cmbEstado;
+    }
+
+    public void setCmbEstado(JComboBox<String> cmbEstado) {
+        this.cmbEstado = cmbEstado;
+    }
+
+    public JDialog getDlgGarantia() {
+        return dlgGarantia;
+    }
+
+    public void setDlgGarantia(JDialog dlgGarantia) {
+        this.dlgGarantia = dlgGarantia;
+    }
+
+    public JDialog getDlgListaC() {
+        return dlgListaC;
+    }
+
+    public void setDlgListaC(JDialog dlgListaC) {
+        this.dlgListaC = dlgListaC;
+    }
+
+    public JDialog getDlgListaP() {
+        return dlgListaP;
+    }
+
+    public void setDlgListaP(JDialog dlgListaP) {
+        this.dlgListaP = dlgListaP;
+    }
+
+    public JTable getTblDetalle() {
+        return tblDetalle;
+    }
+
+    public void setTblDetalle(JTable tblDetalle) {
+        this.tblDetalle = tblDetalle;
+    }
+
+    public JTable getTblProducto() {
+        return tblProducto;
+    }
+
+    public void setTblProducto(JTable tblProducto) {
+        this.tblProducto = tblProducto;
+    }
+
+    public JTable getTblProducto1() {
+        return tblProducto1;
+    }
+
+    public void setTblProducto1(JTable tblProducto1) {
+        this.tblProducto1 = tblProducto1;
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
+    }
+
+    public void setTxtBuscar(JTextField txtBuscar) {
+        this.txtBuscar = txtBuscar;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
+    }
+
+    public JTextField getTxtCliente() {
+        return txtCliente;
+    }
+
+    public void setTxtCliente(JTextField txtCliente) {
+        this.txtCliente = txtCliente;
+    }
+
+    public JTextField getTxtDescuento() {
+        return txtDescuento;
+    }
+
+    public void setTxtDescuento(JTextField txtDescuento) {
+        this.txtDescuento = txtDescuento;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public void setTxtDireccion(JTextField txtDireccion) {
+        this.txtDireccion = txtDireccion;
+    }
+
+    public JTextField getTxtNFact() {
+        return txtNGarant;
+    }
+
+    public void setTxtNFact(JTextField txtNFact) {
+        this.txtNGarant = txtNFact;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public JTextField getTxtProducto() {
+        return txtProducto;
+    }
+
+    public void setTxtProducto(JTextField txtProducto) {
+        this.txtProducto = txtProducto;
+    }
+
+    public JTextField getTxtTelefono() {
+        return txtTelefono;
+    }
+
+    public void setTxtTelefono(JTextField txtTelefono) {
+        this.txtTelefono = txtTelefono;
+    }
+
+    public JTextField getTxtVendedor() {
+        return txtVendedor;
+    }
+
+    public void setTxtVendedor(JTextField txtVendedor) {
+        this.txtVendedor = txtVendedor;
     }
 
     /**
@@ -31,11 +352,10 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         pnlFACTURA = new javax.swing.JPanel();
         pnlOp = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         pnlEncFact = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        txtNFact = new javax.swing.JTextField();
+        txtNGarant = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         DtcFecha = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
@@ -56,13 +376,12 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         txtDescuento = new javax.swing.JTextField();
         btnGuardar1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        cmbSexo = new javax.swing.JComboBox<>();
+        cmbEstado = new javax.swing.JComboBox<>();
         pnlDetFact = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDetalle = new javax.swing.JTable();
         pnlOpcFact = new javax.swing.JPanel();
         btnAnadirP = new javax.swing.JButton();
-        btnModificarP = new javax.swing.JButton();
         btnElminarP = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
         dlgListaC = new javax.swing.JDialog();
@@ -81,6 +400,20 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
+        dlgInformacion = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        btnInsertarInfo = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        txtProducto1 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtProblema = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        txtDetalle = new javax.swing.JTextArea();
+        lblNCodigo = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         pnlGeneral = new javax.swing.JPanel();
         pnlOpciones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -115,15 +448,6 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         btnGuardar.setContentAreaFilled(false);
         pnlOp.add(btnGuardar);
 
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_file_64px.png"))); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.setToolTipText("Clic para modificar garantia");
-        btnModificar.setBorderPainted(false);
-        btnModificar.setContentAreaFilled(false);
-        pnlOp.add(btnModificar);
-
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_cancel_64px.png"))); // NOI18N
@@ -140,10 +464,10 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Fecha de Emision:");
 
-        txtNFact.setEditable(false);
-        txtNFact.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNFact.setEnabled(false);
-        txtNFact.setPreferredSize(new java.awt.Dimension(160, 25));
+        txtNGarant.setEditable(false);
+        txtNGarant.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNGarant.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtNGarant.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,7 +497,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14))
                 .addGap(30, 30, 30)
                 .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNFact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNGarant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DtcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DtcFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -188,7 +512,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
                     .addGroup(pnlEncFactLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNFact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNGarant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
                         .addGroup(pnlEncFactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -211,9 +535,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel12.setText("Direccion:");
 
         txtNombre.setEditable(false);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNombre.setEnabled(false);
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -221,9 +544,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel13.setText("Cliente:");
 
         txtDireccion.setEditable(false);
-        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDireccion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDireccion.setEnabled(false);
         txtDireccion.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -231,9 +553,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel15.setText("Cedula:");
 
         txtCedula.setEditable(false);
-        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtCedula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtCedula.setEnabled(false);
         txtCedula.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -241,9 +562,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel16.setText("Telefono:");
 
         txtTelefono.setEditable(false);
-        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtTelefono.setEnabled(false);
         txtTelefono.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -251,9 +571,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel17.setText("Vendedor:");
 
         txtVendedor.setEditable(false);
-        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtVendedor.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtVendedor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtVendedor.setEnabled(false);
         txtVendedor.setPreferredSize(new java.awt.Dimension(160, 25));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -261,9 +580,8 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel18.setText("Descuento:");
 
         txtDescuento.setEditable(false);
-        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtDescuento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDescuento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtDescuento.setEnabled(false);
         txtDescuento.setPreferredSize(new java.awt.Dimension(160, 25));
 
         btnGuardar1.setBackground(new java.awt.Color(71, 75, 78));
@@ -282,7 +600,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Estado");
 
-        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "REALIZADO", "EN PROCESO" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "REALIZADO", "EN PROCESO" }));
 
         javax.swing.GroupLayout pnlDatosClienteLayout = new javax.swing.GroupLayout(pnlDatosCliente);
         pnlDatosCliente.setLayout(pnlDatosClienteLayout);
@@ -320,7 +638,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
                         .addComponent(jLabel19))
                     .addGroup(pnlDatosClienteLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9))
@@ -340,7 +658,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlDatosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,15 +712,6 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         btnAnadirP.setBorderPainted(false);
         btnAnadirP.setContentAreaFilled(false);
         pnlOpcFact.add(btnAnadirP);
-
-        btnModificarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificarP.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_64px.png"))); // NOI18N
-        btnModificarP.setText("Modificar");
-        btnModificarP.setToolTipText("Modificar Producto");
-        btnModificarP.setBorderPainted(false);
-        btnModificarP.setContentAreaFilled(false);
-        pnlOpcFact.add(btnModificarP);
 
         btnElminarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnElminarP.setForeground(new java.awt.Color(255, 255, 255));
@@ -463,13 +772,13 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
                     .addComponent(pnlOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlDetFact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dlgGarantia.getContentPane().add(pnlFACTURA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+        dlgGarantia.getContentPane().add(pnlFACTURA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
-        dlgGarantia.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 710));
+        dlgGarantia.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
         dlgListaC.setTitle("Lista Productos");
         dlgListaC.setResizable(false);
@@ -558,7 +867,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         btnGuardar3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnGuardar3.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_add_64px.png"))); // NOI18N
-        btnGuardar3.setText("Insertar");
+        btnGuardar3.setText("Elegir");
         btnGuardar3.setBorderPainted(false);
         btnGuardar3.setContentAreaFilled(false);
 
@@ -623,6 +932,114 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
         dlgListaP.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 280));
+
+        dlgInformacion.setTitle("Lista Productos");
+        dlgInformacion.setResizable(false);
+        dlgInformacion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setOpaque(false);
+
+        btnInsertarInfo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnInsertarInfo.setForeground(new java.awt.Color(255, 255, 255));
+        btnInsertarInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_add_64px.png"))); // NOI18N
+        btnInsertarInfo.setText("Insertar");
+        btnInsertarInfo.setBorderPainted(false);
+        btnInsertarInfo.setContentAreaFilled(false);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Producto:");
+
+        txtProducto1.setEditable(false);
+        txtProducto1.setPreferredSize(new java.awt.Dimension(160, 25));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Problema:");
+
+        txtProblema.setColumns(20);
+        txtProblema.setRows(5);
+        jScrollPane6.setViewportView(txtProblema);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Detalle:");
+
+        txtDetalle.setColumns(20);
+        txtDetalle.setRows(5);
+        jScrollPane7.setViewportView(txtDetalle);
+
+        lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblNCodigo.setText("Codigo:");
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("00 ");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtProducto1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel26))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInsertarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblNCodigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(txtProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnInsertarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNCodigo)
+                                    .addComponent(lblCodigo))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        dlgInformacion.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 680, 250));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
+        dlgInformacion.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 280));
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -741,11 +1158,11 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "N° GARANTIA", "CLIENTE", "ADMIN", "FECHA EMISION", "FECHA RETIRO", "ESTADO", "DETALLE"
+                "N° GARANTIA", "CLIENTE", "ADMIN", "FECHA EMISION", "FECHA RETIRO", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -825,9 +1242,36 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
     /**
      * @param args the command line arguments
      */
+
+    public JDateChooser getDtcFecha1() {
+        return DtcFecha1;
+    }
+
+    public void setDtcFecha1(JDateChooser DtcFecha1) {
+        this.DtcFecha1 = DtcFecha1;
+    }
+
+    public JTable getTblReparacion() {
+        return tblReparacion;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setTblReparacion(JTable tblReparacion) {
+        this.tblReparacion = tblReparacion;
+    }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DtcFecha;
@@ -843,11 +1287,11 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnInsertCliente;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificarP;
+    private javax.swing.JButton btnInsertarInfo;
     private javax.swing.JButton btnNuevoG;
-    private javax.swing.JComboBox<String> cmbSexo;
+    private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JDialog dlgGarantia;
+    private javax.swing.JDialog dlgInformacion;
     private javax.swing.JDialog dlgListaC;
     private javax.swing.JDialog dlgListaP;
     private javax.swing.JLabel jLabel1;
@@ -862,8 +1306,12 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -871,11 +1319,16 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblNCodigo;
     private javax.swing.JPanel pnlDatosCliente;
     private javax.swing.JPanel pnlDetFact;
     private javax.swing.JPanel pnlEncFact;
@@ -892,10 +1345,13 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtDescuento;
+    private javax.swing.JTextArea txtDetalle;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNFact;
+    private javax.swing.JTextField txtNGarant;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextArea txtProblema;
     private javax.swing.JTextField txtProducto;
+    private javax.swing.JTextField txtProducto1;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtVendedor;
     // End of variables declaration//GEN-END:variables

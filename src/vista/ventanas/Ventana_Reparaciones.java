@@ -39,7 +39,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         pnlFACTURA = new javax.swing.JPanel();
         pnlOp = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         pnlEncFact = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -125,15 +124,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         btnGuardar.setBorderPainted(false);
         btnGuardar.setContentAreaFilled(false);
         pnlOp.add(btnGuardar);
-
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_file_64px.png"))); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.setToolTipText("Clic para modificar reparacion");
-        btnModificar.setBorderPainted(false);
-        btnModificar.setContentAreaFilled(false);
-        pnlOp.add(btnModificar);
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -1171,7 +1161,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnImprimirR;
     private javax.swing.JButton btnInsertCliente;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoR;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JDialog dlgListaC;

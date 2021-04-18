@@ -215,7 +215,6 @@ public class Controlador_Factura {
 
     public void CargarProCant() {
         try {
-
             int fila = vista.getTblProducto().getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) vista.getTblProducto().getModel();
             vista.getLblNumCodigoP().setText(String.valueOf(model.getValueAt(fila, 0)));

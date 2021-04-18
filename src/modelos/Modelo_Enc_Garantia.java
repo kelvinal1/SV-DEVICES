@@ -106,8 +106,8 @@ public class Modelo_Enc_Garantia extends enc_garantia {
         String codCompleto = "";
         try {
 
-            String sql = "select cod_fact\n"
-                    + "from enc_factura";
+            String sql = "select cod_garantia\n"
+                    + "from enc_garantia";
             String codigo = null;
             ResultSet rs = conexion.Query(sql);
             while (rs.next()) {
@@ -115,9 +115,9 @@ public class Modelo_Enc_Garantia extends enc_garantia {
             }
              rs.close();
             if (codigo==null) {
-                codCompleto = "rprc1";
+                codCompleto = "grnt1";
             }else{
-                 codCompleto = "rprc" + (Integer.parseInt(codigo.substring(4)) + 1);
+                 codCompleto = "grnt" + (Integer.parseInt(codigo.substring(4)) + 1);
             }
            
            

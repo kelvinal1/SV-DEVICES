@@ -5,6 +5,12 @@
  */
 package modelos;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelos.clases_bases.det_garantia;
 
 /**
@@ -22,6 +28,36 @@ public class Modelo_Det_Garantia extends det_garantia {
         super(codigo_garantia, cod_det_garantia, cod_producto, problema, detalle);
     }
 
+    public static List<det_garantia> LISTAR(String codigo) {
+        try {
+            String sql = "select * from detallesGarantia"
+                    + "\n where cod_garantia = '"+codigo+"'";
+
+            ResultSet rs = conexion.Query(sql);
+            List<det_garantia> lista = new ArrayList<>();
+
+            while (rs.next()) {
+                det_garantia dg = new det_garantia(); 
+                dg.setCodigo_garantia(rs.getString(1));
+                dg.setCod_producto(rs.getInt(2));
+                dg.setProducto(rs.getString(3));
+                dg.setProblema(rs.getString(4));
+                dg.setDetalle(rs.getString(5));
+                
+                
+                lista.add(dg);
+            }
+
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo_Det_Garantia.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+    
+    
     public boolean CREAR() {
         String sql = "INSERT INTO public.det_garantia(cod_garantia, cod_producto, problema, detalle)\n"
                 + "VALUES ('" + getCodigo_garantia() + "', " + getCod_producto() + ", '" + getProblema() + "', '" + getDetalle() + "');";
