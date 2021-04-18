@@ -12,12 +12,15 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import modelos.ConexionPG;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_Det_Reparacion;
 import modelos.Modelo_Enc_Reparacion;
@@ -25,6 +28,12 @@ import modelos.Modelo_Producto_A;
 import modelos.clases_bases.cliente;
 import modelos.clases_bases.enc_reparacion;
 import modelos.clases_bases.producto_a;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.ventanas.Ventana_Reparaciones;
 
 
@@ -162,7 +171,14 @@ public class Controlador_Reparacion {
             if (rep==detalles.size()) {
                 JOptionPane.showMessageDialog(null, "REPARACION CREADA");
                 CargarReparaciones("");
-                BorrarDatosRepar();
+                int op = JOptionPane.showConfirmDialog(null,"Desea imprimir la reparacion");
+                if (op==0) {
+                    Imprimir(encabezado);
+                    BorrarDatosRepar();
+                }else{
+                    BorrarDatosRepar();
+                }
+                
                
             }
         }else{
@@ -332,6 +348,37 @@ public class Controlador_Reparacion {
         double total= subtotal-(subtotal*Double.parseDouble(dc));
         vista.getTxtTotal().setText(""+total);
 
+    }
+    
+    public void Imprimir(Modelo_Enc_Reparacion enc) {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/ReporteMant.jasper"));
+
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("reparacion", vista.getTxtNRep().getText());
+            parametros.put("num_repr", enc.getCodigo_reparacion());
+            parametros.put("cedula", vista.getTxtCedula().getText());
+            parametros.put("fecha_e", enc.getFecha_Emision());
+            parametros.put("fecha_r", enc.getFecha_retiro());
+            parametros.put("cliente", vista.getTxtNombre().getText());
+            parametros.put("telefono", vista.getTxtTelefono().getText());
+            parametros.put("vendedor", vista.getTxtVendedor().getText());
+            parametros.put("direccion", vista.getTxtDireccion().getText());
+            parametros.put("descuento", Double.parseDouble(vista.getTxtDescuento().getText()));
+            parametros.put("estado", enc.getEstado());
+            parametros.put("total", enc.getTotal());
+            parametros.put("subtotal", enc.getSubtotal());
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+
+            jv.setVisible(true);
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Reparacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void EliminarDetalle() {

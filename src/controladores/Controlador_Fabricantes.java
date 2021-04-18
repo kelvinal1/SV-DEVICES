@@ -8,12 +8,23 @@ package controladores;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import modelos.ConexionPG;
 import modelos.Modelo_Fabricante;
 import modelos.clases_bases.fabricante;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.ventanas.Ventana_Fabricantes;
 
 /**
@@ -60,6 +71,7 @@ public class Controlador_Fabricantes {
         vista.getBtnEditarF().addActionListener(l->CargarCampos());
         vista.getTxtBuscar().addKeyListener(k);
         vista.getBtnEliminarF().addActionListener(l->EliminarAdmin());
+        vista.getBtnImprimir().addActionListener(l->Imprimir());
         
     }
 
@@ -198,7 +210,24 @@ public class Controlador_Fabricantes {
         }
     }
     
-    
+        public void Imprimir() {
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Fabricantes.jasper"));
+            
+            String aguja = vista.getTxtBuscar().getText();
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     

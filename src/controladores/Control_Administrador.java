@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -27,11 +29,18 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import modelos.ConexionPG;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_IS;
 import modelos.Modelo_Persona;
 import modelos.clases_bases.admin;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 import vista.ventanas.Ventana_Admins;
 
@@ -95,6 +104,7 @@ public class Control_Administrador {
         vista.getBtnModificar().addActionListener(l -> ModificarAdmin());
         vista.getBtnEliminarA().addActionListener(l -> EliminarAdmin());
         vista.getBtnGuardar1().addActionListener(l -> Crear_Admin_Cliente());
+        vista.getBtnImprimirA().addActionListener(l->Imprimir());
 
     }
 
@@ -446,4 +456,24 @@ public class Control_Administrador {
         return verificar;
     }
 
+    
+       public void Imprimir(){
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Admins.jasper"));
+            
+            String aguja= vista.getTxtBuscar().getText();
+            Map<String,Object> parametros= new HashMap<String, Object>();
+            parametros.put("aguja", "%"+aguja+"%");
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+            
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
