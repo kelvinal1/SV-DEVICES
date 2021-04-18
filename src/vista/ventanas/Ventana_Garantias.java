@@ -187,13 +187,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
         this.btnInsertCliente = btnInsertCliente;
     }
 
-    public JButton getBtnModificar() {
-        return btnModificar;
-    }
-
-    public void setBtnModificar(JButton btnModificar) {
-        this.btnModificar = btnModificar;
-    }
+   
 
     public JButton getBtnNuevoG() {
         return btnNuevoG;

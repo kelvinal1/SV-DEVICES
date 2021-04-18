@@ -1012,13 +1012,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         this.btnInsertCliente = btnInsertCliente;
     }
 
-    public JButton getBtnModificar() {
-        return btnModificar;
-    }
-
-    public void setBtnModificar(JButton btnModificar) {
-        this.btnModificar = btnModificar;
-    }
+  
 
     public JTable getTblDetalle() {
         return tblDetalle;
