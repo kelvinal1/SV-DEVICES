@@ -99,7 +99,7 @@ public class Ventana_Clientes extends javax.swing.JInternalFrame{
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
 
-        dlgCliente.setTitle("Administrador");
+        dlgCliente.setTitle("Cliente");
         dlgCliente.setResizable(false);
         dlgCliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,7 +135,7 @@ public class Ventana_Clientes extends javax.swing.JInternalFrame{
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Direccion:");
+        jLabel14.setText("Dirección:");
 
         txtCedula.setBorder(null);
         txtCedula.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -310,6 +310,7 @@ public class Ventana_Clientes extends javax.swing.JInternalFrame{
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
         dlgCliente.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 580));
 
+        dlgCliente2.setTitle("Cliente");
         dlgCliente2.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -435,7 +436,7 @@ public class Ventana_Clientes extends javax.swing.JInternalFrame{
         btnEliminarC.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnEliminarC.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_delete_16px.png"))); // NOI18N
-        btnEliminarC.setText("Elminar Cliente");
+        btnEliminarC.setText("Eliminar Cliente");
 
         btnImprimir.setBackground(new java.awt.Color(94, 33, 41));
         btnImprimir.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -471,7 +472,7 @@ public class Ventana_Clientes extends javax.swing.JInternalFrame{
                     .addComponent(btnEliminarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlOpcionesLayout.setVerticalGroup(

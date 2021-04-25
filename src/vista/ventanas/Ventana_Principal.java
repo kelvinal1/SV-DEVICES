@@ -123,6 +123,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         smReportesFabricantes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("VENTANA DE OPCIONES");
 
         tbHerramienta.setBackground(new java.awt.Color(255, 255, 255));
         tbHerramienta.setRollover(true);
@@ -238,7 +239,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Finalizar Sesion");
+        jLabel7.setText("Finalizar Sesión");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -350,7 +351,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         smReporteProA.setBackground(new java.awt.Color(94, 33, 41));
         smReporteProA.setForeground(new java.awt.Color(255, 255, 255));
-        smReporteProA.setText("Reportes");
+        smReporteProA.setText("Reportes Productos a Reparar");
         mProductos.add(smReporteProA);
 
         mpOpciones.add(mProductos);
@@ -392,7 +393,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         smMantGarant.setBackground(new java.awt.Color(94, 33, 41));
         smMantGarant.setForeground(new java.awt.Color(255, 255, 255));
-        smMantGarant.setText("Mant. de Garantias");
+        smMantGarant.setText("Mant. de Garantías");
         mGarantias.add(smMantGarant);
         mGarantias.add(jSeparator16);
 
@@ -406,10 +407,14 @@ public class Ventana_Principal extends javax.swing.JFrame {
         mFabricantes.setForeground(new java.awt.Color(255, 255, 255));
         mFabricantes.setText("Fabricantes");
 
+        smFabricantes.setBackground(new java.awt.Color(94, 33, 41));
+        smFabricantes.setForeground(new java.awt.Color(255, 255, 255));
         smFabricantes.setText("Mant. Fabricantes");
         mFabricantes.add(smFabricantes);
         mFabricantes.add(jSeparator9);
 
+        smReportesFabricantes.setBackground(new java.awt.Color(94, 33, 41));
+        smReportesFabricantes.setForeground(new java.awt.Color(255, 255, 255));
         smReportesFabricantes.setText("Reportes");
         mFabricantes.add(smReportesFabricantes);
 

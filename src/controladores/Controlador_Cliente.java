@@ -336,36 +336,54 @@ public class Controlador_Cliente {
 
     public boolean Validacion() {
         boolean verificar = true;
-        //////////////////////////////cedula
-        if (vista.getTxtCedula().getText().length() > 10) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN CEDULA EXCEDIDO", "Cedula Erronea", JOptionPane.ERROR_MESSAGE);
+        if (vista.getTxtCedula().getText().length() >= 11) {
             verificar = false;
+            JOptionPane.showMessageDialog(null, "CEDULA CON CARACTERES EXCEDIDOS", "CEDULA", JOptionPane.ERROR_MESSAGE);
         }
 
         if (vista.getTxtCedula().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "CEDULA VACIA", "Cedula Erronea", JOptionPane.ERROR_MESSAGE);
             verificar = false;
-        }
-        ///////////////////////////////////////////////////////////////////nombres
-        if (vista.getTxtNombres().getText().length() > 50) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN NOMBRES EXCEDIDO", "Nombre Erroneo", JOptionPane.ERROR_MESSAGE);
-            verificar = false;
+            JOptionPane.showMessageDialog(null, "CEDULA VACIA", "CEDULA", JOptionPane.ERROR_MESSAGE);
         }
 
         if (vista.getTxtNombres().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "NOMBRES VACIOS", "Nombre ErroneO", JOptionPane.ERROR_MESSAGE);
             verificar = false;
-        }
-        ////////////////////////////////////////////////////////////////////apellidos
-        if (vista.getTxtNombres().getText().length() > 50) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN APELLIDOS EXCEDIDO", "Apellido Erroneo", JOptionPane.ERROR_MESSAGE);
-            verificar = false;
+            JOptionPane.showMessageDialog(null, "NOMBRES VACIOS", "NOMBRES", JOptionPane.ERROR_MESSAGE);
         }
 
-        if (vista.getTxtNombres().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "APELLIDOS VACIOS", "Apellido ErroneO", JOptionPane.ERROR_MESSAGE);
+        if (vista.getTxtApellido().getText().equals("")) {
             verificar = false;
+            JOptionPane.showMessageDialog(null, "APELLIDOS VACIOS", "NOMBRES", JOptionPane.ERROR_MESSAGE);
         }
+
+        if (vista.getDtcFecha().getDate() ==null) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "FECHA VACIA", "FECHA DE NACIMIENTO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtTelf().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "TELEFONO VACIO", "TELEFONO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtCorreo().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CORREO VACIO", "CORREO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtDirec().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "DIRECCION VACIA", "DIRECCION", JOptionPane.ERROR_MESSAGE);
+        }
+
+        
+        if (vista.getLblImagen().getIcon()==null) {
+            verificar=false;
+            JOptionPane.showMessageDialog(null, "IMAGEN VACIA", "IMAGEN", JOptionPane.ERROR_MESSAGE);
+        }
+                
+
+        
 
         return verificar;
 
@@ -420,8 +438,9 @@ public class Controlador_Cliente {
             parametros.put("aguja", "%"+aguja+"%");
             
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
+            jv.show();
             
             
         } catch (JRException ex) {

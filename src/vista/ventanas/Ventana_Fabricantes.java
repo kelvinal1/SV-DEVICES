@@ -75,7 +75,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Telefono:");
+        jLabel12.setText("Teléfono:");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));

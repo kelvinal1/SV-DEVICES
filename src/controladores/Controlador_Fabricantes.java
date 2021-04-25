@@ -61,77 +61,83 @@ public class Controlador_Fabricantes {
             public void keyReleased(KeyEvent e) {
                 Listar(vista.getTxtBuscar().getText());
             }
-            
+
         };
         vista.getBtnNuevoF().addActionListener(l -> Dialogo(1));
         vista.getBtnGuardar().addActionListener(l -> Crear_Fabricante());
-        vista.getBtnModificar().addActionListener(l->Modificar_Fabricante());
-        vista.getBtnActualizar().addActionListener(l->Listar(""));
-        vista.getBtnCancelar().addActionListener(l->Cancelar());
-        vista.getBtnEditarF().addActionListener(l->CargarCampos());
+        vista.getBtnModificar().addActionListener(l -> Modificar_Fabricante());
+        vista.getBtnActualizar().addActionListener(l -> Listar(""));
+        vista.getBtnCancelar().addActionListener(l -> Cancelar());
+        vista.getBtnEditarF().addActionListener(l -> CargarCampos());
         vista.getTxtBuscar().addKeyListener(k);
-        vista.getBtnEliminarF().addActionListener(l->EliminarAdmin());
-        vista.getBtnImprimir().addActionListener(l->Imprimir());
-        
+        vista.getBtnEliminarF().addActionListener(l -> EliminarAdmin());
+        vista.getBtnImprimir().addActionListener(l -> Imprimir());
+
     }
 
-    
-    
-    public void Listar(String aguja){
+    public void Listar(String aguja) {
         List<fabricante> lista = modelo.LISTAR(aguja);
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblFabricante().getModel();
         tablaA.setNumRows(0);
         int ncols = tablaA.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
-        lista.stream().forEach(f->{
-           tablaA.addRow(new Object[ncols]);
-           vista.getTblFabricante().setValueAt(f.getCodigo(), i.value,0);
-           vista.getTblFabricante().setValueAt(f.getNombre(), i.value,1);
-           vista.getTblFabricante().setValueAt(f.getDireccion(), i.value,2);
-           vista.getTblFabricante().setValueAt(f.getTelefono(), i.value,3);
-           i.value++;
+        lista.stream().forEach(f -> {
+            tablaA.addRow(new Object[ncols]);
+            vista.getTblFabricante().setValueAt(f.getCodigo(), i.value, 0);
+            vista.getTblFabricante().setValueAt(f.getNombre(), i.value, 1);
+            vista.getTblFabricante().setValueAt(f.getDireccion(), i.value, 2);
+            vista.getTblFabricante().setValueAt(f.getTelefono(), i.value, 3);
+            i.value++;
         });
-        
-        vista.getjLabel3().setText(""+vista.getTblFabricante().getRowCount());
-        
-        
+
+        vista.getjLabel3().setText("" + vista.getTblFabricante().getRowCount());
+
     }
-    
+
     public void Crear_Fabricante() {
-        Modelo_Fabricante m = new Modelo_Fabricante();
-        m.setNombre(vista.getTxtNombre().getText());
-        m.setTelefono(vista.getTxtTelf().getText());
-        m.setDireccion(vista.getTxtDirec().getText());
 
-        if (m.CREAR()) {
-            JOptionPane.showMessageDialog(vista, "Se ha creado satisfactoriamente el fabricante");
-            Limpiar();
-            vista.getDlgFabricante().setVisible(false);
-            Listar("");
-        } else {
-            JOptionPane.showMessageDialog(vista, "Error al crear el fabricante", "ERROR", JOptionPane.ERROR_MESSAGE);
+        if (validacion()) {
+
+            Modelo_Fabricante m = new Modelo_Fabricante();
+            m.setNombre(vista.getTxtNombre().getText());
+            m.setTelefono(vista.getTxtTelf().getText());
+            m.setDireccion(vista.getTxtDirec().getText());
+
+            if (m.CREAR()) {
+                JOptionPane.showMessageDialog(vista, "Se ha creado satisfactoriamente el fabricante");
+                Limpiar();
+                vista.getDlgFabricante().setVisible(false);
+                Listar("");
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al crear el fabricante", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
 
     }
-    
+
     public void Modificar_Fabricante() {
-        Modelo_Fabricante m = new Modelo_Fabricante();
-        m.setCodigo(Integer.parseInt(vista.getLblCodigo().getText()));
-        m.setNombre(vista.getTxtNombre().getText());
-        m.setTelefono(vista.getTxtTelf().getText());
-        m.setDireccion(vista.getTxtDirec().getText());
+        if (validacion()) {
 
-        if (m.MODIFICAR()) {
-            JOptionPane.showMessageDialog(vista, "Se ha modificado satisfactoriamente el fabricante");
-            vista.getDlgFabricante().setVisible(false);
-            Limpiar();
-            Listar("");
-        } else {
-            JOptionPane.showMessageDialog(vista, "Error al modificar el fabricante", "ERROR", JOptionPane.ERROR_MESSAGE);
+            Modelo_Fabricante m = new Modelo_Fabricante();
+            m.setCodigo(Integer.parseInt(vista.getLblCodigo().getText()));
+            m.setNombre(vista.getTxtNombre().getText());
+            m.setTelefono(vista.getTxtTelf().getText());
+            m.setDireccion(vista.getTxtDirec().getText());
+
+            if (m.MODIFICAR()) {
+                JOptionPane.showMessageDialog(vista, "Se ha modificado satisfactoriamente el fabricante");
+                vista.getDlgFabricante().setVisible(false);
+                Limpiar();
+                Listar("");
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al modificar el fabricante", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
 
     }
-    
+
     private void EliminarAdmin() {
         try {
             int fila = vista.getTblFabricante().getSelectedRow();
@@ -151,7 +157,7 @@ public class Controlador_Fabricantes {
                     JOptionPane.showMessageDialog(vista, "SE ELIMINO EL FABRICANTE");
                     Listar("");
                 } else {
-                    JOptionPane.showMessageDialog(vista,"NO SE LOGRO ELIMINAR EL FABRICANTE","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "NO SE LOGRO ELIMINAR EL FABRICANTE", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } catch (Exception e) {
@@ -182,22 +188,22 @@ public class Controlador_Fabricantes {
         vista.getBtnGuardar().setVisible(false);
         vista.getBtnModificar().setVisible(false);
     }
-    
-    public void Cancelar(){
+
+    public void Cancelar() {
         Limpiar();
         vista.getDlgFabricante().setVisible(false);
-        
+
     }
-    
-    public void Limpiar(){
+
+    public void Limpiar() {
         vista.getTxtNombre().setText("");
         vista.getTxtDirec().setText("");
         vista.getTxtTelf().setText("");
     }
-    
-    public void  CargarCampos(){
+
+    public void CargarCampos() {
         try {
-            int fila= vista.getTblFabricante().getSelectedRow();
+            int fila = vista.getTblFabricante().getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) vista.getTblFabricante().getModel();
             vista.getLblCodigo().setText(String.valueOf(model.getValueAt(fila, 0)));
             vista.getTxtNombre().setText(String.valueOf(model.getValueAt(fila, 1)));
@@ -206,30 +212,52 @@ public class Controlador_Fabricantes {
             Dialogo(2);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(vista, "SELECCIONE UNA FILA POR FAVOR ");
-           
+
         }
     }
-    
-        public void Imprimir() {
+
+    public void Imprimir() {
         ConexionPG con = new ConexionPG();
-        
+
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Fabricantes.jasper"));
-            
+
             String aguja = vista.getTxtBuscar().getText();
             Map<String, Object> parametros = new HashMap<String, Object>();
             parametros.put("aguja", "%" + aguja + "%");
-            
+
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
-            
+            jv.show();
+
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     
     
-    
+   
+    public boolean validacion() {
+        boolean verificar = true;
+
+        if (vista.getTxtNombre().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NOMBRE DE FABRICANTE VACIO", "NOMBRE", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtTelf().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "TELEFONO DE FABRICANTE VACIO", "TELEFONO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtDirec().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "DIRECCION DE FABRICANTE VACIA", "DIRECCION", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return verificar;
+    }
 
 }

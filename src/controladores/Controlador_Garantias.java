@@ -7,6 +7,8 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.time.Instant;
@@ -61,78 +63,96 @@ public class Controlador_Garantias {
         vista.setVisible(true);
         CargarGarantias("");
     }
-    
-    
-    public void IniciarControl(String vendedor){
+
+    public void IniciarControl(String vendedor) {
+        KeyListener k1 = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarGarantias(vista.getTxtBuscar().getText());
+            }
+        };
         detalles = new ArrayList<>();
         modeloE.setCod_admin(modeloE.Admin(vendedor));
         vista.getTxtVendedor().setText(modeloE.ColocarAdmin(vendedor));
-        vista.getBtnActualizar().addActionListener(l->CargarGarantias(""));
-        vista.getBtnGuardar1().addActionListener(l->CargarClientes(""));
-        vista.getBtnAnadirP().addActionListener(l->CargarProductos(""));
-        vista.getBtnNuevoG().addActionListener(l->Dialogo());
-        vista.getBtnInsertCliente().addActionListener(l->CargarClienteRepar());
-        vista.getBtnGuardar3().addActionListener(l->CargarProCant());
-        vista.getBtnInsertarInfo().addActionListener(l->CargarProGarant());
-        vista.getBtnElminarP().addActionListener(l->EliminarDetalle());
-        vista.getBtnGuardar().addActionListener(l->RegistrarGarantia());
+        vista.getBtnActualizar().addActionListener(l -> CargarGarantias(""));
+        vista.getBtnGuardar1().addActionListener(l -> CargarClientes(""));
+        vista.getBtnAnadirP().addActionListener(l -> CargarProductos(""));
+        vista.getBtnNuevoG().addActionListener(l -> Dialogo(1));
+        vista.getBtnInsertCliente().addActionListener(l -> CargarClienteRepar());
+        vista.getBtnGuardar3().addActionListener(l -> CargarProCant());
+        vista.getBtnInsertarInfo().addActionListener(l -> CargarProGarant());
+        vista.getBtnElminarP().addActionListener(l -> EliminarDetalle());
+        vista.getBtnGuardar().addActionListener(l -> RegistrarGarantia());
+        vista.getBtnCancelar().addActionListener(l->Dialogo(2));
+        vista.getTxtBuscar().addKeyListener(k1);
+        vista.getBtnImprimir().addActionListener(l->Imprimir2());
+        vista.getBtnEliminarG().addActionListener(l->EliminarGarantia());
     }
-    
-    
+
     public void RegistrarGarantia() {
 
-        Modelo_Enc_Garantia encabezado = new Modelo_Enc_Garantia();
+        if (validacion()) {
 
-        encabezado.setCodigo_garantia(vista.getTxtNFact().getText());
-        encabezado.setCod_cliente(encabezado.Cliente(vista.getTxtCedula().getText()));
-        encabezado.setCod_admin(modeloE.getCod_admin());
-        Instant instante = vista.getDtcFecha().getDate().toInstant();
-        Instant instante2 = vista.getDtcFecha1().getDate().toInstant();
-        
-        ZoneId zi = ZoneId.of("America/Guayaquil");
-        ZonedDateTime zdt = ZonedDateTime.ofInstant(instante, zi);
-        ZonedDateTime zdt2 = ZonedDateTime.ofInstant(instante2, zi);
-        java.sql.Date fechaN = java.sql.Date.valueOf(zdt.toLocalDate());
-        java.sql.Date fecha2 = java.sql.Date.valueOf(zdt2.toLocalDate());
-        encabezado.setFecha_emision(fechaN);
-        encabezado.setFecha_retiro(fecha2);
-        encabezado.setEstado(vista.getCmbEstado().getSelectedItem().toString());
-        if (encabezado.CREAR()) {
-            int rep = 0;
-            for (int i = 0; i < detalles.size(); i++) {
-                if (detalles.get(i).CREAR()) {
-                    rep++;
+            Modelo_Enc_Garantia encabezado = new Modelo_Enc_Garantia();
+
+            encabezado.setCodigo_garantia(vista.getTxtNFact().getText());
+            encabezado.setCod_cliente(encabezado.Cliente(vista.getTxtCedula().getText()));
+            encabezado.setCod_admin(modeloE.getCod_admin());
+            Instant instante = vista.getDtcFecha().getDate().toInstant();
+            Instant instante2 = vista.getDtcFecha1().getDate().toInstant();
+
+            ZoneId zi = ZoneId.of("America/Guayaquil");
+            ZonedDateTime zdt = ZonedDateTime.ofInstant(instante, zi);
+            ZonedDateTime zdt2 = ZonedDateTime.ofInstant(instante2, zi);
+            java.sql.Date fechaN = java.sql.Date.valueOf(zdt.toLocalDate());
+            java.sql.Date fecha2 = java.sql.Date.valueOf(zdt2.toLocalDate());
+            encabezado.setFecha_emision(fechaN);
+            encabezado.setFecha_retiro(fecha2);
+            encabezado.setEstado(vista.getCmbEstado().getSelectedItem().toString());
+            if (encabezado.CREAR()) {
+                int rep = 0;
+                for (int i = 0; i < detalles.size(); i++) {
+                    if (detalles.get(i).CREAR()) {
+                        rep++;
+                    }
+
                 }
+                System.out.println("rep:" + rep);
+                System.out.println("detalle: " + detalles.size());
+                if (rep == detalles.size()) {
+                    JOptionPane.showMessageDialog(null, "GARANTIA CREADA");
+                    CargarGarantias("");
+                    int op = JOptionPane.showConfirmDialog(null, "Desea imprimir esta garantia");
+                    if (op == 0) {
+                        Imprimir(encabezado);
+                        BorrarDatosGarantia();
+                    } else {
+                        BorrarDatosGarantia();
+                    }
 
-            }
-            System.out.println("rep:" + rep);
-            System.out.println("detalle: " + detalles.size());
-            if (rep == detalles.size()) {
-                JOptionPane.showMessageDialog(null, "GARANTIA CREADA");
-                CargarGarantias("");
-                int op= JOptionPane.showConfirmDialog(null, "Desea imprimir esta garantia");
-                if (op==0) {
-                    Imprimir(encabezado);
-                    BorrarDatosGarantia();
-                }else{
-                    BorrarDatosGarantia();
                 }
-                        
-                
-                    
-
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO GARANTIA", "ERROR ENCABEZADO", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO GARANTIA", "ERROR ENCABEZADO", JOptionPane.ERROR_MESSAGE);
+
         }
 
     }
+
     public void CargarGarantias(String aguja) {
         DefaultTableModel tablaA;
-        
+
         tablaA = (DefaultTableModel) vista.getTblReparacion().getModel();
         tablaA.setNumRows(0);
-        List<enc_garantia> lista=modeloE.LISTAR(aguja);
+        List<enc_garantia> lista = modeloE.LISTAR(aguja);
         int ncols = tablaA.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
         lista.stream().forEach(f -> {
@@ -143,16 +163,14 @@ public class Controlador_Garantias {
             vista.getTblReparacion().setValueAt(f.getFecha_emision(), i.value, 3);
             vista.getTblReparacion().setValueAt(f.getFecha_retiro(), i.value, 4);
             vista.getTblReparacion().setValueAt(f.getEstado(), i.value, 5);
-            
-            
+
             i.value++;
         });
-        
 
         vista.getjLabel3().setText("" + vista.getTblReparacion().getRowCount());
 
     }
-    
+
     public void CargarClientes(String aguja) {
         vista.getDlgListaC().setVisible(true);
         vista.getDlgListaC().setSize(720, 320);
@@ -173,7 +191,7 @@ public class Controlador_Garantias {
         });
 
     }
-    
+
     public void CargarClienteRepar() {
         try {
             int fila = vista.getTblProducto1().getSelectedRow();
@@ -188,7 +206,7 @@ public class Controlador_Garantias {
             JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUN CLIENTE", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void CargarProductos(String aguja) {
         vista.getDlgListaP().setVisible(true);
         vista.getDlgListaP().setSize(720, 320);
@@ -206,14 +224,13 @@ public class Controlador_Garantias {
         });
 
     }
-    
+
     public void CargarProCant() {
         try {
             int fila = vista.getTblProducto().getSelectedRow();
             DefaultTableModel model = (DefaultTableModel) vista.getTblProducto().getModel();
             vista.getLblCodigo().setText(String.valueOf(model.getValueAt(fila, 0)));
             vista.getTxtProducto1().setText(String.valueOf(model.getValueAt(fila, 1)));
-            
 
             vista.getDlgListaP().setVisible(false);
             vista.getDlgInformacion().setVisible(true);
@@ -223,7 +240,7 @@ public class Controlador_Garantias {
             JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUN PRODUCTO", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void CargarProGarant() {
 
         Modelo_Det_Garantia d = new Modelo_Det_Garantia();
@@ -251,10 +268,8 @@ public class Controlador_Garantias {
         });
         vista.getDlgInformacion().setVisible(false);
 
-
-
     }
-    
+
     public void CargarClienteGarant() {
         try {
             int fila = vista.getTblProducto1().getSelectedRow();
@@ -269,14 +284,20 @@ public class Controlador_Garantias {
             JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUN CLIENTE", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void Dialogo(){
-        vista.getTxtNGarant().setText(modeloE.NuevaRprc());
-        vista.getDlgGarantia().setVisible(true);
-        vista.getDlgGarantia().setSize(1225, 705);
-        
+
+    public void Dialogo(int op) {
+        if (op == 1) {
+            vista.getTxtNGarant().setText(modeloE.NuevaRprc());
+            vista.getDlgGarantia().setVisible(true);
+            vista.getDlgGarantia().setSize(1225, 705);
+
+        } else if (op == 2) {
+            BorrarDatosGarantia();
+            vista.getDlgGarantia().setVisible(true);
+        }
+
     }
-    
+
     public void EliminarDetalle() {
 
         try {
@@ -311,11 +332,8 @@ public class Controlador_Garantias {
             JOptionPane.showMessageDialog(null, "ERROR AL ELIMINAR DETALLE", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
-        
-        
     }
-    
-    
+
     public void RecargarDetalles() {
 
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
@@ -330,12 +348,9 @@ public class Controlador_Garantias {
             vista.getTblDetalle().setValueAt(t.getProblema(), i.value, 2);
             vista.getTblDetalle().setValueAt(t.getDetalle(), i.value, 3);
 
-
             i.value++;
 
         });
-
-        
 
     }
 
@@ -348,9 +363,7 @@ public class Controlador_Garantias {
         vista.getTxtCedula().setText("");
         vista.getTxtTelefono().setText("");
         vista.getTxtDescuento().setText("");
-  
 
-        
         DefaultTableModel tablaA = (DefaultTableModel) vista.getTblDetalle().getModel();
         tablaA.setNumRows(0);
         detalles.clear();
@@ -362,6 +375,37 @@ public class Controlador_Garantias {
 
     }
     
+    public void EliminarGarantia() {
+        try {
+            int fila = vista.getTblReparacion().getSelectedRow();
+            int op = JOptionPane.showConfirmDialog(null, "Seguro que desea eliminar la reparacion:"
+                    + "\nReparacion: " + vista.getTblReparacion().getValueAt(fila, 0));
+            if (op == 0) {
+                Modelo_Det_Garantia d = new Modelo_Det_Garantia();
+                d.setCodigo_garantia(vista.getTblReparacion().getValueAt(fila, 0).toString());
+                Modelo_Enc_Garantia e = new Modelo_Enc_Garantia();
+                e.setCodigo_garantia(d.getCodigo_garantia());
+
+                if (d.ELIMINAR()) {
+                    if (e.ELIMINAR()) {
+                        JOptionPane.showMessageDialog(null, "REPARACION ELIMINADA");
+                        CargarGarantias("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERROR AL BORRAR ENCABEZADO DE REPARACION", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERROR AL BORRAR DETALLE DE REPARACION", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUNA FILA ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
     public void Imprimir(Modelo_Enc_Garantia enc) {
         ConexionPG con = new ConexionPG();
 
@@ -381,17 +425,60 @@ public class Controlador_Garantias {
             parametros.put("descuento", Double.parseDouble(vista.getTxtDescuento().getText()));
             parametros.put("estado", enc.getEstado());
 
-
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
-
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
+            jv.show();
 
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Garantias.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public boolean validacion() {
+        boolean verificar = true;
+
+        if (vista.getDtcFecha().getDate() == null) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HA INGRESADO FECHA EMISION", "FECHA", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getDtcFecha1().getDate() == null) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HA INGRESADO FECHA RETIRO", "FECHA", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtNombre().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO CLIENTE", "CLIENTE", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTblDetalle().getRowCount() == 0) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HAY DETALLES INSERTADOS", "DETALLE", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return verificar;
+    }
     
-    
-    
+    public void Imprimir2() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporte_Garantias.jasper"));
+
+            String aguja = vista.getTxtBuscar().getText();
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

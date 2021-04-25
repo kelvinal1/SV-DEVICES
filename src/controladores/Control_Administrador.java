@@ -104,7 +104,7 @@ public class Control_Administrador {
         vista.getBtnModificar().addActionListener(l -> ModificarAdmin());
         vista.getBtnEliminarA().addActionListener(l -> EliminarAdmin());
         vista.getBtnGuardar1().addActionListener(l -> Crear_Admin_Cliente());
-        vista.getBtnImprimirA().addActionListener(l->Imprimir());
+        vista.getBtnImprimirA().addActionListener(l -> Imprimir());
 
     }
 
@@ -305,35 +305,64 @@ public class Control_Administrador {
 
     public boolean Validacion() {
         boolean verificar = true;
-        //////////////////////////////cedula
-        if (vista.getTxtCedula().getText().length() > 10) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN CEDULA EXCEDIDO", "Cedula Erronea", JOptionPane.ERROR_MESSAGE);
+        if (vista.getTxtCedula().getText().length() >= 11) {
             verificar = false;
+            JOptionPane.showMessageDialog(null, "CEDULA CON CARACTERES EXCEDIDOS", "CEDULA", JOptionPane.ERROR_MESSAGE);
         }
 
         if (vista.getTxtCedula().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "CEDULA VACIA", "Cedula Erronea", JOptionPane.ERROR_MESSAGE);
             verificar = false;
-        }
-        ///////////////////////////////////////////////////////////////////nombres
-        if (vista.getTxtNombres().getText().length() > 50) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN NOMBRES EXCEDIDO", "Nombre Erroneo", JOptionPane.ERROR_MESSAGE);
-            verificar = false;
+            JOptionPane.showMessageDialog(null, "CEDULA VACIA", "CEDULA", JOptionPane.ERROR_MESSAGE);
         }
 
         if (vista.getTxtNombres().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "NOMBRES VACIOS", "Nombre ErroneO", JOptionPane.ERROR_MESSAGE);
             verificar = false;
-        }
-        ////////////////////////////////////////////////////////////////////apellidos
-        if (vista.getTxtNombres().getText().length() > 50) {
-            JOptionPane.showMessageDialog(null, "NUMERO DE CARACTERES EN APELLIDOS EXCEDIDO", "Apellido Erroneo", JOptionPane.ERROR_MESSAGE);
-            verificar = false;
+            JOptionPane.showMessageDialog(null, "NOMBRES VACIOS", "NOMBRES", JOptionPane.ERROR_MESSAGE);
         }
 
-        if (vista.getTxtNombres().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "APELLIDOS VACIOS", "Apellido ErroneO", JOptionPane.ERROR_MESSAGE);
+        if (vista.getTxtApellido().getText().equals("")) {
             verificar = false;
+            JOptionPane.showMessageDialog(null, "APELLIDOS VACIOS", "NOMBRES", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getDtcFecha().getDate()==null) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "FECHA VACIA", "FECHA DE NACIMIENTO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtTelf().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "TELEFONO VACIO", "TELEFONO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtCorreo().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CORREO VACIO", "CORREO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtDirec().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "DIRECCION VACIA", "DIRECCION", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtUsuari().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "USUARIO VACIO", "USUARIO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtContra().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CLAVE 1 VACIA", "CLAVE 1", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtContra2().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CLAVE 2 VACIA", "CLAVE 2", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (!vista.getTxtContra().getText().equals(vista.getTxtContra2().getText())) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CLAVE DIFERENTES", "CLAVES", JOptionPane.ERROR_MESSAGE);
         }
 
         return verificar;
@@ -438,40 +467,41 @@ public class Control_Administrador {
 
     }
 
-   
-
     public boolean validacion2() {
         boolean verificar = true;
-
-        if (vista.getTxtClave1().getText().equals("") || vista.getTxtClave1().getText().equals("") || vista.getTxtCedula1().getText().equals("")) {
+        if (vista.getTxtClave1().getText().equals("")) {
             verificar = false;
-            JOptionPane.showMessageDialog(vista, "EXISTEN CAMPOS VACIOS", "CAMPOS", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "CLAVE 1 VACIA", "CLAVE 1", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if (vista.getTxtClave2().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "CLAVE 2 VACIA", "CLAVE 2", JOptionPane.ERROR_MESSAGE);
         }
 
         if (!vista.getTxtClave1().getText().equals(vista.getTxtClave2().getText())) {
             verificar = false;
-            JOptionPane.showMessageDialog(vista, "CLAVE DIFERENTES", "CLAVES", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "CLAVE DIFERENTES", "CLAVES", JOptionPane.ERROR_MESSAGE);
         }
 
         return verificar;
     }
 
-    
-       public void Imprimir(){
+    public void Imprimir() {
         ConexionPG con = new ConexionPG();
-        
+
         try {
-            JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Admins.jasper"));
-            
-            String aguja= vista.getTxtBuscar().getText();
-            Map<String,Object> parametros= new HashMap<String, Object>();
-            parametros.put("aguja", "%"+aguja+"%");
-            
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Admins.jasper"));
+
+            String aguja = vista.getTxtBuscar().getText();
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
-            
-            
+            jv.show();
+
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }

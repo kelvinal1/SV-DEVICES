@@ -840,7 +840,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dlgListaC">
       <Properties>
-        <Property name="title" type="java.lang.String" value="Lista Productos"/>
+        <Property name="title" type="java.lang.String" value="Lista Clientes"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -1289,21 +1289,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnNuevoR" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnEditarR" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnEliminarR" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnNuevoR" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtBuscar" min="-2" pref="236" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnActualizarR" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnActualizarR" max="32767" attributes="0"/>
+                          <Component id="btnEliminarR" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="46" max="32767" attributes="0"/>
                       <Component id="btnImprimirR" min="-2" pref="163" max="-2" attributes="0"/>
@@ -1325,7 +1322,6 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnNuevoR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEditarR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnEliminarR" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1367,24 +1363,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/vista/imagenes/icons8_new_16px.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nueva Reparacion"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnEditarR">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="29" green="21" red="5e" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="16" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/vista/imagenes/icons8_edit_16px.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Editar Reparacion"/>
+                <Property name="text" type="java.lang.String" value="Nueva Reparaci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnEliminarR">
@@ -1401,7 +1380,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/vista/imagenes/icons8_delete_16px.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Eliminar Reparacion"/>
+                <Property name="text" type="java.lang.String" value="Eliminar Reparaci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnImprimirR">

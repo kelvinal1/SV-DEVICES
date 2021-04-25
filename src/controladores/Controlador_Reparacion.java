@@ -94,6 +94,22 @@ public class Controlador_Reparacion {
             }
         };
         
+        
+        KeyListener k3 = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarReparaciones(vista.getTxtBuscar().getText());
+            }
+        };
+        
         vista.getBtnNuevoR().addActionListener(l->Dialogo(1));
         vista.getTxtVendedor().setText(modeloER.ColocarAdmin(vendedor));
         modeloER.setCod_admin(modeloER.Admin(vendedor));
@@ -105,6 +121,9 @@ public class Controlador_Reparacion {
         vista.getBtnGuardar3().addActionListener(l->InsertarProducto());
         vista.getBtnElminarP().addActionListener(l->EliminarDetalle());
         vista.getBtnGuardar().addActionListener(l->RegistrarReparacion());
+        vista.getTxtBuscar().addKeyListener(k3);
+        vista.getBtnImprimirR().addActionListener(l->Imprimir2());
+        vista.getBtnEliminarR().addActionListener(l->EliminarReparacion());
     }
     
     public void CargarReparaciones(String aguja){
@@ -350,6 +369,39 @@ public class Controlador_Reparacion {
 
     }
     
+    public void EliminarReparacion() {
+        try {
+            int fila = vista.getTblReparacion().getSelectedRow();
+            int op = JOptionPane.showConfirmDialog(null, "Seguro que desea eliminar la factura:"
+                    + "\nReparacion: " + vista.getTblReparacion().getValueAt(fila, 0)
+                    + "\nSubtotal: " + vista.getTblReparacion().getValueAt(fila, 7)
+                    + "\nTotal: " + vista.getTblReparacion().getValueAt(fila, 8));
+            if (op == 0) {
+                Modelo_Det_Reparacion d = new Modelo_Det_Reparacion();
+                d.setCodigo_reparacion(vista.getTblReparacion().getValueAt(fila, 0).toString());
+                Modelo_Enc_Reparacion e = new Modelo_Enc_Reparacion();
+                e.setCodigo_reparacion(d.getCodigo_reparacion());
+
+                if (d.ELIMINAR()) {
+                    if (e.ELIMINAR()) {
+                        JOptionPane.showMessageDialog(null, "REPARACION ELIMINADA");
+                        CargarReparaciones("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERROR AL BORRAR ENCABEZADO DE REPARACION", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERROR AL BORRAR DETALLE DE REPARACION", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUNA FILA ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    
     public void Imprimir(Modelo_Enc_Reparacion enc) {
         ConexionPG con = new ConexionPG();
 
@@ -372,9 +424,9 @@ public class Controlador_Reparacion {
             parametros.put("subtotal", enc.getSubtotal());
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
-
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
+            jv.show();
 
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Reparacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -440,6 +492,26 @@ public class Controlador_Reparacion {
 
         CalcularTotales();
 
+    }
+    
+    public void Imprimir2() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporte_Reparaciones.jasper"));
+
+            String aguja = vista.getTxtBuscar().getText();
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

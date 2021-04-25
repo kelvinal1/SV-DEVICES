@@ -32,7 +32,10 @@ public class Modelo_Enc_Reparacion extends enc_reparacion {
     
     public static List<enc_reparacion> LISTAR(String inicial) {
         try {
-            String sql = "select * from reparacionescreadas;";
+            String sql = "select * from reparacionescreadas"
+                    + " where upper(codigo) like '%"+inicial+"%'"
+                    + "\n or upper(cliente) like '%"+inicial+"%'"
+                    + "\n or upper(vendedor) like '%"+inicial+"%'";
 
             ResultSet rs = conexion.Query(sql);
             List<enc_reparacion> lista = new ArrayList<>();

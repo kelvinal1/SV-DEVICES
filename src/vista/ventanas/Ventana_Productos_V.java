@@ -80,7 +80,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
 
-        dlgProductoV.setTitle("Administrador");
+        dlgProductoV.setTitle("PRODUCTO A LA VENTA");
         dlgProductoV.setResizable(false);
         dlgProductoV.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

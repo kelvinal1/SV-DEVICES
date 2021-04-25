@@ -5,7 +5,12 @@
  */
 package controladores;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelos.ConexionPG;
 import modelos.Modelo_Admin;
 import modelos.Modelo_Cliente;
 import modelos.Modelo_Det_Factura;
@@ -17,6 +22,12 @@ import modelos.Modelo_Enc_Reparacion;
 import modelos.Modelo_Fabricante;
 import modelos.Modelo_Producto_A;
 import modelos.Modelo_Producto_V;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.ventanas.Inicio_Sesion;
 import vista.ventanas.Ventana_Admins;
 import vista.ventanas.Ventana_Clientes;
@@ -62,8 +73,14 @@ public class Control_VP {
         vista.getSmMantRep().addActionListener(l->VentanaReparaciones());
         vista.getSmMantGarant().addActionListener(l->VentanaGarantias());
         vista.getBtnGarantias().addActionListener(l->VentanaGarantias());
-               
-               
+        vista.getSmReporteVentas().addActionListener(l->Imprimir());
+        vista.getSmReporteRep().addActionListener(l->Imprimir2());
+        vista.getSmReporteGarantia().addActionListener(l->Imprimir3());
+        vista.getSmReporteCliente().addActionListener(l->Imprimir4());
+        vista.getSmReportesFabricantes().addActionListener(l->Imprimir5());
+        vista.getSmReporteProA().addActionListener(l->Imprimir6());
+        vista.getSmReporteProV().addActionListener(l->Imprimir7());
+        vista.getSmReporteAdmin().addActionListener(l->Imprimir8());
 
     }
 
@@ -150,6 +167,157 @@ public class Control_VP {
     }
 
     
+    public void Imprimir() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporteG_Factura.jasper"));
+
+         
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
+    
+    public void Imprimir2() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporteG_Reparacion.jasper"));
+
+         
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir3() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporteG_Garantia.jasper"));
+
+         
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir4(){
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Clientes.jasper"));
+            
+            String aguja= "";
+            Map<String,Object> parametros= new HashMap<String, Object>();
+            parametros.put("aguja", "%"+aguja+"%");
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+            
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir5() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Fabricantes.jasper"));
+
+            String aguja = "";
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir6() {
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Producto_A.jasper"));
+            
+            String aguja ="";
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir7() {
+        ConexionPG con = new ConexionPG();
+        
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Producto_V.jasper"));
+            
+            String aguja = "";
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Imprimir8() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportes_Admins.jasper"));
+
+            String aguja ="";
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

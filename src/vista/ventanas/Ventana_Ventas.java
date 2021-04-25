@@ -461,6 +461,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         btnAnadirP.setToolTipText("Añadir Producto");
         btnAnadirP.setBorderPainted(false);
         btnAnadirP.setContentAreaFilled(false);
+        btnAnadirP.setEnabled(false);
         pnlOpcFact.add(btnAnadirP);
 
         btnElminarP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -527,7 +528,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
         dlgFactura.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 670));
 
-        dlgListaC.setTitle("Lista Productos");
+        dlgListaC.setTitle("Lista Clientes");
         dlgListaC.setResizable(false);
         dlgListaC.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -999,6 +1000,22 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnActualizar() {
+        return btnActualizar;
+    }
+
+    public void setBtnActualizar(JButton btnActualizar) {
+        this.btnActualizar = btnActualizar;
+    }
+
     public JButton getBtnEliminarF() {
         return btnEliminarF;
     }
@@ -1013,6 +1030,14 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
     public void setTblFactura(JTable tblFactura) {
         this.tblFactura = tblFactura;
+    }
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
+
+    public void setBtnImprimir(JButton btnImprimir) {
+        this.btnImprimir = btnImprimir;
     }
 
     public JLabel getjLabel3() {

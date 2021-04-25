@@ -338,8 +338,9 @@ public class Controlador_Producto_A {
             parametros.put("aguja", "%" + aguja + "%");
             
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
+            jv.show();
             
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);

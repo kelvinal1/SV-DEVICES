@@ -831,6 +831,7 @@
                         <Property name="toolTipText" type="java.lang.String" value="A&#xf1;adir Producto"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnElminarP">
@@ -872,7 +873,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dlgListaC">
       <Properties>
-        <Property name="title" type="java.lang.String" value="Lista Productos"/>
+        <Property name="title" type="java.lang.String" value="Lista Clientes"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 

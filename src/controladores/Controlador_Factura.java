@@ -109,7 +109,7 @@ public class Controlador_Factura {
             }
         };
 
-        vista.getBtnNuevoF().addActionListener(l -> Dialogo());
+        vista.getBtnNuevoF().addActionListener(l -> Dialogo(1));
         vista.getBtnClientes().addActionListener(l -> CargarClientes(""));
         vista.getTxtCliente().addKeyListener(k1);
         vista.getBtnInsertCliente().addActionListener(l -> CargarClienteFact());
@@ -123,7 +123,10 @@ public class Controlador_Factura {
         modeloEncabezado.setCod_administrador(modeloEncabezado.Admin(vendedor));
         vista.getBtnGuardar().addActionListener(l -> RegistrarFactura());
         vista.getTxtBuscar().addKeyListener(k3);
-        vista.getBtnEliminarF().addActionListener(l->EliminarFactura());
+        vista.getBtnEliminarF().addActionListener(l -> EliminarFactura());
+        vista.getBtnActualizar().addActionListener(l -> CargarFacturas(""));
+        vista.getBtnCancelar().addActionListener(l->Dialogo(2));
+        vista.getBtnImprimir().addActionListener(l->Imprimir2());
 
     }
 
@@ -192,10 +195,16 @@ public class Controlador_Factura {
 
     }
 
-    public void Dialogo() {
-        vista.getTxtNFact().setText(modeloEncabezado.NuevoFact());
-        vista.getDlgFactura().setVisible(true);
-        vista.getDlgFactura().setSize(1225, 705);
+    public void Dialogo(int op) {
+        if (op == 1) {
+            vista.getTxtNFact().setText(modeloEncabezado.NuevoFact());
+            vista.getDlgFactura().setVisible(true);
+            vista.getDlgFactura().setSize(1225, 705);
+        }else if (op==2) {
+            BorrarDatosFactura();
+            vista.getDlgFactura().setVisible(false);
+        }
+
     }
 
     public void CargarClienteFact() {
@@ -208,6 +217,7 @@ public class Controlador_Factura {
             vista.getTxtTelefono().setText(String.valueOf(model.getValueAt(fila, 3)));
             vista.getTxtDescuento().setText(String.valueOf(model.getValueAt(fila, 4)));
             vista.getDlgListaC().setVisible(false);
+            vista.getBtnAnadirP().setEnabled(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUN CLIENTE", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -361,46 +371,51 @@ public class Controlador_Factura {
     }
 
     public void RegistrarFactura() {
+        if (validacion()) {
 
-        Modelo_Enc_Factura encabezado = new Modelo_Enc_Factura();
+            Modelo_Enc_Factura encabezado = new Modelo_Enc_Factura();
 
-        encabezado.setCodigo_fact(vista.getTxtNFact().getText());
-        encabezado.setCod_cliente(encabezado.Cliente(vista.getTxtCedula().getText()));
-        encabezado.setCod_administrador(modeloEncabezado.getCod_administrador());
-        Instant instante = vista.getDtcFecha().getDate().toInstant();
-        ZoneId zi = ZoneId.of("America/Guayaquil");
-        ZonedDateTime zdt = ZonedDateTime.ofInstant(instante, zi);
-        java.sql.Date fechaN = java.sql.Date.valueOf(zdt.toLocalDate());
-        encabezado.setFechaEmision(fechaN);
-        encabezado.setDescuento(Double.parseDouble(vista.getTxtDescuento().getText()));
-        encabezado.setSubtotal(Double.parseDouble(vista.getTxtSubtotal().getText()));
-        encabezado.setTotal_iva(Double.parseDouble(vista.getTxtIVA().getText()));
-        encabezado.setTotal(Double.parseDouble(vista.getTxtTotal().getText()));
+            encabezado.setCodigo_fact(vista.getTxtNFact().getText());
+            encabezado.setCod_cliente(encabezado.Cliente(vista.getTxtCedula().getText()));
+            encabezado.setCod_administrador(modeloEncabezado.getCod_administrador());
+            Instant instante = vista.getDtcFecha().getDate().toInstant();
+            ZoneId zi = ZoneId.of("America/Guayaquil");
+            ZonedDateTime zdt = ZonedDateTime.ofInstant(instante, zi);
+            java.sql.Date fechaN = java.sql.Date.valueOf(zdt.toLocalDate());
+            encabezado.setFechaEmision(fechaN);
+            encabezado.setDescuento(Double.parseDouble(vista.getTxtDescuento().getText()));
+            encabezado.setSubtotal(Double.parseDouble(vista.getTxtSubtotal().getText()));
+            encabezado.setTotal_iva(Double.parseDouble(vista.getTxtIVA().getText()));
+            encabezado.setTotal(Double.parseDouble(vista.getTxtTotal().getText()));
 
-        if (encabezado.CREAR()) {
-            int rep = 0;
-            for (int i = 0; i < detalles.size(); i++) {
-                if (detalles.get(i).CREAR()) {
-                    rep++;
+            if (encabezado.CREAR()) {
+                int rep = 0;
+                for (int i = 0; i < detalles.size(); i++) {
+                    if (detalles.get(i).CREAR()) {
+                        rep++;
+                    }
+
                 }
+                System.out.println("rep:" + rep);
+                System.out.println("detalle: " + detalles.size());
+                if (rep == detalles.size()) {
+                    JOptionPane.showMessageDialog(null, "FACTURA CREADA");
+                    vista.getBtnAnadirP().setEnabled(false);
+                    CargarFacturas("");
+                    int op = JOptionPane.showConfirmDialog(null, "¿Desea imprimir factura?");
+                    if (op == 0) {
 
-            }
-            System.out.println("rep:" + rep);
-            System.out.println("detalle: " + detalles.size());
-            if (rep == detalles.size()) {
-                JOptionPane.showMessageDialog(null, "FACTURA CREADA");
-                CargarFacturas("");
-                int op = JOptionPane.showConfirmDialog(null, "¿Desea imprimir factura?");
-                if (op == 0) {
-                    Imprimir(encabezado);
-                    BorrarDatosFactura();
-                } else {
-                    BorrarDatosFactura();
+                        Imprimir(encabezado);
+                        BorrarDatosFactura();
+                    } else {
+                        BorrarDatosFactura();
+                    }
+
                 }
-
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO FACTURA", "ERROR ENCABEZADO", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "ERROR AL CREAR ENCABEZADO FACTURA", "ERROR ENCABEZADO", JOptionPane.ERROR_MESSAGE);
+
         }
 
     }
@@ -426,9 +441,9 @@ public class Controlador_Factura {
             parametros.put("subtotal", enc.getSubtotal());
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
-            JasperViewer jv = new JasperViewer(jp);
-
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
+            jv.show();
 
         } catch (JRException ex) {
             Logger.getLogger(Controlador_Factura.class.getName()).log(Level.SEVERE, null, ex);
@@ -487,6 +502,47 @@ public class Controlador_Factura {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO NINGUNA FILA ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public boolean validacion() {
+        boolean verificar = true;
+
+        if (vista.getDtcFecha().getDate() == null) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HA INGRESADO FECHA", "FECHA", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTxtNomApell().getText().equals("")) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HA SELECCIONADO CLIENTE", "CLIENTE", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (vista.getTblDetalle().getRowCount() == 0) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "NO HAY DETALLES INSERTADOS", "DETALLE", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return verificar;
+    }
+    
+     public void Imprimir2() {
+        ConexionPG con = new ConexionPG();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/reporte_Facturas.jasper"));
+
+            String aguja = vista.getTxtBuscar().getText();
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("aguja", "%" + aguja + "%");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.show();
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

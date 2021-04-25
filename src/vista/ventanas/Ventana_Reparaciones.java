@@ -96,7 +96,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnNuevoR = new javax.swing.JButton();
-        btnEditarR = new javax.swing.JButton();
         btnEliminarR = new javax.swing.JButton();
         btnImprimirR = new javax.swing.JButton();
         btnActualizarR = new javax.swing.JButton();
@@ -492,7 +491,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/068107f58d5f340ef44be46c4e8e0dfd.jpg"))); // NOI18N
         dlgReparacion.getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 710));
 
-        dlgListaC.setTitle("Lista Productos");
+        dlgListaC.setTitle("Lista Clientes");
         dlgListaC.setResizable(false);
         dlgListaC.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -677,19 +676,13 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         btnNuevoR.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnNuevoR.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_new_16px.png"))); // NOI18N
-        btnNuevoR.setText("Nueva Reparacion");
-
-        btnEditarR.setBackground(new java.awt.Color(94, 33, 41));
-        btnEditarR.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        btnEditarR.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_edit_16px.png"))); // NOI18N
-        btnEditarR.setText("Editar Reparacion");
+        btnNuevoR.setText("Nueva Reparación");
 
         btnEliminarR.setBackground(new java.awt.Color(94, 33, 41));
         btnEliminarR.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnEliminarR.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_delete_16px.png"))); // NOI18N
-        btnEliminarR.setText("Eliminar Reparacion");
+        btnEliminarR.setText("Eliminar Reparación");
 
         btnImprimirR.setBackground(new java.awt.Color(94, 33, 41));
         btnImprimirR.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -711,19 +704,16 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
             pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOpcionesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlOpcionesLayout.createSequentialGroup()
-                        .addComponent(btnNuevoR)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditarR)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminarR))
+                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNuevoR)
                     .addGroup(pnlOpcionesLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnActualizarR, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(122, 122, 122)
+                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnActualizarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnImprimirR, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -741,7 +731,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnNuevoR)
-                            .addComponent(btnEditarR)
                             .addComponent(btnEliminarR)))
                     .addComponent(btnImprimirR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -940,13 +929,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
         this.btnCancelar = btnCancelar;
     }
 
-    public JButton getBtnEditarR() {
-        return btnEditarR;
-    }
 
-    public void setBtnEditarR(JButton btnEditarR) {
-        this.btnEditarR = btnEditarR;
-    }
 
     public JButton getBtnEliminarR() {
         return btnEliminarR;
@@ -1147,7 +1130,6 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizarR;
     private javax.swing.JButton btnAnadirP;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEditarR;
     private javax.swing.JButton btnEliminarR;
     private javax.swing.JButton btnElminarP;
     private javax.swing.JButton btnGuardar;
