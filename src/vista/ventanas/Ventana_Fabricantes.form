@@ -125,7 +125,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Direccion:"/>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombre">
@@ -236,7 +236,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Codigo:"/>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCodigo">
@@ -373,7 +373,7 @@
                           <Component id="btnEliminarF" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnActualizar" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Component id="btnImprimir" min="-2" pref="192" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -466,7 +466,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/vista/imagenes/icons8_delete_16px_1.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Elminar Fabricante"/>
+                <Property name="text" type="java.lang.String" value="Eliminar Fabricante"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnImprimir">
@@ -569,7 +569,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Numero de filas:"/>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero de filas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">

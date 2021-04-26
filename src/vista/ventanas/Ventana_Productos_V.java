@@ -100,7 +100,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Descripcion:");
+        jLabel11.setText("Descripción:");
 
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -175,13 +175,13 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Garantia:");
+        jLabel23.setText("Garantía:");
 
         spnGarantia.setModel(new javax.swing.SpinnerNumberModel(1, 0, 12, 1));
 
         lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        lblNCodigo.setText("Codigo:");
+        lblNCodigo.setText("Código:");
 
         lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -402,7 +402,7 @@ public class Ventana_Productos_V extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de filas:");
+        jLabel2.setText("Número de filas:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

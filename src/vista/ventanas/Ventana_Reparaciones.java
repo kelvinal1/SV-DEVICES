@@ -138,7 +138,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Fecha de Emision:");
+        jLabel9.setText("Fecha de Emisión:");
 
         txtNRep.setEditable(false);
         txtNRep.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -147,7 +147,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("N° Reparacion: ");
+        jLabel10.setText("N° Reparación: ");
 
         DtcFecha.setPreferredSize(new java.awt.Dimension(160, 30));
 
@@ -243,7 +243,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Direccion:");
+        jLabel12.setText("Dirección:");
 
         txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -261,7 +261,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Cedula:");
+        jLabel15.setText("Cédula:");
 
         txtCedula.setEditable(false);
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -270,7 +270,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Telefono:");
+        jLabel16.setText("Teléfono:");
 
         txtTelefono.setEditable(false);
         txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -742,7 +742,7 @@ public class Ventana_Reparaciones extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de filas:");
+        jLabel2.setText("Número de filas:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

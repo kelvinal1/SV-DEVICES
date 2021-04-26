@@ -79,7 +79,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Direccion:");
+        jLabel14.setText("Dirección:");
 
         txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtNombre.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -120,7 +120,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
 
         lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        lblNCodigo.setText("Codigo:");
+        lblNCodigo.setText("Código:");
 
         lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,7 +219,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
         btnEliminarF.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnEliminarF.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icons8_delete_16px_1.png"))); // NOI18N
-        btnEliminarF.setText("Elminar Fabricante");
+        btnEliminarF.setText("Eliminar Fabricante");
 
         btnImprimir.setBackground(new java.awt.Color(94, 33, 41));
         btnImprimir.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -254,7 +254,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
                 .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEliminarF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -283,7 +283,7 @@ public class Ventana_Fabricantes extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de filas:");
+        jLabel2.setText("Número de filas:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

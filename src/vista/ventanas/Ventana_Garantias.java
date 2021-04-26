@@ -536,7 +536,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Cedula:");
+        jLabel15.setText("Cédula:");
 
         txtCedula.setEditable(false);
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -958,7 +958,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
         lblNCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblNCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        lblNCodigo.setText("Codigo:");
+        lblNCodigo.setText("Código:");
 
         lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -1120,7 +1120,7 @@ public class Ventana_Garantias extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de filas:");
+        jLabel2.setText("Número de filas:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

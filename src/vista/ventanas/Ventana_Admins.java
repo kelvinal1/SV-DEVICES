@@ -106,7 +106,7 @@ public class Ventana_Admins extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Cedula");
+        jLabel7.setText("Cédula:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,7 +380,7 @@ public class Ventana_Admins extends javax.swing.JInternalFrame {
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Cedula:");
+        jLabel21.setText("Cédula:");
 
         txtCedula1.setBorder(null);
         txtCedula1.setPreferredSize(new java.awt.Dimension(160, 25));
@@ -537,7 +537,7 @@ public class Ventana_Admins extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de filas:");
+        jLabel2.setText("Número de filas:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

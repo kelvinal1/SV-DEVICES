@@ -155,7 +155,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Fecha de Emision");
+        jLabel9.setText("Fecha de Emisión");
 
         txtNFact.setEditable(false);
         txtNFact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -298,7 +298,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Direccion:");
+        jLabel12.setText("Dirección:");
 
         txtNomApell.setEditable(false);
         txtNomApell.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -316,7 +316,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Cedula:");
+        jLabel15.setText("Cédula:");
 
         txtCedula.setEditable(false);
         txtCedula.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -325,7 +325,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Telefono:");
+        jLabel16.setText("Teléfono:");
 
         txtTelefono.setEditable(false);
         txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -736,7 +736,7 @@ public class Ventana_Ventas extends javax.swing.JInternalFrame {
 
         lblCodigoP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblCodigoP.setForeground(new java.awt.Color(255, 255, 255));
-        lblCodigoP.setText("Codigo:");
+        lblCodigoP.setText("Código:");
 
         lblNumCodigoP.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblNumCodigoP.setForeground(new java.awt.Color(255, 255, 255));
